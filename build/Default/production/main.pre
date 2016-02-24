@@ -18472,7 +18472,11 @@ typedef uint16_t uintptr_t;
 # 12 "/opt/microchip/xc8/v1.36/include/stdbool.h"
 typedef unsigned char bool;
 
-# 19 "system.h"
+# 14 "system.h"
+void setAnalogIn();
+void setActuatorCntrl();
+
+# 21
 void ConfigureOscillator(void);
 
 # 13 "user.h"
@@ -18488,10 +18492,45 @@ ConfigureOscillator();
 InitApp();
 
 
+setAnalogIn();
+setActuatorCntrl();
+unsigned int actuatorOnePos = 0;
+unsigned int desiredOnePos = 500;
 
 while(1)
 {
 
+ADCON0bits.GO_NOT_DONE = 1;
+
+
+while (ADCON0bits.GO_NOT_DONE == 1);
+
+
+actuatorOnePos = ADRESL;
+actuatorOnePos += ADRESH << 8;
+
+if(actuatorOnePos < desiredOnePos)
+{
+
+LATDbits.LATD0 = 0;
+LATDbits.LATD1 = 1;
+} else if(actuatorOnePos > desiredOnePos) {
+
+LATDbits.LATD0 = 1;
+LATDbits.LATD1 = 0;
+} else {
+
+LATDbits.LATD0 = 0;
+LATDbits.LATD1 = 0;
+
+
+if(desiredOnePos == 500)
+{
+desiredOnePos = 400;
+} else {
+desiredOnePos = 500;
+}
+}
 }
 
 }

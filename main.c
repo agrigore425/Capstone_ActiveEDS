@@ -39,10 +39,45 @@ void main(void)
     InitApp();
 
     /* TODO <INSERT USER APPLICATION CODE HERE> */
-
+    setAnalogIn();
+    setActuatorCntrl();
+    unsigned int actuatorOnePos = 0;
+    unsigned int desiredOnePos = 500;
+    
     while(1)
     {
-
+        //Start ADC reading
+        ADCON0bits.GO_NOT_DONE = 1;
+        
+        //Wait for conversion to finish
+        while (ADCON0bits.GO_NOT_DONE == 1);
+        
+        //Read ADC value from High/Low registers
+        actuatorOnePos = ADRESL;
+        actuatorOnePos += ADRESH << 8;
+        
+        if(actuatorOnePos < desiredOnePos)
+        {
+            //Extend
+            LATDbits.LATD0 = 0;
+            LATDbits.LATD1 = 1;
+        } else if(actuatorOnePos > desiredOnePos) {
+            //Retract
+            LATDbits.LATD0 = 1;
+            LATDbits.LATD1 = 0;
+        } else {
+            //No Motion
+            LATDbits.LATD0 = 0;
+            LATDbits.LATD1 = 0;
+            
+            //Reverse desired motion
+            if(desiredOnePos == 500)
+            {
+                desiredOnePos = 400;
+            } else {
+                desiredOnePos = 500;
+            }
+        }
     }
 
 }

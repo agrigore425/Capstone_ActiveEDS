@@ -18472,7 +18472,11 @@ typedef uint16_t uintptr_t;
 # 12 "/opt/microchip/xc8/v1.36/include/stdbool.h"
 typedef unsigned char bool;
 
-# 19 "system.h"
+# 14 "system.h"
+void setAnalogIn();
+void setActuatorCntrl();
+
+# 21
 void ConfigureOscillator(void);
 
 # 24 "system.c"
@@ -18480,4 +18484,59 @@ void ConfigureOscillator(void)
 {
 
 # 31
+OSCTUNEbits.PLLEN = 1;
+OSCCONbits.IRCF0 = 1;
+OSCCONbits.IRCF1 = 1;
+OSCCONbits.IRCF2 = 1;
+
+
+TRISAbits.TRISA6 = 0;
+}
+
+void setAnalogIn()
+{
+
+ADCON1bits.PCFG = 0;
+ADCON2bits.ADFM = 1;
+
+
+
+ADCON1bits.VCFG0 = 0;
+ADCON1bits.VCFG1 = 0;
+
+
+ADCON2bits.ACQT2 = 0;
+ADCON2bits.ACQT1 = 1;
+ADCON2bits.ACQT0 = 0;
+
+
+ADCON2bits.ADCS2 = 0;
+ADCON2bits.ADCS1 = 1;
+ADCON2bits.ADCS0 = 0;
+
+
+ADCON0bits.CHS = 0x0;
+
+
+TRISAbits.TRISA0 = 1;
+TRISAbits.TRISA1 = 1;
+TRISAbits.TRISA2 = 1;
+TRISAbits.TRISA3 = 1;
+TRISAbits.TRISA5 = 1;
+TRISEbits.TRISE0 = 1;
+TRISEbits.TRISE1 = 1;
+TRISEbits.TRISE2 = 1;
+TRISBbits.TRISB1 = 1;
+TRISBbits.TRISB4 = 1;
+TRISBbits.TRISB0 = 1;
+
+
+ADCON0bits.ADON = 1;
+}
+
+void setActuatorCntrl()
+{
+
+TRISDbits.TRISD0 = 0;
+TRISDbits.TRISD1 = 0;
 }

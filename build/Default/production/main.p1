@@ -1,9 +1,78 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"19 system.h
+"21 system.h
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
 "13 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
+"14 system.h
+[v _setAnalogIn `(v ~T0 @X0 0 ef ]
+"15
+[v _setActuatorCntrl `(v ~T0 @X0 0 ef ]
+"32952 /opt/microchip/xc8/v1.36/include/pic18f4685.h
+[s S2000 :1 `uc 1 :1 `uc 1 ]
+[n S2000 . . GO_NOT_DONE ]
+"32956
+[s S2001 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S2001 . ADON GO_nDONE CHS ]
+"32961
+[s S2002 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2002 . . GO_DONE CHS0 CHS1 CHS2 CHS3 ]
+"32969
+[s S2003 :1 `uc 1 :1 `uc 1 ]
+[n S2003 . . DONE ]
+"32973
+[s S2004 :1 `uc 1 :1 `uc 1 ]
+[n S2004 . . GO ]
+"32977
+[s S2005 :1 `uc 1 :1 `uc 1 ]
+[n S2005 . . NOT_DONE ]
+"32981
+[s S2006 :1 `uc 1 :1 `uc 1 ]
+[n S2006 . . nDONE ]
+"32985
+[s S2007 :1 `uc 1 :1 `uc 1 ]
+[n S2007 . . GODONE ]
+"32951
+[u S1999 `S2000 1 `S2001 1 `S2002 1 `S2003 1 `S2004 1 `S2005 1 `S2006 1 `S2007 1 ]
+[n S1999 . . . . . . . . . ]
+"32990
+[v _ADCON0bits `VS1999 ~T0 @X0 0 e@4034 ]
+"33070
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"33076
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"29322
+[s S1826 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1826 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"29332
+[s S1827 :1 `uc 1 ]
+[n S1827 . LD0 ]
+"29335
+[s S1828 :1 `uc 1 :1 `uc 1 ]
+[n S1828 . . LD1 ]
+"29339
+[s S1829 :2 `uc 1 :1 `uc 1 ]
+[n S1829 . . LD2 ]
+"29343
+[s S1830 :3 `uc 1 :1 `uc 1 ]
+[n S1830 . . LD3 ]
+"29347
+[s S1831 :4 `uc 1 :1 `uc 1 ]
+[n S1831 . . LD4 ]
+"29351
+[s S1832 :5 `uc 1 :1 `uc 1 ]
+[n S1832 . . LD5 ]
+"29355
+[s S1833 :6 `uc 1 :1 `uc 1 ]
+[n S1833 . . LD6 ]
+"29359
+[s S1834 :7 `uc 1 :1 `uc 1 ]
+[n S1834 . . LD7 ]
+"29321
+[u S1825 `S1826 1 `S1827 1 `S1828 1 `S1829 1 `S1830 1 `S1831 1 `S1832 1 `S1833 1 `S1834 1 ]
+[n S1825 . . . . . . . . . . ]
+"29364
+[v _LATDbits `VS1825 ~T0 @X0 0 e@3980 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -14547,7 +14616,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 19: void ConfigureOscillator(void);
+[; ;system.h: 14: void setAnalogIn();
+[; ;system.h: 15: void setActuatorCntrl();
+[; ;system.h: 21: void ConfigureOscillator(void);
 [; ;user.h: 13: void InitApp(void);
 "33 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -14563,20 +14634,114 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 39: InitApp();
 "39
 [e ( _InitApp ..  ]
-[; ;main.c: 43: while(1)
+[; ;main.c: 42: setAnalogIn();
+"42
+[e ( _setAnalogIn ..  ]
+[; ;main.c: 43: setActuatorCntrl();
 "43
-[e :U 2103 ]
-[; ;main.c: 44: {
+[e ( _setActuatorCntrl ..  ]
 "44
+[v _actuatorOnePos `ui ~T0 @X0 1 a ]
+[; ;main.c: 44: unsigned int actuatorOnePos = 0;
+[e = _actuatorOnePos -> -> 0 `i `ui ]
+"45
+[v _desiredOnePos `ui ~T0 @X0 1 a ]
+[; ;main.c: 45: unsigned int desiredOnePos = 500;
+[e = _desiredOnePos -> -> 500 `i `ui ]
+[; ;main.c: 47: while(1)
+"47
+[e :U 2103 ]
+[; ;main.c: 48: {
+"48
 {
-"46
+[; ;main.c: 50: ADCON0bits.GO_NOT_DONE = 1;
+"50
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 53: while (ADCON0bits.GO_NOT_DONE == 1);
+"53
+[e $U 2105  ]
+[e :U 2106 ]
+[e :U 2105 ]
+[e $ == -> . . _ADCON0bits 0 1 `i -> 1 `i 2106  ]
+[e :U 2107 ]
+[; ;main.c: 56: actuatorOnePos = ADRESL;
+"56
+[e = _actuatorOnePos -> _ADRESL `ui ]
+[; ;main.c: 57: actuatorOnePos += ADRESH << 8;
+"57
+[e =+ _actuatorOnePos -> << -> _ADRESH `i -> 8 `i `ui ]
+[; ;main.c: 59: if(actuatorOnePos < desiredOnePos)
+"59
+[e $ ! < _actuatorOnePos _desiredOnePos 2108  ]
+[; ;main.c: 60: {
+"60
+{
+[; ;main.c: 62: LATDbits.LATD0 = 0;
+"62
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 63: LATDbits.LATD1 = 1;
+"63
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+"64
+}
+[; ;main.c: 64: } else if(actuatorOnePos > desiredOnePos) {
+[e $U 2109  ]
+[e :U 2108 ]
+[e $ ! > _actuatorOnePos _desiredOnePos 2110  ]
+{
+[; ;main.c: 66: LATDbits.LATD0 = 1;
+"66
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 67: LATDbits.LATD1 = 0;
+"67
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+"68
+}
+[; ;main.c: 68: } else {
+[e $U 2111  ]
+[e :U 2110 ]
+{
+[; ;main.c: 70: LATDbits.LATD0 = 0;
+"70
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 71: LATDbits.LATD1 = 0;
+"71
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 74: if(desiredOnePos == 500)
+"74
+[e $ ! == _desiredOnePos -> -> 500 `i `ui 2112  ]
+[; ;main.c: 75: {
+"75
+{
+[; ;main.c: 76: desiredOnePos = 400;
+"76
+[e = _desiredOnePos -> -> 400 `i `ui ]
+"77
+}
+[; ;main.c: 77: } else {
+[e $U 2113  ]
+[e :U 2112 ]
+{
+[; ;main.c: 78: desiredOnePos = 500;
+"78
+[e = _desiredOnePos -> -> 500 `i `ui ]
+"79
+}
+[e :U 2113 ]
+"80
+}
+[e :U 2111 ]
+[e :U 2109 ]
+"81
 }
 [e :U 2102 ]
-"43
+"47
 [e $U 2103  ]
 [e :U 2104 ]
-[; ;main.c: 46: }
-[; ;main.c: 48: }
-"48
+[; ;main.c: 79: }
+[; ;main.c: 80: }
+[; ;main.c: 81: }
+[; ;main.c: 83: }
+"83
 [e :UE 2101 ]
 }

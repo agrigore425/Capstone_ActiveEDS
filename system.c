@@ -28,4 +28,59 @@ void ConfigureOscillator(void)
     /* Typical actions in this function are to tweak the oscillator tuning
     register, select new clock sources, and to wait until new clock sources
     are stable before resuming execution of the main project. */
+    OSCTUNEbits.PLLEN = 1; //enable x4 clock
+    OSCCONbits.IRCF0 = 1;
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF2 = 1;
+    
+    //set pin as clock output
+    TRISAbits.TRISA6 = 0;
+}
+
+void setAnalogIn()
+{
+    //Set Port AN0-AN10 to Analog
+    ADCON1bits.PCFG = 0;            
+    ADCON2bits.ADFM = 1;    //Right justified - values converted to 0-1023
+                            //Registers ADRESH and ADRESL hold this converted value
+    
+    //V-REF+ is VDD and V-REF- is VSS
+    ADCON1bits.VCFG0 = 0;
+    ADCON1bits.VCFG1 = 0;
+    
+    //Set Acquisition Time to be 4T_AD
+    ADCON2bits.ACQT2 = 0;
+    ADCON2bits.ACQT1 = 1;
+    ADCON2bits.ACQT0 = 0;
+    
+    //Set A/D Conversion clock frequency F_OSC/32
+    ADCON2bits.ADCS2 = 0;
+    ADCON2bits.ADCS1 = 1;
+    ADCON2bits.ADCS0 = 0;
+
+    //Set to Channel 0 (AN0) to start
+    ADCON0bits.CHS = 0x0;
+    
+    //Set Analog ports as Input
+    TRISAbits.TRISA0 = 1;   //AN0
+    TRISAbits.TRISA1 = 1;   //AN1
+    TRISAbits.TRISA2 = 1;   //AN2
+    TRISAbits.TRISA3 = 1;   //AN3
+    TRISAbits.TRISA5 = 1;   //AN4
+    TRISEbits.TRISE0 = 1;   //AN5
+    TRISEbits.TRISE1 = 1;   //AN6
+    TRISEbits.TRISE2 = 1;   //AN7
+    TRISBbits.TRISB1 = 1;   //AN8
+    TRISBbits.TRISB4 = 1;   //AN9
+    TRISBbits.TRISB0 = 1;   //AN10
+    
+    //Enable ADC
+    ADCON0bits.ADON = 1; 
+}
+
+void setActuatorCntrl()
+{
+    //Set RD0 and RD1 and Digital outputs
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
 }
