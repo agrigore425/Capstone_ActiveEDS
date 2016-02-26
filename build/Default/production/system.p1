@@ -63,6 +63,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1990 . . . ]
 "32807
 [v _ADCON2bits `VS1990 ~T0 @X0 0 e@4032 ]
+"30400
+[s S1865 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1865 . TRISE0 TRISE1 TRISE2 . PSPMODE IBOV OBF IBF ]
+"30410
+[s S1866 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1866 . RE0 RE1 RE2 ]
+"30399
+[u S1864 `S1865 1 `S1866 1 ]
+[n S1864 . . . ]
+"30416
+[v _TRISEbits `VS1864 ~T0 @X0 0 e@3990 ]
+"29737
+[s S1847 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1847 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"29747
+[s S1848 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1848 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"29736
+[u S1846 `S1847 1 `S1848 1 ]
+[n S1846 . . . ]
+"29758
+[v _TRISBbits `VS1846 ~T0 @X0 0 e@3987 ]
 "32952
 [s S2000 :1 `uc 1 :1 `uc 1 ]
 [n S2000 . . GO_NOT_DONE ]
@@ -92,28 +114,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1999 . . . . . . . . . ]
 "32990
 [v _ADCON0bits `VS1999 ~T0 @X0 0 e@4034 ]
-"30400
-[s S1865 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1865 . TRISE0 TRISE1 TRISE2 . PSPMODE IBOV OBF IBF ]
-"30410
-[s S1866 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1866 . RE0 RE1 RE2 ]
-"30399
-[u S1864 `S1865 1 `S1866 1 ]
-[n S1864 . . . ]
-"30416
-[v _TRISEbits `VS1864 ~T0 @X0 0 e@3990 ]
-"29737
-[s S1847 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1847 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"29747
-[s S1848 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1848 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"29736
-[u S1846 `S1847 1 `S1848 1 ]
-[n S1846 . . . ]
-"29758
-[v _TRISBbits `VS1846 ~T0 @X0 0 e@3987 ]
 "30179
 [s S1859 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1859 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
@@ -125,6 +125,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1858 . . . ]
 "30200
 [v _TRISDbits `VS1858 ~T0 @X0 0 e@3989 ]
+"29958
+[s S1853 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1853 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"29968
+[s S1854 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1854 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"29957
+[u S1852 `S1853 1 `S1854 1 ]
+[n S1852 . . . ]
+"29979
+[v _TRISCbits `VS1852 ~T0 @X0 0 e@3988 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -14670,7 +14681,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;system.h: 14: void setAnalogIn();
 [; ;system.h: 15: void setActuatorCntrl();
-[; ;system.h: 21: void ConfigureOscillator(void);
+[; ;system.h: 22: void ConfigureOscillator(void);
 "24 system.c
 [v _ConfigureOscillator `(v ~T0 @X0 1 ef ]
 "25
@@ -14736,64 +14747,103 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.c: 59: ADCON2bits.ADCS0 = 0;
 "59
 [e = . . _ADCON2bits 1 0 -> -> 0 `i `uc ]
-[; ;system.c: 62: ADCON0bits.CHS = 0x0;
-"62
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;system.c: 65: TRISAbits.TRISA0 = 1;
-"65
+[; ;system.c: 63: TRISAbits.TRISA0 = 1;
+"63
 [e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
-[; ;system.c: 66: TRISAbits.TRISA1 = 1;
-"66
+[; ;system.c: 64: TRISAbits.TRISA1 = 1;
+"64
 [e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;system.c: 67: TRISAbits.TRISA2 = 1;
-"67
+[; ;system.c: 65: TRISAbits.TRISA2 = 1;
+"65
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-[; ;system.c: 68: TRISAbits.TRISA3 = 1;
-"68
+[; ;system.c: 66: TRISAbits.TRISA3 = 1;
+"66
 [e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
-[; ;system.c: 69: TRISAbits.TRISA5 = 1;
-"69
+[; ;system.c: 67: TRISAbits.TRISA5 = 1;
+"67
 [e = . . _TRISAbits 0 5 -> -> 1 `i `uc ]
-[; ;system.c: 70: TRISEbits.TRISE0 = 1;
-"70
+[; ;system.c: 68: TRISEbits.TRISE0 = 1;
+"68
 [e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
-[; ;system.c: 71: TRISEbits.TRISE1 = 1;
-"71
+[; ;system.c: 69: TRISEbits.TRISE1 = 1;
+"69
 [e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
-[; ;system.c: 72: TRISEbits.TRISE2 = 1;
-"72
+[; ;system.c: 70: TRISEbits.TRISE2 = 1;
+"70
 [e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
-[; ;system.c: 73: TRISBbits.TRISB1 = 1;
-"73
+[; ;system.c: 71: TRISBbits.TRISB1 = 1;
+"71
 [e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-[; ;system.c: 74: TRISBbits.TRISB4 = 1;
-"74
+[; ;system.c: 72: TRISBbits.TRISB4 = 1;
+"72
 [e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
-[; ;system.c: 75: TRISBbits.TRISB0 = 1;
-"75
+[; ;system.c: 73: TRISBbits.TRISB0 = 1;
+"73
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-[; ;system.c: 78: ADCON0bits.ADON = 1;
-"78
+[; ;system.c: 76: ADCON0bits.ADON = 1;
+"76
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;system.c: 79: }
-"79
+[; ;system.c: 77: }
+"77
 [e :UE 2102 ]
 }
-"81
+"79
 [v _setActuatorCntrl `(v ~T0 @X0 1 ef ]
-"82
+"80
 {
-[; ;system.c: 81: void setActuatorCntrl()
-[; ;system.c: 82: {
+[; ;system.c: 79: void setActuatorCntrl()
+[; ;system.c: 80: {
 [e :U _setActuatorCntrl ]
 [f ]
-[; ;system.c: 84: TRISDbits.TRISD0 = 0;
-"84
+[; ;system.c: 82: TRISDbits.TRISD0 = 0;
+"82
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-[; ;system.c: 85: TRISDbits.TRISD1 = 0;
-"85
+[; ;system.c: 83: TRISDbits.TRISD1 = 0;
+"83
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
-[; ;system.c: 86: }
+[; ;system.c: 84: TRISDbits.TRISD2 = 0;
+"84
+[e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
+[; ;system.c: 85: TRISDbits.TRISD3 = 0;
+"85
+[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
+[; ;system.c: 86: TRISDbits.TRISD4 = 0;
 "86
+[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
+[; ;system.c: 87: TRISDbits.TRISD5 = 0;
+"87
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
+[; ;system.c: 88: TRISDbits.TRISD6 = 0;
+"88
+[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
+[; ;system.c: 89: TRISDbits.TRISD7 = 0;
+"89
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+[; ;system.c: 91: TRISCbits.TRISC0 = 0;
+"91
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;system.c: 92: TRISCbits.TRISC1 = 0;
+"92
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+[; ;system.c: 93: TRISCbits.TRISC2 = 0;
+"93
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;system.c: 94: TRISCbits.TRISC3 = 0;
+"94
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;system.c: 95: TRISCbits.TRISC4 = 0;
+"95
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+[; ;system.c: 96: TRISCbits.TRISC5 = 0;
+"96
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;system.c: 97: TRISCbits.TRISC6 = 0;
+"97
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;system.c: 98: TRISCbits.TRISC7 = 0;
+"98
+[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
+[; ;system.c: 100: }
+"100
 [e :UE 2103 ]
 }

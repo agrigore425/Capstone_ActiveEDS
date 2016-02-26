@@ -1,5 +1,5 @@
 
-# 1 "user.c"
+# 1 "ADC_Config.c"
 
 # 26 "/opt/microchip/xc8/v1.36/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -18472,6 +18472,77 @@ typedef uint16_t uintptr_t;
 # 12 "/opt/microchip/xc8/v1.36/include/stdbool.h"
 typedef unsigned char bool;
 
-# 13 "user.h"
-void InitApp(void);
+# 14 "ADC_Config.h"
+void selectAN0();
+void selectAN1();
+void selectAN2();
+void selectAN3();
+void selectAN4();
+void selectAN5();
+void selectAN6();
+void selectAN7();
 
+unsigned int readADC();
+
+# 26 "ADC_Config.c"
+void selectAN0()
+{
+ADCON0bits.CHS = 0x00;
+}
+
+
+void selectAN1()
+{
+ADCON0bits.CHS = 0x01;
+}
+
+
+void selectAN2()
+{
+ADCON0bits.CHS = 0x02;
+}
+
+
+void selectAN3()
+{
+ADCON0bits.CHS = 0x03;
+}
+
+
+void selectAN4()
+{
+ADCON0bits.CHS = 0x04;
+}
+
+
+void selectAN5()
+{
+ADCON0bits.CHS = 0x05;
+}
+
+
+void selectAN6()
+{
+ADCON0bits.CHS = 0x06;
+}
+
+
+void selectAN7()
+{
+ADCON0bits.CHS = 0x07;
+}
+
+unsigned int readADC()
+{
+unsigned int digitalVal;
+
+ADCON0bits.GO_NOT_DONE = 1;
+
+
+while (ADCON0bits.GO_NOT_DONE == 1);
+
+
+digitalVal = ADRESL;
+digitalVal += ADRESH << 8;
+return digitalVal;
+}

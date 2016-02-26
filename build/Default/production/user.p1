@@ -14543,15 +14543,3 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;user.h: 13: void InitApp(void);
-"28 user.c
-[v _InitApp `(v ~T0 @X0 1 ef ]
-"29
-{
-[; ;user.c: 28: void InitApp(void)
-[; ;user.c: 29: {
-[e :U _InitApp ]
-[f ]
-[; ;user.c: 39: }
-"39
-[e :UE 2101 ]
-}

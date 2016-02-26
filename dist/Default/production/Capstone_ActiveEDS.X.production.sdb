@@ -23,21 +23,72 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 /opt/microchip/xc8/v1.36/sources/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
+"26 /home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+[v _selectAN0 selectAN0 `(v  1 e 1 0 ]
+"32
+[v _selectAN1 selectAN1 `(v  1 e 1 0 ]
+"38
+[v _selectAN2 selectAN2 `(v  1 e 1 0 ]
+"44
+[v _selectAN3 selectAN3 `(v  1 e 1 0 ]
+"50
+[v _selectAN4 selectAN4 `(v  1 e 1 0 ]
+"56
+[v _selectAN5 selectAN5 `(v  1 e 1 0 ]
+"62
+[v _selectAN6 selectAN6 `(v  1 e 1 0 ]
+"68
+[v _selectAN7 selectAN7 `(v  1 e 1 0 ]
+"73
+[v _readADC readADC `(ui  1 e 2 0 ]
 "27 /home/agrigore/Capstone_ActiveEDS.X/interrupts.c
 [v _high_isr high_isr `II(v  1 e 1 0 ]
 "67
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
-"33 /home/agrigore/Capstone_ActiveEDS.X/main.c
+"37 /home/agrigore/Capstone_ActiveEDS.X/main.c
 [v _main main `(v  1 e 1 0 ]
 "24 /home/agrigore/Capstone_ActiveEDS.X/system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 "40
 [v _setAnalogIn setAnalogIn `(v  1 e 1 0 ]
-"81
+"79
 [v _setActuatorCntrl setActuatorCntrl `(v  1 e 1 0 ]
-"28 /home/agrigore/Capstone_ActiveEDS.X/user.c
-[v _InitApp InitApp `(v  1 e 1 0 ]
-[s S111 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S73 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"29232 /opt/microchip/xc8/v1.36/include/pic18f4685.h
+[s S82 . 1 `uc 1 LC0 1 0 :1:0 
+]
+[s S84 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+]
+[s S87 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LC2 1 0 :1:2 
+]
+[s S90 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LC3 1 0 :1:3 
+]
+[s S93 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LC4 1 0 :1:4 
+]
+[s S96 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LC5 1 0 :1:5 
+]
+[s S99 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LC6 1 0 :1:6 
+]
+[s S102 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S105 . 1 `S73 1 . 1 0 `S82 1 . 1 0 `S84 1 . 1 0 `S87 1 . 1 0 `S90 1 . 1 0 `S93 1 . 1 0 `S96 1 . 1 0 `S99 1 . 1 0 `S102 1 . 1 0 ]
+[v _LATCbits LATCbits `VES105  1 e 1 @3979 ]
+[s S148 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -46,33 +97,33 @@
 `uc 1 LATD6 1 0 :1:6 
 `uc 1 LATD7 1 0 :1:7 
 ]
-"29364 /opt/microchip/xc8/v1.36/include/pic18f4685.h
-[s S120 . 1 `uc 1 LD0 1 0 :1:0 
+"29364
+[s S157 . 1 `uc 1 LD0 1 0 :1:0 
 ]
-[s S122 . 1 `uc 1 . 1 0 :1:0 
+[s S159 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 ]
-[s S125 . 1 `uc 1 . 1 0 :2:0 
+[s S162 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LD2 1 0 :1:2 
 ]
-[s S128 . 1 `uc 1 . 1 0 :3:0 
+[s S165 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LD3 1 0 :1:3 
 ]
-[s S131 . 1 `uc 1 . 1 0 :4:0 
+[s S168 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LD4 1 0 :1:4 
 ]
-[s S134 . 1 `uc 1 . 1 0 :5:0 
+[s S171 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LD5 1 0 :1:5 
 ]
-[s S137 . 1 `uc 1 . 1 0 :6:0 
+[s S174 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LD6 1 0 :1:6 
 ]
-[s S140 . 1 `uc 1 . 1 0 :7:0 
+[s S177 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S143 . 1 `S111 1 . 1 0 `S120 1 . 1 0 `S122 1 . 1 0 `S125 1 . 1 0 `S128 1 . 1 0 `S131 1 . 1 0 `S134 1 . 1 0 `S137 1 . 1 0 `S140 1 . 1 0 ]
-[v _LATDbits LATDbits `VES143  1 e 1 @3980 ]
-[s S259 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S180 . 1 `S148 1 . 1 0 `S157 1 . 1 0 `S159 1 . 1 0 `S162 1 . 1 0 `S165 1 . 1 0 `S168 1 . 1 0 `S171 1 . 1 0 `S174 1 . 1 0 `S177 1 . 1 0 ]
+[v _LATDbits LATDbits `VES180  1 e 1 @3980 ]
+[s S313 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -82,7 +133,7 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "29537
-[s S268 . 1 `uc 1 RA0 1 0 :1:0 
+[s S322 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -91,9 +142,9 @@
 `uc 1 RA6 1 0 :1:6 
 `uc 1 RA7 1 0 :1:7 
 ]
-[u S277 . 1 `S259 1 . 1 0 `S268 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES277  1 e 1 @3986 ]
-[s S441 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S331 . 1 `S313 1 . 1 0 `S322 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES331  1 e 1 @3986 ]
+[s S456 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -103,7 +154,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "29758
-[s S450 . 1 `uc 1 RB0 1 0 :1:0 
+[s S465 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -112,9 +163,30 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S459 . 1 `S441 1 . 1 0 `S450 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES459  1 e 1 @3987 ]
-[s S481 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S474 . 1 `S456 1 . 1 0 `S465 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES474  1 e 1 @3987 ]
+[s S604 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"29979
+[s S613 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S622 . 1 `S604 1 . 1 0 `S613 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES622  1 e 1 @3988 ]
+[s S564 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -124,7 +196,7 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "30200
-[s S490 . 1 `uc 1 RD0 1 0 :1:0 
+[s S573 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -133,9 +205,9 @@
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S499 . 1 `S481 1 . 1 0 `S490 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES499  1 e 1 @3989 ]
-[s S411 . 1 `uc 1 TRISE0 1 0 :1:0 
+[u S582 . 1 `S564 1 . 1 0 `S573 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES582  1 e 1 @3989 ]
+[s S426 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -145,19 +217,19 @@
 `uc 1 IBF 1 0 :1:7 
 ]
 "30416
-[s S420 . 1 `uc 1 RE0 1 0 :1:0 
+[s S435 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
-[u S424 . 1 `S411 1 . 1 0 `S420 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES424  1 e 1 @3990 ]
-[s S199 . 1 `uc 1 TUN 1 0 :5:0 
+[u S439 . 1 `S426 1 . 1 0 `S435 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES439  1 e 1 @3990 ]
+[s S253 . 1 `uc 1 TUN 1 0 :5:0 
 `uc 1 . 1 0 :1:5 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "30562
-[s S204 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S258 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
@@ -165,15 +237,15 @@
 `uc 1 . 1 0 :2:5 
 `uc 1 INTSCR 1 0 :1:7 
 ]
-[u S212 . 1 `S199 1 . 1 0 `S204 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES212  1 e 1 @3995 ]
-[s S344 . 1 `uc 1 ADCS 1 0 :3:0 
+[u S266 . 1 `S253 1 . 1 0 `S258 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES266  1 e 1 @3995 ]
+[s S398 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "32807
-[s S349 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S403 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
@@ -181,15 +253,15 @@
 `uc 1 ACQT2 1 0 :1:5 
 ]
 "32807
-[u S356 . 1 `S344 1 . 1 0 `S349 1 . 1 0 ]
+[u S410 . 1 `S398 1 . 1 0 `S403 1 . 1 0 ]
 "32807
 "32807
-[v _ADCON2bits ADCON2bits `VES356  1 e 1 @4032 ]
-[s S299 . 1 `uc 1 PCFG 1 0 :4:0 
+[v _ADCON2bits ADCON2bits `VES410  1 e 1 @4032 ]
+[s S353 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "32887
-[s S302 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S356 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
@@ -197,32 +269,32 @@
 `uc 1 VCFG1 1 0 :1:5 
 ]
 "32887
-[s S309 . 1 `uc 1 . 1 0 :3:0 
+[s S363 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 ]
 "32887
-[s S312 . 1 `uc 1 . 1 0 :4:0 
+[s S366 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG01 1 0 :1:4 
 ]
 "32887
-[s S315 . 1 `uc 1 . 1 0 :5:0 
+[s S369 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 VCFG11 1 0 :1:5 
 ]
 "32887
-[u S318 . 1 `S299 1 . 1 0 `S302 1 . 1 0 `S309 1 . 1 0 `S312 1 . 1 0 `S315 1 . 1 0 ]
+[u S372 . 1 `S353 1 . 1 0 `S356 1 . 1 0 `S363 1 . 1 0 `S366 1 . 1 0 `S369 1 . 1 0 ]
 "32887
 "32887
-[v _ADCON1bits ADCON1bits `VES318  1 e 1 @4033 ]
-[s S41 . 1 `uc 1 . 1 0 :1:0 
+[v _ADCON1bits ADCON1bits `VES372  1 e 1 @4033 ]
+[s S496 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "32990
-[s S44 . 1 `uc 1 ADON 1 0 :1:0 
+[s S499 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
 "32990
-[s S48 . 1 `uc 1 . 1 0 :1:0 
+[s S503 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -230,43 +302,43 @@
 `uc 1 CHS3 1 0 :1:5 
 ]
 "32990
-[s S55 . 1 `uc 1 . 1 0 :1:0 
+[s S510 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
 "32990
-[s S58 . 1 `uc 1 . 1 0 :1:0 
+[s S513 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
 "32990
-[s S61 . 1 `uc 1 . 1 0 :1:0 
+[s S516 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
 "32990
-[s S64 . 1 `uc 1 . 1 0 :1:0 
+[s S519 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
 "32990
-[s S67 . 1 `uc 1 . 1 0 :1:0 
+[s S522 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
 "32990
-[u S70 . 1 `S41 1 . 1 0 `S44 1 . 1 0 `S48 1 . 1 0 `S55 1 . 1 0 `S58 1 . 1 0 `S61 1 . 1 0 `S64 1 . 1 0 `S67 1 . 1 0 ]
+[u S525 . 1 `S496 1 . 1 0 `S499 1 . 1 0 `S503 1 . 1 0 `S510 1 . 1 0 `S513 1 . 1 0 `S516 1 . 1 0 `S519 1 . 1 0 `S522 1 . 1 0 ]
 "32990
 "32990
-[v _ADCON0bits ADCON0bits `VES70  1 e 1 @4034 ]
+[v _ADCON0bits ADCON0bits `VES525  1 e 1 @4034 ]
 "33070
 "33070
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "33076
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S229 . 1 `uc 1 SCS 1 0 :2:0 
+[s S283 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "34248
-[s S235 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S289 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
@@ -274,33 +346,97 @@
 `uc 1 IRCF2 1 0 :1:6 
 ]
 "34248
-[u S242 . 1 `S229 1 . 1 0 `S235 1 . 1 0 ]
+[u S296 . 1 `S283 1 . 1 0 `S289 1 . 1 0 ]
 "34248
 "34248
-[v _OSCCONbits OSCCONbits `VES242  1 e 1 @4051 ]
-"33 /home/agrigore/Capstone_ActiveEDS.X/main.c
+[v _OSCCONbits OSCCONbits `VES296  1 e 1 @4051 ]
+"37 /home/agrigore/Capstone_ActiveEDS.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"45
-[v main@desiredOnePos desiredOnePos `ui  1 a 2 33 ]
-"44
-[v main@actuatorOnePos actuatorOnePos `ui  1 a 2 31 ]
-"83
+"60
+[v main@extend extend `ui  1 a 2 21 ]
+"59
+[v main@retract retract `ui  1 a 2 19 ]
+"53
+[v main@actuator7 actuator7 `ui  1 a 2 17 ]
+"52
+[v main@actuator6 actuator6 `ui  1 a 2 15 ]
+"51
+[v main@actuator5 actuator5 `ui  1 a 2 13 ]
+"50
+[v main@actuator4 actuator4 `ui  1 a 2 11 ]
+"49
+[v main@actuator3 actuator3 `ui  1 a 2 9 ]
+"48
+[v main@actuator2 actuator2 `ui  1 a 2 7 ]
+"47
+[v main@actuator1 actuator1 `ui  1 a 2 5 ]
+"46
+[v main@actuator0 actuator0 `ui  1 a 2 3 ]
+"57
+[v main@done done `uc  1 a 1 2 ]
+"56
+[v main@BACK BACK `uc  1 a 1 1 ]
+"55
+[v main@FORW FORW `uc  1 a 1 0 ]
+"495
 } 0
 "40 /home/agrigore/Capstone_ActiveEDS.X/system.c
 [v _setAnalogIn setAnalogIn `(v  1 e 1 0 ]
 {
-"79
+"77
 } 0
-"81
+"79
 [v _setActuatorCntrl setActuatorCntrl `(v  1 e 1 0 ]
 {
-"86
+"100
 } 0
-"28 /home/agrigore/Capstone_ActiveEDS.X/user.c
-[v _InitApp InitApp `(v  1 e 1 0 ]
+"68 /home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+[v _selectAN7 selectAN7 `(v  1 e 1 0 ]
 {
-"39
+"71
+} 0
+"62
+[v _selectAN6 selectAN6 `(v  1 e 1 0 ]
+{
+"65
+} 0
+"56
+[v _selectAN5 selectAN5 `(v  1 e 1 0 ]
+{
+"59
+} 0
+"50
+[v _selectAN4 selectAN4 `(v  1 e 1 0 ]
+{
+"53
+} 0
+"44
+[v _selectAN3 selectAN3 `(v  1 e 1 0 ]
+{
+"47
+} 0
+"38
+[v _selectAN2 selectAN2 `(v  1 e 1 0 ]
+{
+"41
+} 0
+"32
+[v _selectAN1 selectAN1 `(v  1 e 1 0 ]
+{
+"35
+} 0
+"26
+[v _selectAN0 selectAN0 `(v  1 e 1 0 ]
+{
+"29
+} 0
+"73
+[v _readADC readADC `(ui  1 e 2 0 ]
+{
+"75
+[v readADC@digitalVal digitalVal `ui  1 a 2 33 ]
+"86
 } 0
 "24 /home/agrigore/Capstone_ActiveEDS.X/system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]

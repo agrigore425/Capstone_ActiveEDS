@@ -18476,7 +18476,7 @@ typedef unsigned char bool;
 void setAnalogIn();
 void setActuatorCntrl();
 
-# 21
+# 22
 void ConfigureOscillator(void);
 
 # 24 "system.c"
@@ -18515,8 +18515,6 @@ ADCON2bits.ADCS1 = 1;
 ADCON2bits.ADCS0 = 0;
 
 
-ADCON0bits.CHS = 0x0;
-
 
 TRISAbits.TRISA0 = 1;
 TRISAbits.TRISA1 = 1;
@@ -18539,4 +18537,20 @@ void setActuatorCntrl()
 
 TRISDbits.TRISD0 = 0;
 TRISDbits.TRISD1 = 0;
+TRISDbits.TRISD2 = 0;
+TRISDbits.TRISD3 = 0;
+TRISDbits.TRISD4 = 0;
+TRISDbits.TRISD5 = 0;
+TRISDbits.TRISD6 = 0;
+TRISDbits.TRISD7 = 0;
+
+TRISCbits.TRISC0 = 0;
+TRISCbits.TRISC1 = 0;
+TRISCbits.TRISC2 = 0;
+TRISCbits.TRISC3 = 0;
+TRISCbits.TRISC4 = 0;
+TRISCbits.TRISC5 = 0;
+TRISCbits.TRISC6 = 0;
+TRISCbits.TRISC7 = 0;
+
 }

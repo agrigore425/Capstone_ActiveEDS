@@ -11,12 +11,21 @@
 /******************************************************************************/
 /* System Function Prototypes                                                 */
 /******************************************************************************/
-void setAnalogIn();
-void setActuatorCntrl();
+void selectAN0();
+void selectAN1();
+void selectAN2();
+void selectAN3();
+void selectAN4();
+void selectAN5();
+void selectAN6();
+void selectAN7();
+
+unsigned int readADC();
+
 
 
 /* Custom oscillator configuration funtions, reset source evaluation
 functions, and other non-peripheral microcontroller initialization functions
 go here. */
 
-void ConfigureOscillator(void); /* Handles clock switching/osc initialization */
+

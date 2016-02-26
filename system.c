@@ -58,8 +58,6 @@ void setAnalogIn()
     ADCON2bits.ADCS1 = 1;
     ADCON2bits.ADCS0 = 0;
 
-    //Set to Channel 0 (AN0) to start
-    ADCON0bits.CHS = 0x0;
     
     //Set Analog ports as Input
     TRISAbits.TRISA0 = 1;   //AN0
@@ -80,7 +78,23 @@ void setAnalogIn()
 
 void setActuatorCntrl()
 {
-    //Set RD0 and RD1 and Digital outputs
-    TRISDbits.TRISD0 = 0;
-    TRISDbits.TRISD1 = 0;
+    //Set RD0-RD7 and RC0-RC7 as Digital outputs
+    TRISDbits.TRISD0 = 0;   //A2_0
+    TRISDbits.TRISD1 = 0;   //A2_1
+    TRISDbits.TRISD2 = 0;   //A3_0
+    TRISDbits.TRISD3 = 0;   //A3_1
+    TRISDbits.TRISD4 = 0;   //A6_0
+    TRISDbits.TRISD5 = 0;   //A6_1
+    TRISDbits.TRISD6 = 0;   //A7_0
+    TRISDbits.TRISD7 = 0;   //A7_1
+
+    TRISCbits.TRISC0 = 0;   //A0_0
+    TRISCbits.TRISC1 = 0;   //A0_1
+    TRISCbits.TRISC2 = 0;   //A1_0
+    TRISCbits.TRISC3 = 0;   //A1_1
+    TRISCbits.TRISC4 = 0;   //A4_0
+    TRISCbits.TRISC5 = 0;   //A4_1
+    TRISCbits.TRISC6 = 0;   //A5_0
+    TRISCbits.TRISC7 = 0;   //A5_1
+
 }

@@ -18476,60 +18476,476 @@ typedef unsigned char bool;
 void setAnalogIn();
 void setActuatorCntrl();
 
-# 21
+# 22
 void ConfigureOscillator(void);
 
 # 13 "user.h"
 void InitApp(void);
 
-# 33 "main.c"
+# 14 "ADC_Config.h"
+void selectAN0();
+void selectAN1();
+void selectAN2();
+void selectAN3();
+void selectAN4();
+void selectAN5();
+void selectAN6();
+void selectAN7();
+
+unsigned int readADC();
+
+# 29 "main.c"
+typedef int bool;
+
+# 37
 void main(void)
 {
 
 ConfigureOscillator();
 
 
-InitApp();
-
 
 setAnalogIn();
 setActuatorCntrl();
-unsigned int actuatorOnePos = 0;
-unsigned int desiredOnePos = 500;
+unsigned int actuator0 = 0;
+unsigned int actuator1 = 0;
+unsigned int actuator2 = 0;
+unsigned int actuator3 = 0;
+unsigned int actuator4 = 0;
+unsigned int actuator5 = 0;
+unsigned int actuator6 = 0;
+unsigned int actuator7 = 0;
 
+bool FORW = 0;
+bool BACK = 0;
+bool done = 1;
+
+unsigned int retract = 200;
+unsigned int extend = 800;
 while(1)
 {
 
-ADCON0bits.GO_NOT_DONE = 1;
 
 
-while (ADCON0bits.GO_NOT_DONE == 1);
+selectAN0();
+actuator0 = readADC();
 
 
-actuatorOnePos = ADRESL;
-actuatorOnePos += ADRESH << 8;
 
-if(actuatorOnePos < desiredOnePos)
+selectAN1();
+actuator1 = readADC();
+
+
+
+selectAN2();
+actuator2 = readADC();
+
+
+
+selectAN3();
+actuator3 = readADC();
+
+
+
+selectAN4();
+actuator4 = readADC();
+
+
+
+selectAN5();
+actuator5 = readADC();
+
+
+
+selectAN6();
+actuator6 = readADC();
+
+
+
+selectAN7();
+actuator7 = readADC();
+
+
+
+if(done == 1) {
+
+}
+
+
+if(FORW == 1 && BACK == 0)
 {
 
+if ((actuator0 == actuator2 == actuator5 == actuator7 == retract) &&
+(actuator1 == actuator3 == actuator4 == actuator6 == extend))
+{
+done = 1;
+}
+else
+{
+done = 0;
+
+# 127
+if (actuator0 < retract)
+{
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 1;
+} else if (actuator0 > retract)
+{
+LATCbits.LATC0 = 1;
+LATCbits.LATC1 = 0;
+} else {
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 0;
+}
+
+
+if (actuator1 < extend)
+{
+LATCbits.LATC2 = 0;
+LATCbits.LATC3 = 1;
+} else if (actuator1 > extend)
+{
+LATCbits.LATC2 = 1;
+LATCbits.LATC3 = 0;
+} else {
+LATCbits.LATC2 = 0;
+LATCbits.LATC3 = 0;
+}
+
+
+if (actuator2 < retract)
+{
 LATDbits.LATD0 = 0;
 LATDbits.LATD1 = 1;
-} else if(actuatorOnePos > desiredOnePos) {
-
+} else if (actuator2 > retract)
+{
 LATDbits.LATD0 = 1;
 LATDbits.LATD1 = 0;
 } else {
-
 LATDbits.LATD0 = 0;
 LATDbits.LATD1 = 0;
-
-
-if(desiredOnePos == 500)
-{
-desiredOnePos = 400;
-} else {
-desiredOnePos = 500;
 }
+
+
+if (actuator3 < extend)
+{
+LATDbits.LATD2 = 0;
+LATDbits.LATD3 = 1;
+} else if (actuator3 > extend)
+{
+LATDbits.LATD2 = 1;
+LATDbits.LATD3 = 0;
+} else {
+LATDbits.LATD2 = 0;
+LATDbits.LATD3 = 0;
+}
+
+
+if (actuator4 < extend)
+{
+LATCbits.LATC4 = 0;
+LATCbits.LATC5 = 1;
+} else if (actuator4 > extend)
+{
+LATCbits.LATC4 = 1;
+LATCbits.LATC5 = 0;
+} else {
+LATCbits.LATC4 = 0;
+LATCbits.LATC5 = 0;
+}
+
+
+if (actuator5 < retract)
+{
+LATCbits.LATC6 = 0;
+LATCbits.LATC7 = 1;
+} else if (actuator5 > retract)
+{
+LATCbits.LATC6 = 1;
+LATCbits.LATC7 = 0;
+} else {
+LATCbits.LATC6 = 0;
+LATCbits.LATC7 = 0;
+}
+
+
+if (actuator6 < extend)
+{
+LATDbits.LATD4 = 0;
+LATDbits.LATD5 = 1;
+} else if (actuator6 > extend)
+{
+LATDbits.LATD4 = 1;
+LATDbits.LATD5 = 0;
+} else {
+LATDbits.LATD4 = 0;
+LATDbits.LATD5 = 0;
+}
+
+
+if (actuator7 < retract)
+{
+LATDbits.LATD6 = 0;
+LATDbits.LATD7 = 1;
+} else if (actuator7 > retract)
+{
+LATDbits.LATD6 = 1;
+LATDbits.LATD7 = 0;
+} else {
+LATDbits.LATD6 = 0;
+LATDbits.LATD7 = 0;
+}
+}
+
+} else if(BACK == 1 && FORW == 0) {
+
+if ((actuator0 == actuator2 == actuator5 == actuator7 == extend) &&
+(actuator1 == actuator3 == actuator4 == actuator6 == retract))
+{
+done = 1;
+}
+else
+{
+done = 0;
+
+# 255
+if (actuator0 < extend)
+{
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 1;
+} else if (actuator0 > extend)
+{
+LATCbits.LATC0 = 1;
+LATCbits.LATC1 = 0;
+} else {
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 0;
+}
+
+
+if (actuator1 < retract)
+{
+LATCbits.LATC2 = 0;
+LATCbits.LATC3 = 1;
+} else if (actuator1 > retract)
+{
+LATCbits.LATC2 = 1;
+LATCbits.LATC3 = 0;
+} else {
+LATCbits.LATC2 = 0;
+LATCbits.LATC3 = 0;
+}
+
+
+if (actuator2 < extend)
+{
+LATDbits.LATD0 = 0;
+LATDbits.LATD1 = 1;
+} else if (actuator2 > extend)
+{
+LATDbits.LATD0 = 1;
+LATDbits.LATD1 = 0;
+} else {
+LATDbits.LATD0 = 0;
+LATDbits.LATD1 = 0;
+}
+
+
+if (actuator3 < retract)
+{
+LATDbits.LATD2 = 0;
+LATDbits.LATD3 = 1;
+} else if (actuator3 > retract)
+{
+LATDbits.LATD2 = 1;
+LATDbits.LATD3 = 0;
+} else {
+LATDbits.LATD2 = 0;
+LATDbits.LATD3 = 0;
+}
+
+
+if (actuator4 < retract)
+{
+LATCbits.LATC4 = 0;
+LATCbits.LATC5 = 1;
+} else if (actuator4 > retract)
+{
+LATCbits.LATC4 = 1;
+LATCbits.LATC5 = 0;
+} else {
+LATCbits.LATC4 = 0;
+LATCbits.LATC5 = 0;
+}
+
+
+if (actuator5 < extend)
+{
+LATCbits.LATC6 = 0;
+LATCbits.LATC7 = 1;
+} else if (actuator5 > extend)
+{
+LATCbits.LATC6 = 1;
+LATCbits.LATC7 = 0;
+} else {
+LATCbits.LATC6 = 0;
+LATCbits.LATC7 = 0;
+}
+
+
+if (actuator6 < retract)
+{
+LATDbits.LATD4 = 0;
+LATDbits.LATD5 = 1;
+} else if (actuator6 > retract)
+{
+LATDbits.LATD4 = 1;
+LATDbits.LATD5 = 0;
+} else {
+LATDbits.LATD4 = 0;
+LATDbits.LATD5 = 0;
+}
+
+
+if (actuator7 < extend)
+{
+LATDbits.LATD6 = 0;
+LATDbits.LATD7 = 1;
+} else if (actuator7 > extend)
+{
+LATDbits.LATD6 = 1;
+LATDbits.LATD7 = 0;
+} else {
+LATDbits.LATD6 = 0;
+LATDbits.LATD7 = 0;
+}
+}
+
+} else {
+
+
+if ((actuator0 == actuator2 == actuator5 == actuator7 == extend) &&
+(actuator1 == actuator3 == actuator4 == actuator6 == extend))
+{
+done = 1;
+}
+
+else
+{
+done = 0;
+
+if (actuator0 < extend)
+{
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 1;
+} else if (actuator0 > extend)
+{
+LATCbits.LATC0 = 1;
+LATCbits.LATC1 = 0;
+} else {
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 0;
+}
+
+
+if (actuator1 < extend)
+{
+LATCbits.LATC2 = 0;
+LATCbits.LATC3 = 1;
+} else if (actuator1 > extend)
+{
+LATCbits.LATC2 = 1;
+LATCbits.LATC3 = 0;
+} else {
+LATCbits.LATC2 = 0;
+LATCbits.LATC3 = 0;
+}
+
+
+if (actuator2 < extend)
+{
+LATDbits.LATD0 = 0;
+LATDbits.LATD1 = 1;
+} else if (actuator2 > extend)
+{
+LATDbits.LATD0 = 1;
+LATDbits.LATD1 = 0;
+} else {
+LATDbits.LATD0 = 0;
+LATDbits.LATD1 = 0;
+}
+
+
+if (actuator3 < extend)
+{
+LATDbits.LATD2 = 0;
+LATDbits.LATD3 = 1;
+} else if (actuator3 > extend)
+{
+LATDbits.LATD2 = 1;
+LATDbits.LATD3 = 0;
+} else {
+LATDbits.LATD2 = 0;
+LATDbits.LATD3 = 0;
+}
+
+
+if (actuator4 < extend)
+{
+LATCbits.LATC4 = 0;
+LATCbits.LATC5 = 1;
+} else if (actuator4 > extend)
+{
+LATCbits.LATC4 = 1;
+LATCbits.LATC5 = 0;
+} else {
+LATCbits.LATC4 = 0;
+LATCbits.LATC5 = 0;
+}
+
+
+if (actuator5 < extend)
+{
+LATCbits.LATC6 = 0;
+LATCbits.LATC7 = 1;
+} else if (actuator5 > extend)
+{
+LATCbits.LATC6 = 1;
+LATCbits.LATC7 = 0;
+} else {
+LATCbits.LATC6 = 0;
+LATCbits.LATC7 = 0;
+}
+
+
+if (actuator6 < extend)
+{
+LATDbits.LATD4 = 0;
+LATDbits.LATD5 = 1;
+} else if (actuator6 > extend)
+{
+LATDbits.LATD4 = 1;
+LATDbits.LATD5 = 0;
+} else {
+LATDbits.LATD4 = 0;
+LATDbits.LATD5 = 0;
+}
+
+
+if (actuator7 < extend)
+{
+LATDbits.LATD6 = 0;
+LATDbits.LATD7 = 1;
+} else if (actuator7 > extend)
+{
+LATDbits.LATD6 = 1;
+LATDbits.LATD7 = 0;
+} else {
+LATDbits.LATD6 = 0;
+LATDbits.LATD7 = 0;
+}
+}
+
 }
 }
 

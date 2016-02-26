@@ -5,6 +5,9 @@
         <group>
             <file>file:/home/agrigore/Capstone_ActiveEDS.X/system.c</file>
             <file>file:/home/agrigore/Capstone_ActiveEDS.X/user.c</file>
+            <file>file:/home/agrigore/Capstone_ActiveEDS.X/system.h</file>
+            <file>file:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c</file>
+            <file>file:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.h</file>
             <file>file:/home/agrigore/Capstone_ActiveEDS.X/main.c</file>
         </group>
     </open-files>
