@@ -19,23 +19,7 @@
 
 #include "system.h"
 
-/* Refer to the device datasheet for information about available
-oscillator configurations. */
-void ConfigureOscillator(void)
-{
-    /* TODO Add clock switching code if appropriate.  */
 
-    /* Typical actions in this function are to tweak the oscillator tuning
-    register, select new clock sources, and to wait until new clock sources
-    are stable before resuming execution of the main project. */
-    OSCTUNEbits.PLLEN = 1; //enable x4 clock
-    OSCCONbits.IRCF0 = 1;
-    OSCCONbits.IRCF1 = 1;
-    OSCCONbits.IRCF2 = 1;
-    
-    //set pin as clock output
-    TRISAbits.TRISA6 = 0;
-}
 
 void setAnalogIn()
 {
@@ -96,5 +80,9 @@ void setActuatorCntrl()
     TRISCbits.TRISC5 = 0;   //A4_1
     TRISCbits.TRISC6 = 0;   //A5_0
     TRISCbits.TRISC7 = 0;   //A5_1
+    
+    //Debug LED for interrupts
+    TRISAbits.TRISA7 = 0;   //A2_0
+
 
 }

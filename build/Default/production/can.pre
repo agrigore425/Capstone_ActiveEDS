@@ -1,15 +1,98 @@
 
-# 1 "interrupts.c"
+# 1 "can.c"
 
-# 26 "/opt/microchip/xc8/v1.36/include/htc.h"
-extern const char __xc8_OPTIM_SPEED;
+# 13 "/opt/microchip/xc8/v1.36/include/stdint.h"
+typedef signed char int8_t;
 
-extern double __fpnormalize(double);
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
 
 
-# 13 "/opt/microchip/xc8/v1.36/include/xc8debug.h"
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "/opt/microchip/xc8/v1.36/include/stdbool.h"
+typedef unsigned char bool;
 
 # 49 "/opt/microchip/xc8/v1.36/include/pic18f4685.h"
 extern volatile unsigned char RXF6SIDH @ 0xD60;
@@ -18361,132 +18444,190 @@ extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 18 "/opt/microchip/xc8/v1.36/include/pic18.h"
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+# 5 "can.h"
+typedef struct Message {
+char data[8];
+short sid;
+char len;
+} Message;
 
+void ecan_init();
+void ecan_send(Message* mess);
+void ecan_receive_rxb0(Message* mess);
+void ecan_receive_rxb1(Message* mess);
+char ecan_rxb0_data_ready();
+char ecan_rxb1_data_ready();
+void ecan_rxb0_clear();
+void ecan_rxb1_clear();
 
-# 42
-#pragma intrinsic(__nop)
-extern void __nop(void);
-
-
-# 155
-#pragma intrinsic(_delay)
-extern __nonreentrant void _delay(unsigned long);
-#pragma intrinsic(_delaywdt)
-extern __nonreentrant void _delaywdt(unsigned long);
-#pragma intrinsic(_delay3)
-extern __nonreentrant void _delay3(unsigned char);
-
-# 13 "/opt/microchip/xc8/v1.36/include/stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 12 "/opt/microchip/xc8/v1.36/include/stdbool.h"
-typedef unsigned char bool;
-
-# 27 "interrupts.c"
-void interrupt high_isr(void)
-
-# 36
+# 11 "can.c"
+void ecan_init()
 {
 
-# 63
+TRISBbits.TRISB2 = 0;
+TRISBbits.TRISB3 = 1;
+
+
+CANCONbits.REQOP2 = 1;
+
+
+while (CANSTATbits.OPMODE2 != 1 && CANSTATbits.OPMODE1 != 0 &&
+CANSTATbits.OPMODE0 != 0);
+
+# 26
+CIOCONbits.ENDRHI = 0;
+
+
+BRGCON1bits.SJW1 = 0;
+BRGCON1bits.SJW0 = 0;
+BRGCON1bits.BRP5 = 0;
+BRGCON1bits.BRP4 = 0;
+BRGCON1bits.BRP3 = 0;
+BRGCON1bits.BRP2 = 0;
+BRGCON1bits.BRP1 = 0;
+BRGCON1bits.BRP0 = 1;
+
+BRGCON2bits.SEG2PHTS = 1;
+BRGCON2bits.SAM = 1;
+BRGCON2bits.SEG1PH2 = 0;
+BRGCON2bits.SEG1PH1 = 0;
+BRGCON2bits.SEG1PH0 = 1;
+BRGCON2bits.PRSEG2 = 0;
+BRGCON2bits.PRSEG1 = 1;
+BRGCON2bits.PRSEG0 = 0;
+
+
+
+BRGCON3bits.SEG2PH2 = 0;
+BRGCON3bits. SEG2PH1 = 0;
+BRGCON3bits. SEG2PH0 = 1;
+
+
+ECANCONbits.MDSEL1 = 0;
+ECANCONbits.MDSEL0 = 0;
+
+# 62
+RXB0CONbits.RXM1 = 0;
+RXB0CONbits.RXM0 = 1;
+
+# 78
+short sid0 = 0x00A;
+short mask0 = 0x7FF;
+
+RXF0SIDH = sid0 >> 3;
+RXF0SIDL = sid0 << 5;
+RXM0SIDH = mask0 >> 3;
+RXM0SIDL = mask0 << 5;
+RXF0SIDLbits.EXIDEN = 0;
+RXFCON0bits.RXF0EN = 1;
+
+# 104
+CANCONbits.REQOP2 = 0;
+CANCONbits.REQOP1 = 0;
+CANCONbits.REQOP0 = 0;
+
+
+while (CANSTATbits.OPMODE2 != 0 && CANSTATbits.OPMODE1 != 0 &&
+CANSTATbits.OPMODE0 != 0);
 }
 
 
+void ecan_send(Message* mess)
+{
+TXB0D7 = mess->data[7];
+TXB0D6 = mess->data[6];
+TXB0D5 = mess->data[5];
+TXB0D4 = mess->data[4];
+TXB0D3 = mess->data[3];
+TXB0D2 = mess->data[2];
+TXB0D1 = mess->data[1];
+TXB0D0 = mess->data[0];
 
-void low_priority interrupt low_isr(void)
+TXB0DLC = mess->len;
 
-# 75
+
+TXB0SIDH = (mess->sid) >> 3;
+TXB0SIDL = (mess->sid) << 5;
+TXB0SIDLbits.EXIDE = 0;
+
+
+TXB0CONbits.TXREQ = 1;
+}
+
+
+void ecan_receive_rxb0(Message* mess)
 {
 
-# 102
+
+
+
+mess->data[7] = RXB0D7;
+mess->data[6] = RXB0D6;
+mess->data[5] = RXB0D5;
+mess->data[4] = RXB0D4;
+mess->data[3] = RXB0D3;
+mess->data[2] = RXB0D2;
+mess->data[1] = RXB0D1;
+mess->data[0] = RXB0D0;
+
+
+mess->sid = RXB0SIDH << 3;
+mess->sid |= RXB0SIDL >> 5;
+
+
+mess->len = 0x0F & RXB0DLC;
+
+
+RXB0CONbits.RXB0FUL = 0;
+}
+
+
+void ecan_receive_rxb1(Message* mess)
+{
+
+
+
+
+mess->data[7] = RXB1D7;
+mess->data[6] = RXB1D6;
+mess->data[5] = RXB1D5;
+mess->data[4] = RXB1D4;
+mess->data[3] = RXB1D3;
+mess->data[2] = RXB1D2;
+mess->data[1] = RXB1D1;
+mess->data[0] = RXB1D0;
+
+
+mess->sid = RXB1SIDH << 3;
+mess->sid |= RXB1SIDL >> 5;
+
+
+mess->len = 0x0F & RXB1DLC;
+
+
+RXB1CONbits.RXB1FUL = 0;
+}
+
+
+char ecan_rxb0_data_ready()
+{
+return RXB0CONbits.RXB0FUL;
+}
+
+
+char ecan_rxb1_data_ready()
+{
+return RXB1CONbits.RXB1FUL;
+}
+
+
+void ecan_rxb0_clear()
+{
+RXB0CONbits.RXB0FUL = 0;
+}
+
+
+void ecan_rxb1_clear()
+{
+RXB1CONbits.RXB1FUL = 0;
 }

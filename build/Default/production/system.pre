@@ -18480,19 +18480,6 @@ void setActuatorCntrl();
 void ConfigureOscillator(void);
 
 # 24 "system.c"
-void ConfigureOscillator(void)
-{
-
-# 31
-OSCTUNEbits.PLLEN = 1;
-OSCCONbits.IRCF0 = 1;
-OSCCONbits.IRCF1 = 1;
-OSCCONbits.IRCF2 = 1;
-
-
-TRISAbits.TRISA6 = 0;
-}
-
 void setAnalogIn()
 {
 
@@ -18552,5 +18539,9 @@ TRISCbits.TRISC4 = 0;
 TRISCbits.TRISC5 = 0;
 TRISCbits.TRISC6 = 0;
 TRISCbits.TRISC7 = 0;
+
+
+TRISAbits.TRISA7 = 0;
+
 
 }
