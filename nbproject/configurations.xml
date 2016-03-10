@@ -9,6 +9,7 @@
       <itemPath>ADC_Config.h</itemPath>
       <itemPath>config.h</itemPath>
       <itemPath>can.h</itemPath>
+      <itemPath>movements.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +25,7 @@
       <itemPath>ADC_Config.c</itemPath>
       <itemPath>can.c</itemPath>
       <itemPath>config.c</itemPath>
+      <itemPath>movements.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -1808,6 +1810,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

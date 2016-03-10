@@ -12,32 +12,31 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/Default/production/Capstone_ActiveEDS.X.production.obj
-cinit CODE 0 444 444 E 1
-text0 CODE 0 C6 C6 16C 1
-text1 CODE 0 3D2 3D2 34 1
-text2 CODE 0 406 406 24 1
-text3 CODE 0 46C 46C A 1
-text4 CODE 0 476 476 A 1
-text5 CODE 0 480 480 A 1
-text6 CODE 0 48A 48A A 1
-text7 CODE 0 494 494 A 1
-text8 CODE 0 49E 49E A 1
-text9 CODE 0 4A8 4A8 A 1
-text10 CODE 0 4B2 4B2 A 1
-text11 CODE 0 42A 42A 1A 1
-text12 CODE 0 460 460 C 1
-text13 CODE 0 314 314 BE 1
-text14 CODE 0 452 452 E 1
-text16 CODE 0 4BC 4BC 4 1
-text17 CODE 0 232 232 E2 1
-cstackCOMRAM COMRAM 1 1 1 37 1
-temp COMRAM 1 3A 3A 1 1
-intcode CODE 0 8 8 BA 1
-bssCOMRAM COMRAM 1 38 38 2 1
-$/tmp/xcXA0Jefh.obj
+cinit CODE 0 17814 17814 32 1
+text0 CODE 0 17B8C 17B8C 474 1
+text1 CODE 0 17846 17846 34 1
+text2 CODE 0 177F0 177F0 24 1
+text3 CODE 0 177BE 177BE A 1
+text4 CODE 0 177B4 177B4 A 1
+text5 CODE 0 177AA 177AA A 1
+text6 CODE 0 177A0 177A0 A 1
+text7 CODE 0 17796 17796 A 1
+text8 CODE 0 1778C 1778C A 1
+text9 CODE 0 17782 17782 A 1
+text10 CODE 0 17778 17778 A 1
+text11 CODE 0 177D6 177D6 1A 1
+text12 CODE 0 17A1A 17A1A 172 1
+text13 CODE 0 17770 17770 4 1
+text14 CODE 0 17938 17938 E2 1
+text15 CODE 0 1787A 1787A BE 1
+text16 CODE 0 177C8 177C8 E 1
+idataCOMRAM CODE 0 17774 17774 4 1
+cstackCOMRAM COMRAM 1 1 1 2D 1
+dataCOMRAM COMRAM 1 40 40 4 1
+bssCOMRAM COMRAM 1 2E 2E 12 1
+$/tmp/xcXOOJFNn.obj
 idloc IDLOC 0 200000 200000 8 1
-reset_vec CODE 0 0 0 4 1
-end_init CODE 0 C2 C2 4 1
+end_init CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -57,20 +56,18 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 4-7 1
-CONST 4C0-17FFF 1
+CONST 4-1776F 1
 STACK 60-CFF 1
-SMALLCONST D00-17FFF 1
-CODE 4-7 1
-CODE 4C0-17FFF 1
+SMALLCONST D00-1776F 1
+CODE 4-1776F 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
-BIGRAM 3B-CFF 1
-COMRAM 3B-5F 1
+BIGRAM 44-CFF 1
+COMRAM 44-5F 1
 EEDATA F00000-F003FF 1
 MEDIUMCONST D00-FFFF 1
-MEDIUMCONST 10D00-17FFF 1
+MEDIUMCONST 10D00-1776F 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -85,264 +82,290 @@ MEDIUMCONST 10D00-17FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/Default/production/Capstone_ActiveEDS.X.production.obj
-8 intcode CODE >37:/home/agrigore/Capstone_ActiveEDS.X/config.c
-8 intcode CODE >547:/home/agrigore/Capstone_ActiveEDS.X/main.c
-42 intcode CODE >549:/home/agrigore/Capstone_ActiveEDS.X/main.c
-46 intcode CODE >551:/home/agrigore/Capstone_ActiveEDS.X/main.c
-48 intcode CODE >553:/home/agrigore/Capstone_ActiveEDS.X/main.c
-54 intcode CODE >559:/home/agrigore/Capstone_ActiveEDS.X/main.c
-5A intcode CODE >561:/home/agrigore/Capstone_ActiveEDS.X/main.c
-5E intcode CODE >562:/home/agrigore/Capstone_ActiveEDS.X/main.c
-62 intcode CODE >565:/home/agrigore/Capstone_ActiveEDS.X/main.c
-68 intcode CODE >567:/home/agrigore/Capstone_ActiveEDS.X/main.c
-6C intcode CODE >568:/home/agrigore/Capstone_ActiveEDS.X/main.c
-70 intcode CODE >570:/home/agrigore/Capstone_ActiveEDS.X/main.c
-78 intcode CODE >572:/home/agrigore/Capstone_ActiveEDS.X/main.c
-7C intcode CODE >573:/home/agrigore/Capstone_ActiveEDS.X/main.c
-80 intcode CODE >576:/home/agrigore/Capstone_ActiveEDS.X/main.c
-84 intcode CODE >577:/home/agrigore/Capstone_ActiveEDS.X/main.c
-86 intcode CODE >580:/home/agrigore/Capstone_ActiveEDS.X/main.c
-232 text17 CODE >137:/home/agrigore/Capstone_ActiveEDS.X/can.c
-232 text17 CODE >143:/home/agrigore/Capstone_ActiveEDS.X/can.c
-242 text17 CODE >144:/home/agrigore/Capstone_ActiveEDS.X/can.c
-252 text17 CODE >145:/home/agrigore/Capstone_ActiveEDS.X/can.c
-262 text17 CODE >146:/home/agrigore/Capstone_ActiveEDS.X/can.c
-272 text17 CODE >147:/home/agrigore/Capstone_ActiveEDS.X/can.c
-282 text17 CODE >148:/home/agrigore/Capstone_ActiveEDS.X/can.c
-292 text17 CODE >149:/home/agrigore/Capstone_ActiveEDS.X/can.c
-2A2 text17 CODE >150:/home/agrigore/Capstone_ActiveEDS.X/can.c
-2AE text17 CODE >153:/home/agrigore/Capstone_ActiveEDS.X/can.c
-2DA text17 CODE >154:/home/agrigore/Capstone_ActiveEDS.X/can.c
-2FE text17 CODE >157:/home/agrigore/Capstone_ActiveEDS.X/can.c
-310 text17 CODE >160:/home/agrigore/Capstone_ActiveEDS.X/can.c
-312 text17 CODE >161:/home/agrigore/Capstone_ActiveEDS.X/can.c
-4BC text16 CODE >203:/home/agrigore/Capstone_ActiveEDS.X/can.c
-4BC text16 CODE >205:/home/agrigore/Capstone_ActiveEDS.X/can.c
-4BE text16 CODE >206:/home/agrigore/Capstone_ActiveEDS.X/can.c
-452 text14 CODE >24:/home/agrigore/Capstone_ActiveEDS.X/config.c
-452 text14 CODE >29:/home/agrigore/Capstone_ActiveEDS.X/config.c
-454 text14 CODE >30:/home/agrigore/Capstone_ActiveEDS.X/config.c
-456 text14 CODE >31:/home/agrigore/Capstone_ActiveEDS.X/config.c
-458 text14 CODE >33:/home/agrigore/Capstone_ActiveEDS.X/config.c
-45A text14 CODE >34:/home/agrigore/Capstone_ActiveEDS.X/config.c
-45C text14 CODE >36:/home/agrigore/Capstone_ActiveEDS.X/config.c
-45E text14 CODE >37:/home/agrigore/Capstone_ActiveEDS.X/config.c
-314 text13 CODE >11:/home/agrigore/Capstone_ActiveEDS.X/can.c
-314 text13 CODE >14:/home/agrigore/Capstone_ActiveEDS.X/can.c
-316 text13 CODE >15:/home/agrigore/Capstone_ActiveEDS.X/can.c
-318 text13 CODE >18:/home/agrigore/Capstone_ActiveEDS.X/can.c
-31A text13 CODE >21:/home/agrigore/Capstone_ActiveEDS.X/can.c
-31A text13 CODE >22:/home/agrigore/Capstone_ActiveEDS.X/can.c
-324 text13 CODE >26:/home/agrigore/Capstone_ActiveEDS.X/can.c
-326 text13 CODE >29:/home/agrigore/Capstone_ActiveEDS.X/can.c
-328 text13 CODE >30:/home/agrigore/Capstone_ActiveEDS.X/can.c
-32A text13 CODE >31:/home/agrigore/Capstone_ActiveEDS.X/can.c
-32C text13 CODE >32:/home/agrigore/Capstone_ActiveEDS.X/can.c
-32E text13 CODE >33:/home/agrigore/Capstone_ActiveEDS.X/can.c
-330 text13 CODE >34:/home/agrigore/Capstone_ActiveEDS.X/can.c
-332 text13 CODE >35:/home/agrigore/Capstone_ActiveEDS.X/can.c
-334 text13 CODE >36:/home/agrigore/Capstone_ActiveEDS.X/can.c
-336 text13 CODE >38:/home/agrigore/Capstone_ActiveEDS.X/can.c
-338 text13 CODE >39:/home/agrigore/Capstone_ActiveEDS.X/can.c
-33A text13 CODE >40:/home/agrigore/Capstone_ActiveEDS.X/can.c
-33C text13 CODE >41:/home/agrigore/Capstone_ActiveEDS.X/can.c
-33E text13 CODE >42:/home/agrigore/Capstone_ActiveEDS.X/can.c
-340 text13 CODE >43:/home/agrigore/Capstone_ActiveEDS.X/can.c
-342 text13 CODE >44:/home/agrigore/Capstone_ActiveEDS.X/can.c
-344 text13 CODE >45:/home/agrigore/Capstone_ActiveEDS.X/can.c
-346 text13 CODE >49:/home/agrigore/Capstone_ActiveEDS.X/can.c
-348 text13 CODE >50:/home/agrigore/Capstone_ActiveEDS.X/can.c
-34A text13 CODE >51:/home/agrigore/Capstone_ActiveEDS.X/can.c
-34C text13 CODE >54:/home/agrigore/Capstone_ActiveEDS.X/can.c
-34E text13 CODE >55:/home/agrigore/Capstone_ActiveEDS.X/can.c
-350 text13 CODE >62:/home/agrigore/Capstone_ActiveEDS.X/can.c
-352 text13 CODE >63:/home/agrigore/Capstone_ActiveEDS.X/can.c
-354 text13 CODE >78:/home/agrigore/Capstone_ActiveEDS.X/can.c
-35C text13 CODE >79:/home/agrigore/Capstone_ActiveEDS.X/can.c
-362 text13 CODE >81:/home/agrigore/Capstone_ActiveEDS.X/can.c
-382 text13 CODE >82:/home/agrigore/Capstone_ActiveEDS.X/can.c
-38C text13 CODE >83:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3AC text13 CODE >84:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3B6 text13 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3BA text13 CODE >86:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3BE text13 CODE >104:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3C0 text13 CODE >105:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3C2 text13 CODE >106:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3C4 text13 CODE >109:/home/agrigore/Capstone_ActiveEDS.X/can.c
-3C4 text13 CODE >110:/home/agrigore/Capstone_ActiveEDS.X/can.c
-460 text12 CODE >39:/home/agrigore/Capstone_ActiveEDS.X/config.c
-460 text12 CODE >42:/home/agrigore/Capstone_ActiveEDS.X/config.c
-462 text12 CODE >43:/home/agrigore/Capstone_ActiveEDS.X/config.c
-464 text12 CODE >44:/home/agrigore/Capstone_ActiveEDS.X/config.c
-466 text12 CODE >47:/home/agrigore/Capstone_ActiveEDS.X/config.c
-468 text12 CODE >48:/home/agrigore/Capstone_ActiveEDS.X/config.c
-46A text12 CODE >49:/home/agrigore/Capstone_ActiveEDS.X/config.c
-42A text11 CODE >73:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-42A text11 CODE >77:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-42C text11 CODE >80:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-430 text11 CODE >83:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-436 text11 CODE >84:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-43A text11 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-4B2 text10 CODE >26:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-4B2 text10 CODE >28:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-4BA text10 CODE >29:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-4A8 text9 CODE >32:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-4A8 text9 CODE >34:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-4B0 text9 CODE >35:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-49E text8 CODE >38:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-49E text8 CODE >40:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-4A6 text8 CODE >41:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-494 text7 CODE >44:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-494 text7 CODE >46:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-49C text7 CODE >47:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-48A text6 CODE >50:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-48A text6 CODE >52:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-492 text6 CODE >53:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-480 text5 CODE >56:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-480 text5 CODE >58:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-488 text5 CODE >59:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-476 text4 CODE >62:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-476 text4 CODE >64:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-47E text4 CODE >65:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-46C text3 CODE >68:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-46C text3 CODE >70:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-474 text3 CODE >71:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
-406 text2 CODE >63:/home/agrigore/Capstone_ActiveEDS.X/system.c
-406 text2 CODE >66:/home/agrigore/Capstone_ActiveEDS.X/system.c
-408 text2 CODE >67:/home/agrigore/Capstone_ActiveEDS.X/system.c
-40A text2 CODE >68:/home/agrigore/Capstone_ActiveEDS.X/system.c
-40C text2 CODE >69:/home/agrigore/Capstone_ActiveEDS.X/system.c
-40E text2 CODE >70:/home/agrigore/Capstone_ActiveEDS.X/system.c
-410 text2 CODE >71:/home/agrigore/Capstone_ActiveEDS.X/system.c
-412 text2 CODE >72:/home/agrigore/Capstone_ActiveEDS.X/system.c
-414 text2 CODE >73:/home/agrigore/Capstone_ActiveEDS.X/system.c
-416 text2 CODE >75:/home/agrigore/Capstone_ActiveEDS.X/system.c
-418 text2 CODE >76:/home/agrigore/Capstone_ActiveEDS.X/system.c
-41A text2 CODE >77:/home/agrigore/Capstone_ActiveEDS.X/system.c
-41C text2 CODE >78:/home/agrigore/Capstone_ActiveEDS.X/system.c
-41E text2 CODE >79:/home/agrigore/Capstone_ActiveEDS.X/system.c
-420 text2 CODE >80:/home/agrigore/Capstone_ActiveEDS.X/system.c
-422 text2 CODE >81:/home/agrigore/Capstone_ActiveEDS.X/system.c
-424 text2 CODE >82:/home/agrigore/Capstone_ActiveEDS.X/system.c
-426 text2 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/system.c
-428 text2 CODE >88:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3D2 text1 CODE >24:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3D2 text1 CODE >27:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3DA text1 CODE >28:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3DC text1 CODE >32:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3DE text1 CODE >33:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3E0 text1 CODE >36:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3E2 text1 CODE >37:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3E4 text1 CODE >38:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3E6 text1 CODE >41:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3E8 text1 CODE >42:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3EA text1 CODE >43:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3EC text1 CODE >47:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3EE text1 CODE >48:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3F0 text1 CODE >49:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3F2 text1 CODE >50:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3F4 text1 CODE >51:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3F6 text1 CODE >52:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3F8 text1 CODE >53:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3FA text1 CODE >54:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3FC text1 CODE >55:/home/agrigore/Capstone_ActiveEDS.X/system.c
-3FE text1 CODE >56:/home/agrigore/Capstone_ActiveEDS.X/system.c
-400 text1 CODE >57:/home/agrigore/Capstone_ActiveEDS.X/system.c
-402 text1 CODE >60:/home/agrigore/Capstone_ActiveEDS.X/system.c
-404 text1 CODE >61:/home/agrigore/Capstone_ActiveEDS.X/system.c
-C6 text0 CODE >43:/home/agrigore/Capstone_ActiveEDS.X/main.c
-C6 text0 CODE >46:/home/agrigore/Capstone_ActiveEDS.X/main.c
-CA text0 CODE >47:/home/agrigore/Capstone_ActiveEDS.X/main.c
-CE text0 CODE >48:/home/agrigore/Capstone_ActiveEDS.X/main.c
-D2 text0 CODE >51:/home/agrigore/Capstone_ActiveEDS.X/main.c
-D6 text0 CODE >52:/home/agrigore/Capstone_ActiveEDS.X/main.c
-DA text0 CODE >53:/home/agrigore/Capstone_ActiveEDS.X/main.c
-E2 text0 CODE >54:/home/agrigore/Capstone_ActiveEDS.X/main.c
-EA text0 CODE >55:/home/agrigore/Capstone_ActiveEDS.X/main.c
-F2 text0 CODE >56:/home/agrigore/Capstone_ActiveEDS.X/main.c
-FA text0 CODE >57:/home/agrigore/Capstone_ActiveEDS.X/main.c
-102 text0 CODE >58:/home/agrigore/Capstone_ActiveEDS.X/main.c
-10A text0 CODE >59:/home/agrigore/Capstone_ActiveEDS.X/main.c
-112 text0 CODE >60:/home/agrigore/Capstone_ActiveEDS.X/main.c
-11A text0 CODE >64:/home/agrigore/Capstone_ActiveEDS.X/main.c
-122 text0 CODE >65:/home/agrigore/Capstone_ActiveEDS.X/main.c
-12A text0 CODE >71:/home/agrigore/Capstone_ActiveEDS.X/main.c
-12E text0 CODE >72:/home/agrigore/Capstone_ActiveEDS.X/main.c
-13A text0 CODE >76:/home/agrigore/Capstone_ActiveEDS.X/main.c
-13E text0 CODE >77:/home/agrigore/Capstone_ActiveEDS.X/main.c
-14A text0 CODE >81:/home/agrigore/Capstone_ActiveEDS.X/main.c
-14E text0 CODE >82:/home/agrigore/Capstone_ActiveEDS.X/main.c
-15A text0 CODE >86:/home/agrigore/Capstone_ActiveEDS.X/main.c
-15E text0 CODE >87:/home/agrigore/Capstone_ActiveEDS.X/main.c
-16A text0 CODE >91:/home/agrigore/Capstone_ActiveEDS.X/main.c
-16E text0 CODE >92:/home/agrigore/Capstone_ActiveEDS.X/main.c
-17A text0 CODE >96:/home/agrigore/Capstone_ActiveEDS.X/main.c
-17E text0 CODE >97:/home/agrigore/Capstone_ActiveEDS.X/main.c
-18A text0 CODE >101:/home/agrigore/Capstone_ActiveEDS.X/main.c
-18E text0 CODE >102:/home/agrigore/Capstone_ActiveEDS.X/main.c
-19A text0 CODE >106:/home/agrigore/Capstone_ActiveEDS.X/main.c
-19E text0 CODE >107:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1AA text0 CODE >109:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1B6 text0 CODE >112:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1B8 text0 CODE >113:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1BA text0 CODE >115:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1BC text0 CODE >116:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1BE text0 CODE >118:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1C0 text0 CODE >119:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1C2 text0 CODE >121:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1C4 text0 CODE >122:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1C6 text0 CODE >124:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1C8 text0 CODE >125:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1CA text0 CODE >127:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1CC text0 CODE >128:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1CE text0 CODE >130:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1D0 text0 CODE >131:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1D2 text0 CODE >133:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1D6 text0 CODE >135:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1E2 text0 CODE >138:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1E4 text0 CODE >139:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1E6 text0 CODE >141:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1E8 text0 CODE >142:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1EA text0 CODE >144:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1EC text0 CODE >145:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1EE text0 CODE >147:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1F0 text0 CODE >148:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1F2 text0 CODE >150:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1F4 text0 CODE >151:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1F6 text0 CODE >153:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1F8 text0 CODE >154:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1FA text0 CODE >156:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1FC text0 CODE >157:/home/agrigore/Capstone_ActiveEDS.X/main.c
-1FE text0 CODE >159:/home/agrigore/Capstone_ActiveEDS.X/main.c
-200 text0 CODE >160:/home/agrigore/Capstone_ActiveEDS.X/main.c
-202 text0 CODE >161:/home/agrigore/Capstone_ActiveEDS.X/main.c
-210 text0 CODE >164:/home/agrigore/Capstone_ActiveEDS.X/main.c
-212 text0 CODE >165:/home/agrigore/Capstone_ActiveEDS.X/main.c
-214 text0 CODE >167:/home/agrigore/Capstone_ActiveEDS.X/main.c
-216 text0 CODE >168:/home/agrigore/Capstone_ActiveEDS.X/main.c
-218 text0 CODE >170:/home/agrigore/Capstone_ActiveEDS.X/main.c
-21A text0 CODE >171:/home/agrigore/Capstone_ActiveEDS.X/main.c
-21C text0 CODE >173:/home/agrigore/Capstone_ActiveEDS.X/main.c
-21E text0 CODE >174:/home/agrigore/Capstone_ActiveEDS.X/main.c
-220 text0 CODE >176:/home/agrigore/Capstone_ActiveEDS.X/main.c
-222 text0 CODE >177:/home/agrigore/Capstone_ActiveEDS.X/main.c
-224 text0 CODE >179:/home/agrigore/Capstone_ActiveEDS.X/main.c
-226 text0 CODE >180:/home/agrigore/Capstone_ActiveEDS.X/main.c
-228 text0 CODE >182:/home/agrigore/Capstone_ActiveEDS.X/main.c
-22A text0 CODE >183:/home/agrigore/Capstone_ActiveEDS.X/main.c
-22C text0 CODE >185:/home/agrigore/Capstone_ActiveEDS.X/main.c
-22E text0 CODE >186:/home/agrigore/Capstone_ActiveEDS.X/main.c
-230 text0 CODE >66:/home/agrigore/Capstone_ActiveEDS.X/main.c
-444 cinit CODE >6186:/tmp/xcXIR69Rm
-444 cinit CODE >6188:/tmp/xcXIR69Rm
-444 cinit CODE >6191:/tmp/xcXIR69Rm
-444 cinit CODE >6206:/tmp/xcXIR69Rm
-446 cinit CODE >6207:/tmp/xcXIR69Rm
-448 cinit CODE >6213:/tmp/xcXIR69Rm
-448 cinit CODE >6215:/tmp/xcXIR69Rm
-44A cinit CODE >6216:/tmp/xcXIR69Rm
-44C cinit CODE >6217:/tmp/xcXIR69Rm
-44E cinit CODE >6218:/tmp/xcXIR69Rm
+177C8 text16 CODE >24:/home/agrigore/Capstone_ActiveEDS.X/config.c
+177C8 text16 CODE >29:/home/agrigore/Capstone_ActiveEDS.X/config.c
+177CA text16 CODE >30:/home/agrigore/Capstone_ActiveEDS.X/config.c
+177CC text16 CODE >31:/home/agrigore/Capstone_ActiveEDS.X/config.c
+177CE text16 CODE >33:/home/agrigore/Capstone_ActiveEDS.X/config.c
+177D0 text16 CODE >34:/home/agrigore/Capstone_ActiveEDS.X/config.c
+177D2 text16 CODE >36:/home/agrigore/Capstone_ActiveEDS.X/config.c
+177D4 text16 CODE >37:/home/agrigore/Capstone_ActiveEDS.X/config.c
+1787A text15 CODE >11:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1787A text15 CODE >14:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1787C text15 CODE >15:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1787E text15 CODE >18:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17880 text15 CODE >21:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17880 text15 CODE >22:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1788A text15 CODE >26:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1788C text15 CODE >29:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1788E text15 CODE >30:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17890 text15 CODE >31:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17892 text15 CODE >32:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17894 text15 CODE >33:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17896 text15 CODE >34:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17898 text15 CODE >35:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1789A text15 CODE >36:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1789C text15 CODE >38:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1789E text15 CODE >39:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178A0 text15 CODE >40:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178A2 text15 CODE >41:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178A4 text15 CODE >42:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178A6 text15 CODE >43:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178A8 text15 CODE >44:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178AA text15 CODE >45:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178AC text15 CODE >49:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178AE text15 CODE >50:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178B0 text15 CODE >51:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178B2 text15 CODE >54:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178B4 text15 CODE >55:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178B6 text15 CODE >62:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178B8 text15 CODE >63:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178BA text15 CODE >78:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178C2 text15 CODE >79:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178C8 text15 CODE >81:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178E8 text15 CODE >82:/home/agrigore/Capstone_ActiveEDS.X/can.c
+178F2 text15 CODE >83:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17912 text15 CODE >84:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1791C text15 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17920 text15 CODE >86:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17924 text15 CODE >104:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17926 text15 CODE >105:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17928 text15 CODE >106:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1792A text15 CODE >109:/home/agrigore/Capstone_ActiveEDS.X/can.c
+1792A text15 CODE >110:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17938 text14 CODE >137:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17938 text14 CODE >143:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17948 text14 CODE >144:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17958 text14 CODE >145:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17968 text14 CODE >146:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17978 text14 CODE >147:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17988 text14 CODE >148:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17998 text14 CODE >149:/home/agrigore/Capstone_ActiveEDS.X/can.c
+179A8 text14 CODE >150:/home/agrigore/Capstone_ActiveEDS.X/can.c
+179B4 text14 CODE >153:/home/agrigore/Capstone_ActiveEDS.X/can.c
+179E0 text14 CODE >154:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17A04 text14 CODE >157:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17A16 text14 CODE >160:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17A18 text14 CODE >161:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17770 text13 CODE >203:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17770 text13 CODE >205:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17772 text13 CODE >206:/home/agrigore/Capstone_ActiveEDS.X/can.c
+17A1A text12 CODE >28:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A1A text12 CODE >33:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A2A text12 CODE >35:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A36 text12 CODE >37:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A3E text12 CODE >38:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A46 text12 CODE >39:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A52 text12 CODE >41:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A5A text12 CODE >42:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A5C text12 CODE >43:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A5E text12 CODE >45:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A66 text12 CODE >46:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A6E text12 CODE >47:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A7E text12 CODE >49:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A80 text12 CODE >51:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A88 text12 CODE >52:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A90 text12 CODE >75:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17A98 text12 CODE >77:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AA2 text12 CODE >78:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AAC text12 CODE >79:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AB6 text12 CODE >81:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AC0 text12 CODE >82:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17ACA text12 CODE >83:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AD6 text12 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AE0 text12 CODE >86:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AEA text12 CODE >87:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17AF6 text12 CODE >89:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B00 text12 CODE >90:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B0A text12 CODE >91:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B16 text12 CODE >93:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B20 text12 CODE >94:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B2A text12 CODE >95:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B36 text12 CODE >97:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B40 text12 CODE >98:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B4A text12 CODE >99:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B56 text12 CODE >101:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B60 text12 CODE >102:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B6A text12 CODE >103:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B76 text12 CODE >105:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B80 text12 CODE >106:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+17B8A text12 CODE >109:/home/agrigore/Capstone_ActiveEDS.X/movements.c
+177D6 text11 CODE >73:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177D6 text11 CODE >77:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177D8 text11 CODE >80:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177DC text11 CODE >83:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177E2 text11 CODE >84:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177E6 text11 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17778 text10 CODE >26:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17778 text10 CODE >28:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17780 text10 CODE >29:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17782 text9 CODE >32:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17782 text9 CODE >34:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+1778A text9 CODE >35:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+1778C text8 CODE >38:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+1778C text8 CODE >40:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17794 text8 CODE >41:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17796 text7 CODE >44:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+17796 text7 CODE >46:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+1779E text7 CODE >47:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177A0 text6 CODE >50:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177A0 text6 CODE >52:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177A8 text6 CODE >53:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177AA text5 CODE >56:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177AA text5 CODE >58:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177B2 text5 CODE >59:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177B4 text4 CODE >62:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177B4 text4 CODE >64:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177BC text4 CODE >65:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177BE text3 CODE >68:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177BE text3 CODE >70:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177C6 text3 CODE >71:/home/agrigore/Capstone_ActiveEDS.X/ADC_Config.c
+177F0 text2 CODE >63:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177F0 text2 CODE >66:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177F2 text2 CODE >67:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177F4 text2 CODE >68:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177F6 text2 CODE >69:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177F8 text2 CODE >70:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177FA text2 CODE >71:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177FC text2 CODE >72:/home/agrigore/Capstone_ActiveEDS.X/system.c
+177FE text2 CODE >73:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17800 text2 CODE >75:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17802 text2 CODE >76:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17804 text2 CODE >77:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17806 text2 CODE >78:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17808 text2 CODE >79:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1780A text2 CODE >80:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1780C text2 CODE >81:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1780E text2 CODE >82:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17810 text2 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17812 text2 CODE >88:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17846 text1 CODE >24:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17846 text1 CODE >27:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1784E text1 CODE >28:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17850 text1 CODE >32:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17852 text1 CODE >33:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17854 text1 CODE >36:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17856 text1 CODE >37:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17858 text1 CODE >38:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1785A text1 CODE >41:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1785C text1 CODE >42:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1785E text1 CODE >43:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17860 text1 CODE >47:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17862 text1 CODE >48:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17864 text1 CODE >49:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17866 text1 CODE >50:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17868 text1 CODE >51:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1786A text1 CODE >52:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1786C text1 CODE >53:/home/agrigore/Capstone_ActiveEDS.X/system.c
+1786E text1 CODE >54:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17870 text1 CODE >55:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17872 text1 CODE >56:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17874 text1 CODE >57:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17876 text1 CODE >60:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17878 text1 CODE >61:/home/agrigore/Capstone_ActiveEDS.X/system.c
+17B8C text0 CODE >53:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17B8C text0 CODE >56:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17B90 text0 CODE >57:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17B94 text0 CODE >61:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17B98 text0 CODE >62:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17B9C text0 CODE >63:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BA4 text0 CODE >64:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BAC text0 CODE >65:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BB4 text0 CODE >66:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BBC text0 CODE >67:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BC4 text0 CODE >68:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BCC text0 CODE >69:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BD4 text0 CODE >70:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BDC text0 CODE >73:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BE4 text0 CODE >74:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BEC text0 CODE >78:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BF0 text0 CODE >81:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17BFC text0 CODE >83:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C04 text0 CODE >84:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C0C text0 CODE >85:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C14 text0 CODE >86:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C1C text0 CODE >87:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C24 text0 CODE >88:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C2C text0 CODE >89:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C34 text0 CODE >90:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C3C text0 CODE >92:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C3E text0 CODE >100:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C44 text0 CODE >102:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C48 text0 CODE >103:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C4C text0 CODE >105:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C52 text0 CODE >107:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C56 text0 CODE >108:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C5A text0 CODE >110:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C62 text0 CODE >112:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C66 text0 CODE >113:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C6A text0 CODE >116:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C6E text0 CODE >124:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C72 text0 CODE >125:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C7E text0 CODE >129:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C82 text0 CODE >130:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C8E text0 CODE >134:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C92 text0 CODE >135:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17C9E text0 CODE >139:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CA2 text0 CODE >140:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CAE text0 CODE >144:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CB2 text0 CODE >145:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CBE text0 CODE >149:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CC2 text0 CODE >150:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CCE text0 CODE >154:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CD2 text0 CODE >155:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CDE text0 CODE >159:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CE2 text0 CODE >160:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CEE text0 CODE >164:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17CFA text0 CODE >173:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17D1E text0 CODE >174:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17D42 text0 CODE >175:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17D66 text0 CODE >176:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17D8A text0 CODE >177:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17DAE text0 CODE >178:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17DD2 text0 CODE >179:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17DF6 text0 CODE >190:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17E04 text0 CODE >194:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17E28 text0 CODE >195:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17E4C text0 CODE >196:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17E70 text0 CODE >197:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17E94 text0 CODE >198:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17EB8 text0 CODE >199:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17EDC text0 CODE >200:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17F00 text0 CODE >207:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17F02 text0 CODE >210:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17F26 text0 CODE >211:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17F4A text0 CODE >212:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17F6E text0 CODE >213:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17F92 text0 CODE >214:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17FB6 text0 CODE >215:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17FDA text0 CODE >216:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17FFE text0 CODE >76:/home/agrigore/Capstone_ActiveEDS.X/main.c
+17814 cinit CODE >7031:/tmp/xcXrcoKHg
+17814 cinit CODE >7033:/tmp/xcXrcoKHg
+17814 cinit CODE >7036:/tmp/xcXrcoKHg
+17814 cinit CODE >7089:/tmp/xcXrcoKHg
+17818 cinit CODE >7090:/tmp/xcXrcoKHg
+1781A cinit CODE >7091:/tmp/xcXrcoKHg
+1781A cinit CODE >7092:/tmp/xcXrcoKHg
+1781C cinit CODE >7093:/tmp/xcXrcoKHg
+1781E cinit CODE >7094:/tmp/xcXrcoKHg
+17820 cinit CODE >7099:/tmp/xcXrcoKHg
+17822 cinit CODE >7100:/tmp/xcXrcoKHg
+17824 cinit CODE >7101:/tmp/xcXrcoKHg
+17826 cinit CODE >7102:/tmp/xcXrcoKHg
+17828 cinit CODE >7103:/tmp/xcXrcoKHg
+1782A cinit CODE >7104:/tmp/xcXrcoKHg
+1782C cinit CODE >7105:/tmp/xcXrcoKHg
+17830 cinit CODE >7106:/tmp/xcXrcoKHg
+17834 cinit CODE >7107:/tmp/xcXrcoKHg
+17834 cinit CODE >7108:/tmp/xcXrcoKHg
+17836 cinit CODE >7109:/tmp/xcXrcoKHg
+1783A cinit CODE >7110:/tmp/xcXrcoKHg
+1783C cinit CODE >7111:/tmp/xcXrcoKHg
+1783E cinit CODE >7112:/tmp/xcXrcoKHg
+17840 cinit CODE >7118:/tmp/xcXrcoKHg
+17840 cinit CODE >7120:/tmp/xcXrcoKHg
+17842 cinit CODE >7121:/tmp/xcXrcoKHg
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -357,35 +380,38 @@ FA text0 CODE >57:/home/agrigore/Capstone_ActiveEDS.X/main.c
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Hspace_1 3B 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Hspace_1 44 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_IESO$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __size_of_ecan_receive_rxb0 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_readADC 444 0 CODE 0 text11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_readADC 177F0 0 CODE 0 text11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXM0SIDH F18 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXM0SIDL F19 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXA0Jefh.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXOOJFNn.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_BACK 38 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_FORW 39 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/xcXA0Jefh.obj
-_main C6 0 CODE 0 text0 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-btemp 3A 0 COMRAM 1 temp dist/Default/production/Capstone_ActiveEDS.X.production.obj
-start C2 0 CODE 0 init /tmp/xcXA0Jefh.obj
+_BACK 30 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_FORW 31 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+___sp 0 0 STACK 2 stack /tmp/xcXOOJFNn.obj
+_main 17B8C 0 CODE 0 text0 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+start 0 0 CODE 0 init /tmp/xcXOOJFNn.obj
 __size_of_main 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-readADC@digitalVal 20 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+readADC@digitalVal 3 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 ecan_receive_rxb0@mess 1 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Hpowerup C2 0 CODE 0 powerup dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_ConfigureOscillator 460 0 CODE 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/xcXA0Jefh.obj
-intlevel0 0 0 CODE 0 text /tmp/xcXA0Jefh.obj
-intlevel1 0 0 CODE 0 text /tmp/xcXA0Jefh.obj
-intlevel2 0 0 CODE 0 text /tmp/xcXA0Jefh.obj
-intlevel3 0 0 CODE 0 text /tmp/xcXA0Jefh.obj
+__Hpowerup 0 0 CODE 0 powerup dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_ConfigureOscillator 177D6 0 CODE 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+movement@current_pos 1 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@newMessage 21 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__size_of_movement 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__accesstop 60 0 ABS 0 - /tmp/xcXOOJFNn.obj
+intlevel0 0 0 CODE 0 text /tmp/xcXOOJFNn.obj
+intlevel1 0 0 CODE 0 text /tmp/xcXOOJFNn.obj
+intlevel2 0 0 CODE 0 text /tmp/xcXOOJFNn.obj
+intlevel3 0 0 CODE 0 text /tmp/xcXOOJFNn.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _OSCCONbits FD3 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -398,36 +424,42 @@ __CFG_EBTR5$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.product
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_ecan_init 3D2 0 CODE 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_setAnalogIn 406 0 CODE 0 text1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_ecan_init 17938 0 CODE 0 text15 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_setAnalogIn 1787A 0 CODE 0 text1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__pidataCOMRAM 17774 0 CODE 0 idataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __size_of_ecan_init 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _ADRESH FC4 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _ADRESL FC3 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/xcXA0Jefh.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/xcXA0Jefh.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/xcXOOJFNn.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/xcXOOJFNn.obj
+__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator0 28 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator1 2A 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator2 2C 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator3 2E 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator4 30 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator5 32 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator6 34 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@actuator7 36 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_ecan_init 314 0 CODE 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator0 11 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator1 13 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator2 15 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator3 17 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator4 19 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator5 1B 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator6 1D 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@actuator7 F 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_ecan_init 1787A 0 CODE 0 text15 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TXB0DLC F45 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_ecan_receive_rxb0 314 0 CODE 0 text17 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Hintcodelo C2 0 CODE 0 intcodelo dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_ecan_rxb0_clear 4C0 0 CODE 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_ecan_receive_rxb0 17A1A 0 CODE 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_extendPos 40 0 COMRAM 1 dataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Hintcodelo 0 0 CODE 0 intcodelo dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_movement 17A1A 0 CODE 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_ecan_rxb0_clear 17774 0 CODE 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_BOREN$BOHW 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _OSCTUNEbits F9B 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Lintcodelo C2 0 CODE 0 intcodelo dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_movement 17B8C 0 CODE 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@extendPos 2C 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Lintcodelo 0 0 CODE 0 intcodelo dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-start_initialization 444 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
+start_initialization 17814 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_PBADEN$ON 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-ISR@newMessage 13 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TRISAbits F92 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TRISBbits F93 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -460,8 +492,8 @@ _TXB0D4 F4A 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.ob
 _TXB0D5 F4B 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TXB0D6 F4C 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TXB0D7 F4D 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_ecan_rxb0_clear 4BC 0 CODE 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_readADC 42A 0 CODE 0 text11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_ecan_rxb0_clear 17770 0 CODE 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_readADC 177D6 0 CODE 0 text11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _CANSTATbits F6E 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -491,14 +523,15 @@ __Htext6 0 0 ABS 0 text6 dist/Default/production/Capstone_ActiveEDS.X.production
 __Htext7 0 0 ABS 0 text7 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Htext8 0 0 ABS 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Htext9 0 0 ABS 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-ecan_init@sid0 20 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_retractPos 42 0 COMRAM 1 dataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+ecan_init@sid0 3 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbank10 0 0 ABS 0 bank10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbank11 0 0 ABS 0 bank11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbank12 0 0 ABS 0 bank12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXA0Jefh.obj
-_ecan_receive_rxb0 232 0 CODE 0 text17 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXOOJFNn.obj
+_ecan_receive_rxb0 17938 0 CODE 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -533,39 +566,40 @@ __Ltext8 0 0 ABS 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production
 __Ltext9 0 0 ABS 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hfarbss 0 0 FARRAM 0 farbss dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/Default/production/Capstone_ActiveEDS.X.production.obj
+movement@margin 7 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _INTCONbits FF2 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Habs1 0 0 ABS 0 abs1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hdata 0 0 ABS 0 data dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Hinit C2 0 CODE 0 init dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Hinit 0 0 CODE 0 init dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Htemp 3B 0 COMRAM 1 temp dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Htemp 0 0 COMRAM 1 temp dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Htext 0 0 ABS 0 text dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Ldata 0 0 ABS 0 data dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Linit C2 0 CODE 0 init dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Linit 0 0 CODE 0 init dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Ltemp 3A 0 COMRAM 1 temp dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Ltemp 0 0 COMRAM 1 temp dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Ltext 0 0 ABS 0 text dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_XINST$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-int$flags 3A 0 COMRAM 1 temp dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _CIOCONbits F73 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hintret 0 0 ABS 0 intret dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_ISR 8 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __S0 30000E 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__S1 3B 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__S1 44 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __S2 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_OSC$IRCIO67 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-?_readADC 1E 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+main@retractPos 1F 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+?_readADC 1 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__size_of_enable_interrupts 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXF0SIDLbits F01 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_ISR C2 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/Default/production/Capstone_ActiveEDS.X.production.obj
+movement@move0 B 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+movement@move1 D 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __size_of_ecan_rxb0_clear 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hramtop D00 0 RAM 0 ramtop dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -576,25 +610,25 @@ __Htext11 0 0 ABS 0 text11 dist/Default/production/Capstone_ActiveEDS.X.producti
 __Htext12 0 0 ABS 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Htext13 0 0 ABS 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Htext14 0 0 ABS 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Htext16 0 0 ABS 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Htext17 0 0 ABS 0 text17 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_BBSIZ$1024 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _PIE3bits FA3 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext10 4B2 0 CODE 0 text10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext11 42A 0 CODE 0 text11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext12 460 0 CODE 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext13 314 0 CODE 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext14 452 0 CODE 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext16 4BC 0 CODE 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext17 232 0 CODE 0 text17 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN0 4BC 0 CODE 0 text10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN1 4B2 0 CODE 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN2 4A8 0 CODE 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN3 49E 0 CODE 0 text7 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN4 494 0 CODE 0 text6 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN5 48A 0 CODE 0 text5 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN6 480 0 CODE 0 text4 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_selectAN7 476 0 CODE 0 text3 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext10 17778 0 CODE 0 text10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext11 177D6 0 CODE 0 text11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext12 17A1A 0 CODE 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext13 17770 0 CODE 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext14 17938 0 CODE 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext15 1787A 0 CODE 0 text15 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext16 177C8 0 CODE 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN0 17782 0 CODE 0 text10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN1 1778C 0 CODE 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN2 17796 0 CODE 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN3 177A0 0 CODE 0 text7 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN4 177AA 0 CODE 0 text6 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN5 177B4 0 CODE 0 text5 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN6 177BE 0 CODE 0 text4 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_selectAN7 177C8 0 CODE 0 text3 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lbank10 0 0 ABS 0 bank10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lbank11 0 0 ABS 0 bank11 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lbank12 0 0 ABS 0 bank12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -613,63 +647,60 @@ __Lcomram 0 0 ABS 0 comram dist/Default/production/Capstone_ActiveEDS.X.producti
 __Lconfig 300000 0 CONFIG 0 config dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXB0DLC F65 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXB1DLC F55 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-ecan_init@mask0 22 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+ecan_init@mask0 5 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _LATAbits F89 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _LATCbits F8B 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _LATDbits F8C 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN0 4B2 0 CODE 0 text10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN1 4A8 0 CODE 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN2 49E 0 CODE 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN3 494 0 CODE 0 text7 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN4 48A 0 CODE 0 text6 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN5 480 0 CODE 0 text5 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN6 476 0 CODE 0 text4 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_selectAN7 46C 0 CODE 0 text3 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-stackhi CFF 0 ABS 0 - /tmp/xcXA0Jefh.obj
-stacklo 60 0 ABS 0 - /tmp/xcXA0Jefh.obj
-__Lintcode 8 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.production.obj
+movement@actuator 5 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN0 17778 0 CODE 0 text10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN1 17782 0 CODE 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN2 1778C 0 CODE 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN3 17796 0 CODE 0 text7 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN4 177A0 0 CODE 0 text6 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN5 177AA 0 CODE 0 text5 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN6 177B4 0 CODE 0 text4 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_selectAN7 177BE 0 CODE 0 text3 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+stackhi CFF 0 ABS 0 - /tmp/xcXOOJFNn.obj
+stacklo 60 0 ABS 0 - /tmp/xcXOOJFNn.obj
+__Lintcode 0 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _ADCON0bits FC2 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _ADCON1bits FC1 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _ADCON2bits FC0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_setActuatorCntrl 406 0 CODE 0 text2 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_setActuatorCntrl 177F0 0 CODE 0 text2 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lspace_0 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__pbssCOMRAM 38 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_PIR3bits FA4 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Lend_init C2 0 CODE 0 end_init dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__pbssCOMRAM 2E 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Lend_init 0 0 CODE 0 end_init dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_LVP$ON 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@extend 26 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-main@retract 24 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-end_of_initialization 448 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
+end_of_initialization 17840 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RCONbits FD0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Hreset_vec 4 0 CODE 0 reset_vec dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Hreset_vec 0 0 CODE 0 reset_vec dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXB1CONbits F50 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_enable_interrupts 46C 0 CODE 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lramtop D00 0 RAM 0 ramtop dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TXB0SIDH F41 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TXB0SIDL F42 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__pcinit 444 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_setAnalogIn 3D2 0 CODE 0 text1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext0 C6 0 CODE 0 text0 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext1 3D2 0 CODE 0 text1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext2 406 0 CODE 0 text2 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext3 46C 0 CODE 0 text3 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext4 476 0 CODE 0 text4 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext5 480 0 CODE 0 text5 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext6 48A 0 CODE 0 text6 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext7 494 0 CODE 0 text7 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext8 49E 0 CODE 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ptext9 4A8 0 CODE 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__pcinit 17814 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_setAnalogIn 17846 0 CODE 0 text1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext0 17B8C 0 CODE 0 text0 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext1 17846 0 CODE 0 text1 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext2 177F0 0 CODE 0 text2 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext3 177BE 0 CODE 0 text3 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext4 177B4 0 CODE 0 text4 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext5 177AA 0 CODE 0 text5 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext6 177A0 0 CODE 0 text6 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext7 17796 0 CODE 0 text7 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext8 1778C 0 CODE 0 text8 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ptext9 17782 0 CODE 0 text9 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXFCON0bits DD4 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Ltext10 0 0 ABS 0 text10 dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -677,10 +708,11 @@ __Ltext11 0 0 ABS 0 text11 dist/Default/production/Capstone_ActiveEDS.X.producti
 __Ltext12 0 0 ABS 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Ltext13 0 0 ABS 0 text13 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Ltext14 0 0 ABS 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Ltext16 0 0 ABS 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Ltext17 0 0 ABS 0 text17 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__ramtop D00 0 RAM 0 ramtop /tmp/xcXA0Jefh.obj
-__Lpowerup C2 0 CODE 0 powerup dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__ramtop D00 0 RAM 0 ramtop /tmp/xcXOOJFNn.obj
+movement@set_point 3 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Lpowerup 0 0 CODE 0 powerup dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _BRGCON1bits F70 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _BRGCON2bits F71 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -692,7 +724,7 @@ ___param_bank 10 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.producti
 _RXB0CONbits F60 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_WDT$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of__initialization 448 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of__initialization 17840 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_WRT2$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -703,17 +735,24 @@ __CFG_WRTB$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.producti
 __Libigdata 0 0 CODE 0 ibigdata dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin0 32 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin1 34 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin2 36 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin3 38 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin4 3A 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin5 3C 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin6 3E 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_margin7 2E 0 COMRAM 1 bssCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TXB0SIDLbits F42 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_setActuatorCntrl 42A 0 CODE 0 text2 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_setActuatorCntrl 17814 0 CODE 0 text2 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_PWRT$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _TXB0CONbits F40 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Hend_init C6 0 CODE 0 end_init dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Hend_init 4 0 CODE 0 end_init dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __size_of_setActuatorCntrl 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__end_of_main 232 0 CODE 0 text0 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__pintcode 8 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_ConfigureOscillator 452 0 CODE 0 text14 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__end_of_main 18000 0 CODE 0 text0 dist/Default/production/Capstone_ActiveEDS.X.production.obj
+_ConfigureOscillator 177C8 0 CODE 0 text16 dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _CANCONbits F6F 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_CP1$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -735,9 +774,8 @@ _RXB1SIDH F51 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.
 _RXB1SIDL F52 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_CPB$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__size_of_ISR 0 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
-_enable_interrupts 460 0 CODE 0 text12 dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__initialization 444 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__initialization 17814 0 CODE 0 cinit dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__pdataCOMRAM 40 0 COMRAM 1 dataCOMRAM dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXF0SIDH F00 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _RXF0SIDL F01 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
 _ECANCONbits F77 0 ABS 0 - dist/Default/production/Capstone_ActiveEDS.X.production.obj
@@ -745,7 +783,7 @@ __Hfardata 0 0 FARRAM 0 fardata dist/Default/production/Capstone_ActiveEDS.X.pro
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/Default/production/Capstone_ActiveEDS.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/Default/production/Capstone_ActiveEDS.X.production.obj
-__Hintcode C2 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.production.obj
+__Hintcode 0 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -770,8 +808,26 @@ __Hintcode C2 0 CODE 0 intcode dist/Default/production/Capstone_ActiveEDS.X.prod
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
+cinit 0 17814 17814 32 1
 idloc 0 200000 200000 8 1
-cstackCOMRAM 1 1 1 3A 1
+text0 0 17B8C 17B8C 474 1
+text1 0 17846 17846 34 1
+text2 0 177F0 177F0 24 1
+text3 0 177BE 177BE A 1
+text4 0 177B4 177B4 A 1
+text5 0 177AA 177AA A 1
+text6 0 177A0 177A0 A 1
+text7 0 17796 17796 A 1
+text8 0 1778C 1778C A 1
+text9 0 17782 17782 A 1
+text10 0 17778 17778 A 1
+text11 0 177D6 177D6 1A 1
+text12 0 17A1A 17A1A 172 1
+text13 0 17770 17770 4 1
+text14 0 17938 17938 E2 1
+text15 0 1787A 1787A BE 1
+text16 0 177C8 177C8 E 1
+idataCOMRAM 0 17774 17774 4 1
+cstackCOMRAM 1 1 1 43 1
 reset_vec 0 0 0 4 1
-intcode 0 8 8 4B8 1
 config 0 300000 300000 E 1

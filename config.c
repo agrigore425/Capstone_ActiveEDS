@@ -45,5 +45,5 @@ void enable_interrupts(void)
     
     //PIE1bits.RCIE   = 1;    // Enable USART receive interrupt
     PIE3bits.RXB0IE = 1;    // Enable CAN receive buffer 0 interrupt
-    PIE3bits.RXB1IE = 1;    // Enable CAN receive buffer 1 interrupt
+    //PIE3bits.RXB1IE = 1;    // Enable CAN receive buffer 1 interrupt
 }

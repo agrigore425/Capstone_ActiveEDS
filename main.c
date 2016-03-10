@@ -23,6 +23,7 @@
 #include "interrupts.h"
 #include "config.h"
 #include "can.h"
+#include "movements.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -36,6 +37,15 @@ typedef int bool;
 
 bool FORW = false;
 bool BACK = false;
+int margin0 = 0;
+int margin1 = 0;
+int margin2 = 0;
+int margin3 = 0;
+int margin4 = 0;
+int margin5 = 0;
+int margin6 = 0;
+int margin7 = 0;
+    
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
@@ -45,7 +55,7 @@ void main(void)
     /* Configure the oscillator for the device */
     ConfigureOscillator();
     ecan_init();
-    enable_interrupts();
+    //enable_interrupts();
     
     
     setAnalogIn();
@@ -60,11 +70,54 @@ void main(void)
     unsigned int actuator7 = 0;
     
     
+    unsigned int retractPos = 200;
+    unsigned int extendPos = 800;
     
-    unsigned int retract = 200;
-    unsigned int extend = 800;
     while(1)
     {
+        if(RXB0CONbits.RXB0FUL)
+        {
+            Message newMessage;
+            ecan_receive_rxb0(&newMessage);
+            
+            margin0 = 0;
+            margin1 = 0;
+            margin2 = 0;
+            margin3 = 0;
+            margin4 = 0;
+            margin5 = 0;
+            margin6 = 0;
+            margin7 = 0;
+            
+            LATAbits.LATA7 ^= 1; 
+            
+
+
+
+            //Message parsing:
+            //IDLE = 0, FORW = 1, BACK = 2
+
+            if (newMessage.data[0] == 0x00)
+            {
+                FORW = false;
+                BACK = false;
+            }
+            if (newMessage.data[0] == 0x01)
+            {
+                FORW = true;
+                BACK = false;
+            }
+            if (newMessage.data[0] == 0x02)
+            {
+                FORW = false;
+                BACK = true;
+            }
+
+            ecan_rxb0_clear();          // Clear flag
+        }
+        
+        
+        
         //READ ADCs---------------------------------------------------
         //CHANNEL 0 - Actuator 0/7
         //Start ADC reading Channel 0
@@ -106,451 +159,85 @@ void main(void)
         selectAN7();
         actuator7 = readADC();
         
-        if(FORW == false && BACK == false)
-        {
-            //EVERY OTHER RELAY
-            LATCbits.LATC0 = 0; 
-            LATCbits.LATC1 = 1;
-            
-            LATCbits.LATC2 = 0;
-            LATCbits.LATC3 = 1;
-            
-            LATDbits.LATD0 = 0; 
-            LATDbits.LATD1 = 1;
-            
-            LATDbits.LATD2 = 0; 
-            LATDbits.LATD3 = 1;
-            
-            LATCbits.LATC4 = 0;
-            LATCbits.LATC5 = 1;
-            
-            LATCbits.LATC6 = 0;
-            LATCbits.LATC7 = 1;
-            
-            LATDbits.LATD4 = 0; 
-            LATDbits.LATD5 = 1;
-            
-            LATDbits.LATD6 = 0; 
-            LATDbits.LATD7 = 1;
-        } else if (FORW == true && BACK == false)
-        {
-            //ALL ON FOR FORWARD
-            LATCbits.LATC0 = 1; 
-            LATCbits.LATC1 = 1;
-            
-            LATCbits.LATC2 = 1;
-            LATCbits.LATC3 = 1;
-            
-            LATDbits.LATD0 = 1; 
-            LATDbits.LATD1 = 1;
-            
-            LATDbits.LATD2 = 1; 
-            LATDbits.LATD3 = 1;
-            
-            LATCbits.LATC4 = 1;
-            LATCbits.LATC5 = 1;
-            
-            LATCbits.LATC6 = 1;
-            LATCbits.LATC7 = 1;
-            
-            LATDbits.LATD4 = 1; 
-            LATDbits.LATD5 = 1;
-            
-            LATDbits.LATD6 = 1; 
-            LATDbits.LATD7 = 1;
-        } else if (FORW == false && BACK == true)
-        {
-            //ALL OFF FOR BACK
-            LATCbits.LATC0 = 0; 
-            LATCbits.LATC1 = 0;
-            
-            LATCbits.LATC2 = 0;
-            LATCbits.LATC3 = 0;
-            
-            LATDbits.LATD0 = 0; 
-            LATDbits.LATD1 = 0;
-            
-            LATDbits.LATD2 = 0; 
-            LATDbits.LATD3 = 0;
-            
-            LATCbits.LATC4 = 0;
-            LATCbits.LATC5 = 0;
-            
-            LATCbits.LATC6 = 0;
-            LATCbits.LATC7 = 0;
-            
-            LATDbits.LATD4 = 0; 
-            LATDbits.LATD5 = 0;
-            
-            LATDbits.LATD6 = 0; 
-            LATDbits.LATD7 = 0;
-        }
         
-        /*
         //CHANGE ACTUATOR POSITION BASED ON MAIN MC COMMAND------------
         if(FORW == true && BACK == false)
         {
             //0,2,5,7 retract
             //1,3,4,6 extend/stay long
+            
+            //testALLON();
+            
 
-            //Retract movements:
-            //Actuator 0 = C0,C1 needs to retract
-            if (actuator0 < retract)
-            {
-                LATCbits.LATC0 = 0; //needs to extend
-                LATCbits.LATC1 = 1;
-            } else if (actuator0 > retract)
-            {
-                LATCbits.LATC0 = 1; //needs to retract
-                LATCbits.LATC1 = 0;
-            } else {
-                LATCbits.LATC0 = 0; //no motion
-                LATCbits.LATC1 = 0;
-            }
-
-            //Actuator 1 = C2,C3 needs to extend
-            if (actuator1 < extend)
-            {
-                LATCbits.LATC2 = 0; //needs to extend
-                LATCbits.LATC3 = 1;
-            } else if (actuator1 > extend)
-            {
-                LATCbits.LATC2 = 1; //needs to retract
-                LATCbits.LATC3 = 0;
-            } else {
-                LATCbits.LATC2 = 0; //no motion
-                LATCbits.LATC3 = 0;
-            }
-
-            //Actuator 2 = D0,D1 needs to retract
-            if (actuator2 < retract)
-            {
-                LATDbits.LATD0 = 0; //needs to extend
-                LATDbits.LATD1 = 1;
-            } else if (actuator2 > retract)
-            {
-                LATDbits.LATD0 = 1; //needs to retract
-                LATDbits.LATD1 = 0;
-            } else {
-                LATDbits.LATD0 = 0; //no motion
-                LATDbits.LATD1 = 0;
-            }
-
-            //Actuator 3 = D2,D3 needs to extend
-            if (actuator3 < extend)
-            {
-                LATDbits.LATD2 = 0; //needs to extend
-                LATDbits.LATD3 = 1;
-            } else if (actuator3 > extend)
-            {
-                LATDbits.LATD2 = 1; //needs to retract
-                LATDbits.LATD3 = 0;
-            } else {
-                LATDbits.LATD2 = 0; //no motion
-                LATDbits.LATD3 = 0;
-            }
-
-            //Actuator 4 = C4,C5 needs to extend
-            if (actuator4 < extend)
-            {
-                LATCbits.LATC4 = 0; //needs to extend
-                LATCbits.LATC5 = 1;
-            } else if (actuator4 > extend)
-            {
-                LATCbits.LATC4 = 1; //needs to retract
-                LATCbits.LATC5 = 0;
-            } else {
-                LATCbits.LATC4 = 0; //no motion
-                LATCbits.LATC5 = 0;
-            }
-
-            //Actuator 5 = C6,C7 needs to retract
-            if (actuator5 < retract)
-            {
-                LATCbits.LATC6 = 0; //needs to extend
-                LATCbits.LATC7 = 1;
-            } else if (actuator5 > retract)
-            {
-                LATCbits.LATC6 = 1; //needs to retract
-                LATCbits.LATC7 = 0;
-            } else {
-                LATCbits.LATC6 = 0; //no motion
-                LATCbits.LATC7 = 0;
-            }
-
-            //Actuator 6 = D4,D5 needs to extend
-            if (actuator6 < extend)
-            {
-                LATDbits.LATD4 = 0; //needs to extend
-                LATDbits.LATD5 = 1;
-            } else if (actuator6 > extend)
-            {
-                LATDbits.LATD4 = 1; //needs to retract
-                LATDbits.LATD5 = 0;
-            } else {
-                LATDbits.LATD4 = 0; //no motion
-                LATDbits.LATD5 = 0;
-            }
-
-            //Actuator 7 = D6,D7 needs to retract
-            if (actuator7 < retract)
-            {
-                LATDbits.LATD6 = 0; //needs to extend
-                LATDbits.LATD7 = 1;
-            } else if (actuator7 > retract)
-            {
-                LATDbits.LATD6 = 1; //needs to retract
-                LATDbits.LATD7 = 0;
-            } else {
-                LATDbits.LATD6 = 0; //no motion
-                LATDbits.LATD7 = 0;
-            }
+            
+            movement(actuator0, retractPos, 0, &margin0);
+            movement(actuator1, extendPos, 1, &margin1);
+            movement(actuator2, retractPos, 2, &margin2);
+            movement(actuator3, extendPos, 3, &margin3);
+            movement(actuator4, extendPos, 4, &margin4);
+            movement(actuator5, retractPos, 5, &margin5);
+            movement(actuator6, extendPos, 6, &margin6);
+            //movement(actuator7, retractPos, 7, &margin7);
             
             
+            
+            /*
+            forward_movements(actuator0, actuator1, actuator2, actuator3,
+                              actuator4, actuator5, actuator6, actuator7);
+            */
+            //speedControlForw4_6(actuator4, actuator6);
+
         } else if(BACK == true && FORW == false) {
             //0,2,5,7 extend/stay long
             //1,3,4,6 retract
-
-            //Retract movements:
-            //Actuator 0 = C0,C1 needs to extend
-            if (actuator0 < extend)
-            {
-                LATCbits.LATC0 = 0; //needs to extend
-                LATCbits.LATC1 = 1;
-            } else if (actuator0 > extend)
-            {
-                LATCbits.LATC0 = 1; //needs to retract
-                LATCbits.LATC1 = 0;
-            } else {
-                LATCbits.LATC0 = 0; //no motion
-                LATCbits.LATC1 = 0;
-            }
-
-            //Actuator 1 = C2,C3 needs to retract
-            if (actuator1 < retract)
-            {
-                LATCbits.LATC2 = 0; //needs to extend
-                LATCbits.LATC3 = 1;
-            } else if (actuator1 > retract)
-            {
-                LATCbits.LATC2 = 1; //needs to retract
-                LATCbits.LATC3 = 0;
-            } else {
-                LATCbits.LATC2 = 0; //no motion
-                LATCbits.LATC3 = 0;
-            }
-
-            //Actuator 2 = D0,D1 needs to extend
-            if (actuator2 < extend)
-            {
-                LATDbits.LATD0 = 0; //needs to extend
-                LATDbits.LATD1 = 1;
-            } else if (actuator2 > extend)
-            {
-                LATDbits.LATD0 = 1; //needs to retract
-                LATDbits.LATD1 = 0;
-            } else {
-                LATDbits.LATD0 = 0; //no motion
-                LATDbits.LATD1 = 0;
-            }
-
-            //Actuator 3 = D2,D3 needs to retract
-            if (actuator3 < retract)
-            {
-                LATDbits.LATD2 = 0; //needs to extend
-                LATDbits.LATD3 = 1;
-            } else if (actuator3 > retract)
-            {
-                LATDbits.LATD2 = 1; //needs to retract
-                LATDbits.LATD3 = 0;
-            } else {
-                LATDbits.LATD2 = 0; //no motion
-                LATDbits.LATD3 = 0;
-            }
-
-            //Actuator 4 = C4,C5 needs to retract
-            if (actuator4 < retract)
-            {
-                LATCbits.LATC4 = 0; //needs to extend
-                LATCbits.LATC5 = 1;
-            } else if (actuator4 > retract)
-            {
-                LATCbits.LATC4 = 1; //needs to retract
-                LATCbits.LATC5 = 0;
-            } else {
-                LATCbits.LATC4 = 0; //no motion
-                LATCbits.LATC5 = 0;
-            }
-
-            //Actuator 5 = C6,C7 needs to extend
-            if (actuator5 < extend)
-            {
-                LATCbits.LATC6 = 0; //needs to extend
-                LATCbits.LATC7 = 1;
-            } else if (actuator5 > extend)
-            {
-                LATCbits.LATC6 = 1; //needs to retract
-                LATCbits.LATC7 = 0;
-            } else {
-                LATCbits.LATC6 = 0; //no motion
-                LATCbits.LATC7 = 0;
-            }
-
-            //Actuator 6 = D4,D5 needs to retract
-            if (actuator6 < retract)
-            {
-                LATDbits.LATD4 = 0; //needs to extend
-                LATDbits.LATD5 = 1;
-            } else if (actuator6 > retract)
-            {
-                LATDbits.LATD4 = 1; //needs to retract
-                LATDbits.LATD5 = 0;
-            } else {
-                LATDbits.LATD4 = 0; //no motion
-                LATDbits.LATD5 = 0;
-            }
-
-            //Actuator 7 = D6,D7 needs to extend
-            if (actuator7 < extend)
-            {
-                LATDbits.LATD6 = 0; //needs to extend
-                LATDbits.LATD7 = 1;
-            } else if (actuator7 > extend)
-            {
-                LATDbits.LATD6 = 1; //needs to retract
-                LATDbits.LATD7 = 0;
-            } else {
-                LATDbits.LATD6 = 0; //no motion
-                LATDbits.LATD7 = 0;
-            }
+            //testALLOFF();
+            movement(actuator0, extendPos, 0, &margin0);
+            movement(actuator1, retractPos, 1, &margin1);
+            movement(actuator2, extendPos, 2, &margin2);
+            movement(actuator3, retractPos, 3, &margin3);
+            movement(actuator4, retractPos, 4, &margin4);
+            movement(actuator5, extendPos, 5, &margin5);
+            movement(actuator6, retractPos, 6, &margin6);
+            //movement(actuator7, extendPos, 7, &margin7);
             
-            
+            /*
+            backward_movements(actuator0, actuator1, actuator2, actuator3,
+                              actuator4, actuator5, actuator6, actuator7);
+            */
         } else {
-            if (actuator0 < extend)
-            {
-                LATCbits.LATC0 = 0; //needs to extend
-                LATCbits.LATC1 = 1;
-            } else if (actuator0 > extend)
-            {
-                LATCbits.LATC0 = 1; //needs to retract
-                LATCbits.LATC1 = 0;
-            } else {
-                LATCbits.LATC0 = 0; //no motion
-                LATCbits.LATC1 = 0;
-            }
-
-            //Actuator 1 = C2,C3 needs to extend
-            if (actuator1 < extend)
-            {
-                LATCbits.LATC2 = 0; //needs to extend
-                LATCbits.LATC3 = 1;
-            } else if (actuator1 > extend)
-            {
-                LATCbits.LATC2 = 1; //needs to retract
-                LATCbits.LATC3 = 0;
-            } else {
-                LATCbits.LATC2 = 0; //no motion
-                LATCbits.LATC3 = 0;
-            }
-
-            //Actuator 2 = D0,D1 needs to extend
-            if (actuator2 < extend)
-            {
-                LATDbits.LATD0 = 0; //needs to extend
-                LATDbits.LATD1 = 1;
-            } else if (actuator2 > extend)
-            {
-                LATDbits.LATD0 = 1; //needs to retract
-                LATDbits.LATD1 = 0;
-            } else {
-                LATDbits.LATD0 = 0; //no motion
-                LATDbits.LATD1 = 0;
-            }
-
-            //Actuator 3 = D2,D3 needs to extend
-            if (actuator3 < extend)
-            {
-                LATDbits.LATD2 = 0; //needs to extend
-                LATDbits.LATD3 = 1;
-            } else if (actuator3 > extend)
-            {
-                LATDbits.LATD2 = 1; //needs to retract
-                LATDbits.LATD3 = 0;
-            } else {
-                LATDbits.LATD2 = 0; //no motion
-                LATDbits.LATD3 = 0;
-            }
-
-            //Actuator 4 = C4,C5 needs to extend
-            if (actuator4 < extend)
-            {
-                LATCbits.LATC4 = 0; //needs to extend
-                LATCbits.LATC5 = 1;
-            } else if (actuator4 > extend)
-            {
-                LATCbits.LATC4 = 1; //needs to retract
-                LATCbits.LATC5 = 0;
-            } else {
-                LATCbits.LATC4 = 0; //no motion
-                LATCbits.LATC5 = 0;
-            }
-
-            //Actuator 5 = C6,C7 needs to extend
-            if (actuator5 < extend)
-            {
-                LATCbits.LATC6 = 0; //needs to extend
-                LATCbits.LATC7 = 1;
-            } else if (actuator5 > extend)
-            {
-                LATCbits.LATC6 = 1; //needs to retract
-                LATCbits.LATC7 = 0;
-            } else {
-                LATCbits.LATC6 = 0; //no motion
-                LATCbits.LATC7 = 0;
-            }
-
-            //Actuator 6 = D4,D5 needs to extend
-            if (actuator6 < extend)
-            {
-                LATDbits.LATD4 = 0; //needs to extend
-                LATDbits.LATD5 = 1;
-            } else if (actuator6 > extend)
-            {
-                LATDbits.LATD4 = 1; //needs to retract
-                LATDbits.LATD5 = 0;
-            } else {
-                LATDbits.LATD4 = 0; //no motion
-                LATDbits.LATD5 = 0;
-            }
-
-            //Actuator 7 = D6,D7 needs to extend
-            if (actuator7 < extend)
-            {
-                LATDbits.LATD6 = 0; //needs to extend
-                LATDbits.LATD7 = 1;
-            } else if (actuator7 > extend)
-            {
-                LATDbits.LATD6 = 1; //needs to retract
-                LATDbits.LATD7 = 0;
-            } else {
-                LATDbits.LATD6 = 0; //no motion
-                LATDbits.LATD7 = 0;
-            }
+            
+            
+            movement(actuator0, extendPos, 0, &margin0);
+            movement(actuator1, extendPos, 1, &margin1);
+            movement(actuator2, extendPos, 2, &margin2);
+            movement(actuator3, extendPos, 3, &margin3);
+            movement(actuator4, extendPos, 4, &margin4);
+            movement(actuator5, extendPos, 5, &margin5);
+            movement(actuator6, extendPos, 6, &margin6);
+            //movement(actuator7, extendPos, 7, &margin7);
+           /*
+            idle_movements(actuator0, actuator1, actuator2, actuator3,
+                              actuator4, actuator5, actuator6, actuator7);*/
+            
         }
-        */
+        
         
     }
 
 }
 
+
+/*
 // Main Interrupt Service Routine (ISR)
 void interrupt ISR(void)
 {
     if(PIR3bits.RXB0IF)
     {
+        resetMargins();
         LATAbits.LATA7 ^= 1; 
         Message newMessage;
         ecan_receive_rxb0(&newMessage);
+        
         
         
         //Message parsing:
@@ -560,7 +247,6 @@ void interrupt ISR(void)
         {
             FORW = false;
             BACK = false;
-            
         }
         if (newMessage.data[0] == 0x01)
         {
@@ -577,5 +263,5 @@ void interrupt ISR(void)
         PIR3bits.RXB0IF = 0;
     }
     
-}
+}*/
 
