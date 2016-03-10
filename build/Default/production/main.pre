@@ -18621,51 +18621,68 @@ BACK = 1;
 ecan_rxb0_clear();
 }
 
-# 124
+# 123
+if(margin0 == 0)
+{
+
 selectAN0();
 actuator0 = readADC();
-
+}
+if(margin1 == 0)
+{
 
 
 selectAN1();
 actuator1 = readADC();
-
+}
+if(margin2 == 0)
+{
 
 
 selectAN2();
 actuator2 = readADC();
-
+}
+if(margin3 == 0)
+{
 
 
 selectAN3();
 actuator3 = readADC();
-
+}
+if(margin4 == 0)
+{
 
 
 selectAN4();
 actuator4 = readADC();
-
+}
+if(margin5 == 0)
+{
 
 
 selectAN5();
 actuator5 = readADC();
-
+}
+if(margin6 == 0)
+{
 
 
 selectAN6();
 actuator6 = readADC();
-
+}
+if(margin7 == 0)
+{
 
 
 selectAN7();
 actuator7 = readADC();
-
+}
 
 
 if(FORW == 1 && BACK == 0)
 {
 
-# 173
+# 189
 movement(actuator0, retractPos, 0, &margin0);
 movement(actuator1, extendPos, 1, &margin1);
 movement(actuator2, retractPos, 2, &margin2);
@@ -18674,7 +18691,7 @@ movement(actuator4, extendPos, 4, &margin4);
 movement(actuator5, retractPos, 5, &margin5);
 movement(actuator6, extendPos, 6, &margin6);
 
-# 190
+# 206
 } else if(BACK == 1 && FORW == 0) {
 
 
@@ -18687,7 +18704,7 @@ movement(actuator4, retractPos, 4, &margin4);
 movement(actuator5, extendPos, 5, &margin5);
 movement(actuator6, retractPos, 6, &margin6);
 
-# 207
+# 223
 } else {
 
 
@@ -18699,7 +18716,7 @@ movement(actuator4, extendPos, 4, &margin4);
 movement(actuator5, extendPos, 5, &margin5);
 movement(actuator6, extendPos, 6, &margin6);
 
-# 222
+# 238
 }
 
 

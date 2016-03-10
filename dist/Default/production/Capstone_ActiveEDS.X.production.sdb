@@ -923,7 +923,7 @@
 [v main@actuator0 actuator0 `ui  1 a 2 16 ]
 "70
 [v main@actuator7 actuator7 `ui  1 a 2 14 ]
-"227
+"243
 } 0
 "24 /home/agrigore/Capstone_ActiveEDS.X/system.c
 [v _setAnalogIn setAnalogIn `(v  1 e 1 0 ]

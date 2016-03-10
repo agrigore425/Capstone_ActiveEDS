@@ -120,45 +120,61 @@ void main(void)
         
         //READ ADCs---------------------------------------------------
         //CHANNEL 0 - Actuator 0/7
-        //Start ADC reading Channel 0
-        selectAN0();
-        actuator0 = readADC();
-        
-        //CHANNEL 1 - Actuator 1/7
-        //Start ADC reading Channel 1
-        selectAN1();
-        actuator1 = readADC();
-        
-        //CHANNEL 2 - Actuator 2/7
-        //Start ADC reading Channel 2
-        selectAN2();
-        actuator2 = readADC();
-        
-        //CHANNEL 3 - Actuator 3/7
-        //Start ADC reading Channel 3
-        selectAN3();
-        actuator3 = readADC();
-        
-        //CHANNEL 4 - Actuator 4/7
-        //Start ADC reading Channel 4
-        selectAN4();
-        actuator4 = readADC();
-        
-        //CHANNEL 5 - Actuator 5/7
-        //Start ADC reading Channel 5
-        selectAN5();
-        actuator5 = readADC();
-        
-        //CHANNEL 6 - Actuator 6/7
-        //Start ADC reading Channel 6
-        selectAN6();
-        actuator6 = readADC();
-        
-        //CHANNEL 7 - Actuator 7/7
-        //Start ADC reading Channel 7
-        selectAN7();
-        actuator7 = readADC();
-        
+        if(margin0 == 0)
+        {
+            //Start ADC reading Channel 0
+            selectAN0();
+            actuator0 = readADC();
+        }
+        if(margin1 == 0)
+        {
+            //CHANNEL 1 - Actuator 1/7
+            //Start ADC reading Channel 1
+            selectAN1();
+            actuator1 = readADC();
+        }
+        if(margin2 == 0)
+        {
+            //CHANNEL 2 - Actuator 2/7
+            //Start ADC reading Channel 2
+            selectAN2();
+            actuator2 = readADC();
+        }
+        if(margin3 == 0)
+        {
+            //CHANNEL 3 - Actuator 3/7
+            //Start ADC reading Channel 3
+            selectAN3();
+            actuator3 = readADC();
+        }
+        if(margin4 == 0)
+        {
+            //CHANNEL 4 - Actuator 4/7
+            //Start ADC reading Channel 4
+            selectAN4();
+            actuator4 = readADC();
+        }
+        if(margin5 == 0)
+        {
+            //CHANNEL 5 - Actuator 5/7
+            //Start ADC reading Channel 5
+            selectAN5();
+            actuator5 = readADC();
+        }
+        if(margin6 == 0)
+        {
+            //CHANNEL 6 - Actuator 6/7
+            //Start ADC reading Channel 6
+            selectAN6();
+            actuator6 = readADC();
+        }
+        if(margin7 == 0)
+        {
+            //CHANNEL 7 - Actuator 7/7
+            //Start ADC reading Channel 7
+            selectAN7();
+            actuator7 = readADC();
+        }
         
         //CHANGE ACTUATOR POSITION BASED ON MAIN MC COMMAND------------
         if(FORW == true && BACK == false)
