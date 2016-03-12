@@ -112,7 +112,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _selectAN6 `(v ~T0 @X0 0 ef ]
 "21
 [v _selectAN7 `(v ~T0 @X0 0 ef ]
-"38 movements.h
+"41 movements.h
+[v _speedCheck `(v ~T0 @X0 0 ef5`ui`ui`ui`*i`*i ]
+"38
 [v _movement `(v ~T0 @X0 0 ef4`ui`ui`i`*i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -14699,9 +14701,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;movements.h: 33: unsigned int actuator4, unsigned int actuator5,
 [; ;movements.h: 34: unsigned int actuator6, unsigned int actuator7);
 [; ;movements.h: 38: void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin);
-[; ;movements.h: 41: void testEveryOther();
-[; ;movements.h: 42: void testALLON();
-[; ;movements.h: 43: void testALLOFF();
+[; ;movements.h: 41: void speedCheck(unsigned int actuator4, unsigned int actuator6, unsigned int set_point,
+[; ;movements.h: 42: int *margin4, int *margin6);
+[; ;movements.h: 44: void testEveryOther();
+[; ;movements.h: 45: void testALLON();
+[; ;movements.h: 46: void testALLOFF();
 [; ;main.c: 33: typedef int bool;
 "38 main.c
 [v _FORW `uc ~T0 @X0 1 e ]
@@ -14923,140 +14927,76 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 2106 ]
 [; ;main.c: 117: }
-[; ;main.c: 123: if(margin0 == 0)
-"123
-[e $ ! == _margin0 -> 0 `i 2110  ]
-[; ;main.c: 124: {
-"124
-{
-[; ;main.c: 126: selectAN0();
-"126
+[; ;main.c: 125: selectAN0();
+"125
 [e ( _selectAN0 ..  ]
-[; ;main.c: 127: actuator0 = readADC();
-"127
+[; ;main.c: 126: actuator0 = readADC();
+"126
 [e = _actuator0 ( _readADC ..  ]
-"128
+[; ;main.c: 131: selectAN1();
+"131
+[e ( _selectAN1 ..  ]
+[; ;main.c: 132: actuator1 = readADC();
+"132
+[e = _actuator1 ( _readADC ..  ]
+[; ;main.c: 137: selectAN2();
+"137
+[e ( _selectAN2 ..  ]
+[; ;main.c: 138: actuator2 = readADC();
+"138
+[e = _actuator2 ( _readADC ..  ]
+[; ;main.c: 143: selectAN3();
+"143
+[e ( _selectAN3 ..  ]
+[; ;main.c: 144: actuator3 = readADC();
+"144
+[e = _actuator3 ( _readADC ..  ]
+[; ;main.c: 150: selectAN4();
+"150
+[e ( _selectAN4 ..  ]
+[; ;main.c: 151: actuator4 = readADC();
+"151
+[e = _actuator4 ( _readADC ..  ]
+[; ;main.c: 156: selectAN5();
+"156
+[e ( _selectAN5 ..  ]
+[; ;main.c: 157: actuator5 = readADC();
+"157
+[e = _actuator5 ( _readADC ..  ]
+[; ;main.c: 163: selectAN6();
+"163
+[e ( _selectAN6 ..  ]
+[; ;main.c: 164: actuator6 = readADC();
+"164
+[e = _actuator6 ( _readADC ..  ]
+[; ;main.c: 166: if(margin7 == 0)
+"166
+[e $ ! == _margin7 -> 0 `i 2110  ]
+[; ;main.c: 167: {
+"167
+{
+[; ;main.c: 170: selectAN7();
+"170
+[e ( _selectAN7 ..  ]
+[; ;main.c: 171: actuator7 = readADC();
+"171
+[e = _actuator7 ( _readADC ..  ]
+"172
 }
 [e :U 2110 ]
-[; ;main.c: 128: }
-[; ;main.c: 129: if(margin1 == 0)
-"129
-[e $ ! == _margin1 -> 0 `i 2111  ]
-[; ;main.c: 130: {
-"130
-{
-[; ;main.c: 133: selectAN1();
-"133
-[e ( _selectAN1 ..  ]
-[; ;main.c: 134: actuator1 = readADC();
-"134
-[e = _actuator1 ( _readADC ..  ]
-"135
-}
-[e :U 2111 ]
-[; ;main.c: 135: }
-[; ;main.c: 136: if(margin2 == 0)
-"136
-[e $ ! == _margin2 -> 0 `i 2112  ]
-[; ;main.c: 137: {
-"137
-{
-[; ;main.c: 140: selectAN2();
-"140
-[e ( _selectAN2 ..  ]
-[; ;main.c: 141: actuator2 = readADC();
-"141
-[e = _actuator2 ( _readADC ..  ]
-"142
-}
-[e :U 2112 ]
-[; ;main.c: 142: }
-[; ;main.c: 143: if(margin3 == 0)
-"143
-[e $ ! == _margin3 -> 0 `i 2113  ]
-[; ;main.c: 144: {
-"144
-{
-[; ;main.c: 147: selectAN3();
-"147
-[e ( _selectAN3 ..  ]
-[; ;main.c: 148: actuator3 = readADC();
-"148
-[e = _actuator3 ( _readADC ..  ]
-"149
-}
-[e :U 2113 ]
-[; ;main.c: 149: }
-[; ;main.c: 150: if(margin4 == 0)
-"150
-[e $ ! == _margin4 -> 0 `i 2114  ]
-[; ;main.c: 151: {
-"151
-{
-[; ;main.c: 154: selectAN4();
-"154
-[e ( _selectAN4 ..  ]
-[; ;main.c: 155: actuator4 = readADC();
-"155
-[e = _actuator4 ( _readADC ..  ]
-"156
-}
-[e :U 2114 ]
-[; ;main.c: 156: }
-[; ;main.c: 157: if(margin5 == 0)
-"157
-[e $ ! == _margin5 -> 0 `i 2115  ]
-[; ;main.c: 158: {
-"158
-{
-[; ;main.c: 161: selectAN5();
-"161
-[e ( _selectAN5 ..  ]
-[; ;main.c: 162: actuator5 = readADC();
-"162
-[e = _actuator5 ( _readADC ..  ]
-"163
-}
-[e :U 2115 ]
-[; ;main.c: 163: }
-[; ;main.c: 164: if(margin6 == 0)
-"164
-[e $ ! == _margin6 -> 0 `i 2116  ]
-[; ;main.c: 165: {
-"165
-{
-[; ;main.c: 168: selectAN6();
-"168
-[e ( _selectAN6 ..  ]
-[; ;main.c: 169: actuator6 = readADC();
-"169
-[e = _actuator6 ( _readADC ..  ]
-"170
-}
-[e :U 2116 ]
-[; ;main.c: 170: }
-[; ;main.c: 171: if(margin7 == 0)
-"171
-[e $ ! == _margin7 -> 0 `i 2117  ]
-[; ;main.c: 172: {
-"172
-{
-[; ;main.c: 175: selectAN7();
+[; ;main.c: 172: }
+[; ;main.c: 175: if(FORW == 1 && BACK == 0)
 "175
-[e ( _selectAN7 ..  ]
-[; ;main.c: 176: actuator7 = readADC();
+[e $ ! && == -> _FORW `i -> 1 `i == -> _BACK `i -> 0 `i 2111  ]
+[; ;main.c: 176: {
 "176
-[e = _actuator7 ( _readADC ..  ]
-"177
-}
-[e :U 2117 ]
-[; ;main.c: 177: }
-[; ;main.c: 180: if(FORW == 1 && BACK == 0)
-"180
-[e $ ! && == -> _FORW `i -> 1 `i == -> _BACK `i -> 0 `i 2118  ]
-[; ;main.c: 181: {
-"181
 {
+[; ;main.c: 182: speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
+"182
+[e ( _speedCheck (4 , , , , _actuator3 _actuator1 _extendPos &U _margin3 &U _margin1 ]
+[; ;main.c: 183: speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
+"183
+[e ( _speedCheck (4 , , , , _actuator4 _actuator6 _extendPos &U _margin4 &U _margin6 ]
 [; ;main.c: 189: movement(actuator0, retractPos, 0, &margin0);
 "189
 [e ( _movement (4 , , , _actuator0 _retractPos -> 0 `i &U _margin0 ]
@@ -15081,71 +15021,71 @@ Version 3.2 HI-TECH Software Intermediate Code
 "206
 }
 [; ;main.c: 206: } else if(BACK == 1 && FORW == 0) {
-[e $U 2119  ]
-[e :U 2118 ]
-[e $ ! && == -> _BACK `i -> 1 `i == -> _FORW `i -> 0 `i 2120  ]
+[e $U 2112  ]
+[e :U 2111 ]
+[e $ ! && == -> _BACK `i -> 1 `i == -> _FORW `i -> 0 `i 2113  ]
 {
-[; ;main.c: 210: movement(actuator0, extendPos, 0, &margin0);
-"210
-[e ( _movement (4 , , , _actuator0 _extendPos -> 0 `i &U _margin0 ]
-[; ;main.c: 211: movement(actuator1, retractPos, 1, &margin1);
-"211
-[e ( _movement (4 , , , _actuator1 _retractPos -> 1 `i &U _margin1 ]
-[; ;main.c: 212: movement(actuator2, extendPos, 2, &margin2);
-"212
-[e ( _movement (4 , , , _actuator2 _extendPos -> 2 `i &U _margin2 ]
-[; ;main.c: 213: movement(actuator3, retractPos, 3, &margin3);
+[; ;main.c: 213: movement(actuator0, extendPos, 0, &margin0);
 "213
-[e ( _movement (4 , , , _actuator3 _retractPos -> 3 `i &U _margin3 ]
-[; ;main.c: 214: movement(actuator4, retractPos, 4, &margin4);
-"214
-[e ( _movement (4 , , , _actuator4 _retractPos -> 4 `i &U _margin4 ]
-[; ;main.c: 215: movement(actuator5, extendPos, 5, &margin5);
-"215
-[e ( _movement (4 , , , _actuator5 _extendPos -> 5 `i &U _margin5 ]
-[; ;main.c: 216: movement(actuator6, retractPos, 6, &margin6);
-"216
-[e ( _movement (4 , , , _actuator6 _retractPos -> 6 `i &U _margin6 ]
-"223
-}
-[; ;main.c: 223: } else {
-[e $U 2121  ]
-[e :U 2120 ]
-{
-[; ;main.c: 226: movement(actuator0, extendPos, 0, &margin0);
-"226
 [e ( _movement (4 , , , _actuator0 _extendPos -> 0 `i &U _margin0 ]
-[; ;main.c: 227: movement(actuator1, extendPos, 1, &margin1);
-"227
-[e ( _movement (4 , , , _actuator1 _extendPos -> 1 `i &U _margin1 ]
-[; ;main.c: 228: movement(actuator2, extendPos, 2, &margin2);
-"228
+[; ;main.c: 214: movement(actuator1, retractPos, 1, &margin1);
+"214
+[e ( _movement (4 , , , _actuator1 _retractPos -> 1 `i &U _margin1 ]
+[; ;main.c: 215: movement(actuator2, extendPos, 2, &margin2);
+"215
 [e ( _movement (4 , , , _actuator2 _extendPos -> 2 `i &U _margin2 ]
-[; ;main.c: 229: movement(actuator3, extendPos, 3, &margin3);
-"229
-[e ( _movement (4 , , , _actuator3 _extendPos -> 3 `i &U _margin3 ]
-[; ;main.c: 230: movement(actuator4, extendPos, 4, &margin4);
-"230
-[e ( _movement (4 , , , _actuator4 _extendPos -> 4 `i &U _margin4 ]
-[; ;main.c: 231: movement(actuator5, extendPos, 5, &margin5);
-"231
+[; ;main.c: 216: movement(actuator3, retractPos, 3, &margin3);
+"216
+[e ( _movement (4 , , , _actuator3 _retractPos -> 3 `i &U _margin3 ]
+[; ;main.c: 217: movement(actuator4, retractPos, 4, &margin4);
+"217
+[e ( _movement (4 , , , _actuator4 _retractPos -> 4 `i &U _margin4 ]
+[; ;main.c: 218: movement(actuator5, extendPos, 5, &margin5);
+"218
 [e ( _movement (4 , , , _actuator5 _extendPos -> 5 `i &U _margin5 ]
-[; ;main.c: 232: movement(actuator6, extendPos, 6, &margin6);
-"232
-[e ( _movement (4 , , , _actuator6 _extendPos -> 6 `i &U _margin6 ]
-"238
+[; ;main.c: 219: movement(actuator6, retractPos, 6, &margin6);
+"219
+[e ( _movement (4 , , , _actuator6 _retractPos -> 6 `i &U _margin6 ]
+"226
 }
-[e :U 2121 ]
-[e :U 2119 ]
+[; ;main.c: 226: } else {
+[e $U 2114  ]
+[e :U 2113 ]
+{
+[; ;main.c: 229: movement(actuator0, extendPos, 0, &margin0);
+"229
+[e ( _movement (4 , , , _actuator0 _extendPos -> 0 `i &U _margin0 ]
+[; ;main.c: 230: movement(actuator1, extendPos, 1, &margin1);
+"230
+[e ( _movement (4 , , , _actuator1 _extendPos -> 1 `i &U _margin1 ]
+[; ;main.c: 231: movement(actuator2, extendPos, 2, &margin2);
+"231
+[e ( _movement (4 , , , _actuator2 _extendPos -> 2 `i &U _margin2 ]
+[; ;main.c: 232: movement(actuator3, extendPos, 3, &margin3);
+"232
+[e ( _movement (4 , , , _actuator3 _extendPos -> 3 `i &U _margin3 ]
+[; ;main.c: 233: movement(actuator4, extendPos, 4, &margin4);
+"233
+[e ( _movement (4 , , , _actuator4 _extendPos -> 4 `i &U _margin4 ]
+[; ;main.c: 234: movement(actuator5, extendPos, 5, &margin5);
+"234
+[e ( _movement (4 , , , _actuator5 _extendPos -> 5 `i &U _margin5 ]
+[; ;main.c: 235: movement(actuator6, extendPos, 6, &margin6);
+"235
+[e ( _movement (4 , , , _actuator6 _extendPos -> 6 `i &U _margin6 ]
 "241
+}
+[e :U 2114 ]
+[e :U 2112 ]
+"244
 }
 [e :U 2103 ]
 "76
 [e $U 2104  ]
 [e :U 2105 ]
-[; ;main.c: 238: }
 [; ;main.c: 241: }
-[; ;main.c: 243: }
-"243
+[; ;main.c: 244: }
+[; ;main.c: 246: }
+"246
 [e :UE 2102 ]
 }

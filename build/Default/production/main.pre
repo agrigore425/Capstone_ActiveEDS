@@ -18538,6 +18538,9 @@ unsigned int actuator6, unsigned int actuator7);
 void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin);
 
 
+void speedCheck(unsigned int actuator4, unsigned int actuator6, unsigned int set_point,
+int *margin4, int *margin6);
+
 void testEveryOther();
 void testALLON();
 void testALLOFF();
@@ -18621,55 +18624,42 @@ BACK = 1;
 ecan_rxb0_clear();
 }
 
-# 123
-if(margin0 == 0)
-{
-
+# 125
 selectAN0();
 actuator0 = readADC();
-}
-if(margin1 == 0)
-{
+
+
 
 
 selectAN1();
 actuator1 = readADC();
-}
-if(margin2 == 0)
-{
+
+
 
 
 selectAN2();
 actuator2 = readADC();
-}
-if(margin3 == 0)
-{
+
+
 
 
 selectAN3();
 actuator3 = readADC();
-}
-if(margin4 == 0)
-{
 
-
+# 150
 selectAN4();
 actuator4 = readADC();
-}
-if(margin5 == 0)
-{
+
+
 
 
 selectAN5();
 actuator5 = readADC();
-}
-if(margin6 == 0)
-{
 
-
+# 163
 selectAN6();
 actuator6 = readADC();
-}
+
 if(margin7 == 0)
 {
 
@@ -18681,6 +18671,10 @@ actuator7 = readADC();
 
 if(FORW == 1 && BACK == 0)
 {
+
+# 182
+speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
+speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
 
 # 189
 movement(actuator0, retractPos, 0, &margin0);
@@ -18694,8 +18688,7 @@ movement(actuator6, extendPos, 6, &margin6);
 # 206
 } else if(BACK == 1 && FORW == 0) {
 
-
-
+# 213
 movement(actuator0, extendPos, 0, &margin0);
 movement(actuator1, retractPos, 1, &margin1);
 movement(actuator2, extendPos, 2, &margin2);
@@ -18704,7 +18697,7 @@ movement(actuator4, retractPos, 4, &margin4);
 movement(actuator5, extendPos, 5, &margin5);
 movement(actuator6, retractPos, 6, &margin6);
 
-# 223
+# 226
 } else {
 
 
@@ -18716,7 +18709,7 @@ movement(actuator4, extendPos, 4, &margin4);
 movement(actuator5, extendPos, 5, &margin5);
 movement(actuator6, extendPos, 6, &margin6);
 
-# 238
+# 241
 }
 
 

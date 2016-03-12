@@ -18500,7 +18500,11 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 25 "movements.c"
+# 24 "movements.c"
+typedef int bool;
+
+
+
 unsigned int retractPos = 200;
 unsigned int extendPos = 800;
 
@@ -18531,7 +18535,7 @@ move0 = 0;
 move1 = 0;
 }
 
-# 75
+# 78
 if(actuator == 0)
 {
 LATCbits.LATC0 = move0;
@@ -18568,7 +18572,7 @@ LATDbits.LATD7 = move1;
 
 }
 
-# 157
+# 160
 void forward_movements(unsigned int actuator0, unsigned int actuator1,
 unsigned int actuator2, unsigned int actuator3,
 unsigned int actuator4, unsigned int actuator5,
@@ -18925,7 +18929,7 @@ LATDbits.LATD7 = 0;
 }
 }
 
-# 529
+# 532
 void testEveryOther()
 {
 LATCbits.LATC0 = 1;
@@ -18982,4 +18986,36 @@ LATDbits.LATD4 = 0;
 LATDbits.LATD5 = 0;
 LATDbits.LATD6 = 0;
 LATDbits.LATD7 = 0;
+}
+
+
+void speedCheck(unsigned int actuatorSlow, unsigned int actuatorFast,
+unsigned int set_point, int *marginSlow, int *marginFast)
+{
+if(set_point == extendPos)
+{
+if((actuatorFast - actuatorSlow) == 10)
+{
+*marginFast = 1;
+*marginSlow = 0;
+}
+if ((actuatorSlow - actuatorFast) == 10)
+{
+*marginFast = 0;
+*marginSlow = 1;
+}
+} else if(set_point == retractPos)
+{
+if((actuatorFast - actuatorSlow) == -10)
+{
+*marginFast = 1;
+*marginSlow = 0;
+}
+if ((actuatorSlow - actuatorFast) == -10)
+{
+*marginFast = 0;
+*marginSlow = 1;
+}
+}
+
 }

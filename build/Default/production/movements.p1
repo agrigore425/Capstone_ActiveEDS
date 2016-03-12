@@ -14632,232 +14632,233 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-"25 movements.c
+[; ;movements.c: 24: typedef int bool;
+"28 movements.c
 [v _retractPos `ui ~T0 @X0 1 e ]
 [i _retractPos
 -> -> 200 `i `ui
 ]
-[; ;movements.c: 25: unsigned int retractPos = 200;
-"26
+[; ;movements.c: 28: unsigned int retractPos = 200;
+"29
 [v _extendPos `ui ~T0 @X0 1 e ]
 [i _extendPos
 -> -> 800 `i `ui
 ]
-[; ;movements.c: 26: unsigned int extendPos = 800;
-"28
+[; ;movements.c: 29: unsigned int extendPos = 800;
+"31
 [v _movement `(v ~T0 @X0 1 ef4`ui`ui`i`*i ]
-"29
+"32
 {
-[; ;movements.c: 28: void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin)
-[; ;movements.c: 29: {
+[; ;movements.c: 31: void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin)
+[; ;movements.c: 32: {
 [e :U _movement ]
-"28
+"31
 [v _current_pos `ui ~T0 @X0 1 r1 ]
 [v _set_point `ui ~T0 @X0 1 r2 ]
 [v _actuator `i ~T0 @X0 1 r3 ]
 [v _margin `*i ~T0 @X0 1 r4 ]
-"29
+"32
 [f ]
-"30
-[v _move0 `i ~T0 @X0 1 a ]
-"31
-[v _move1 `i ~T0 @X0 1 a ]
-[; ;movements.c: 30: int move0;
-[; ;movements.c: 31: int move1;
-[; ;movements.c: 33: if(*margin == 0)
 "33
-[e $ ! == *U _margin -> 0 `i 2102  ]
-[; ;movements.c: 34: {
+[v _move0 `i ~T0 @X0 1 a ]
 "34
-{
-[; ;movements.c: 35: if (current_pos < set_point)
-"35
-[e $ ! < _current_pos _set_point 2103  ]
-[; ;movements.c: 36: {
+[v _move1 `i ~T0 @X0 1 a ]
+[; ;movements.c: 33: int move0;
+[; ;movements.c: 34: int move1;
+[; ;movements.c: 36: if(*margin == 0)
 "36
-{
-[; ;movements.c: 37: move0 = 0;
+[e $ ! == *U _margin -> 0 `i 2102  ]
+[; ;movements.c: 37: {
 "37
-[e = _move0 -> 0 `i ]
-[; ;movements.c: 38: move1 = 1;
+{
+[; ;movements.c: 38: if (current_pos < set_point)
 "38
-[e = _move1 -> 1 `i ]
+[e $ ! < _current_pos _set_point 2103  ]
+[; ;movements.c: 39: {
 "39
+{
+[; ;movements.c: 40: move0 = 0;
+"40
+[e = _move0 -> 0 `i ]
+[; ;movements.c: 41: move1 = 1;
+"41
+[e = _move1 -> 1 `i ]
+"42
 }
-[; ;movements.c: 39: } else if (current_pos > set_point)
+[; ;movements.c: 42: } else if (current_pos > set_point)
 [e $U 2104  ]
 [e :U 2103 ]
 [e $ ! > _current_pos _set_point 2105  ]
-[; ;movements.c: 40: {
-"40
-{
-[; ;movements.c: 41: move0 = 1;
-"41
-[e = _move0 -> 1 `i ]
-[; ;movements.c: 42: move1 = 0;
-"42
-[e = _move1 -> 0 `i ]
+[; ;movements.c: 43: {
 "43
+{
+[; ;movements.c: 44: move0 = 1;
+"44
+[e = _move0 -> 1 `i ]
+[; ;movements.c: 45: move1 = 0;
+"45
+[e = _move1 -> 0 `i ]
+"46
 }
-[; ;movements.c: 43: } else
+[; ;movements.c: 46: } else
 [e $U 2106  ]
 [e :U 2105 ]
-[; ;movements.c: 44: {
-"44
-{
-[; ;movements.c: 45: move0 = 0;
-"45
-[e = _move0 -> 0 `i ]
-[; ;movements.c: 46: move1 = 0;
-"46
-[e = _move1 -> 0 `i ]
-[; ;movements.c: 47: *margin = 1;
+[; ;movements.c: 47: {
 "47
-[e = *U _margin -> 1 `i ]
+{
+[; ;movements.c: 48: move0 = 0;
 "48
+[e = _move0 -> 0 `i ]
+[; ;movements.c: 49: move1 = 0;
+"49
+[e = _move1 -> 0 `i ]
+[; ;movements.c: 50: *margin = 1;
+"50
+[e = *U _margin -> 1 `i ]
+"51
 }
 [e :U 2106 ]
 [e :U 2104 ]
-"49
+"52
 }
-[; ;movements.c: 48: }
-[; ;movements.c: 49: } else
+[; ;movements.c: 51: }
+[; ;movements.c: 52: } else
 [e $U 2107  ]
 [e :U 2102 ]
-[; ;movements.c: 50: {
-"50
-{
-[; ;movements.c: 51: move0 = 0;
-"51
-[e = _move0 -> 0 `i ]
-[; ;movements.c: 52: move1 = 0;
-"52
-[e = _move1 -> 0 `i ]
+[; ;movements.c: 53: {
 "53
+{
+[; ;movements.c: 54: move0 = 0;
+"54
+[e = _move0 -> 0 `i ]
+[; ;movements.c: 55: move1 = 0;
+"55
+[e = _move1 -> 0 `i ]
+"56
 }
 [e :U 2107 ]
-[; ;movements.c: 53: }
-[; ;movements.c: 75: if(actuator == 0)
-"75
-[e $ ! == _actuator -> 0 `i 2108  ]
-[; ;movements.c: 76: {
-"76
-{
-[; ;movements.c: 77: LATCbits.LATC0 = move0;
-"77
-[e = . . _LATCbits 0 0 -> _move0 `uc ]
-[; ;movements.c: 78: LATCbits.LATC1 = move1;
+[; ;movements.c: 56: }
+[; ;movements.c: 78: if(actuator == 0)
 "78
-[e = . . _LATCbits 0 1 -> _move1 `uc ]
+[e $ ! == _actuator -> 0 `i 2108  ]
+[; ;movements.c: 79: {
 "79
+{
+[; ;movements.c: 80: LATCbits.LATC0 = move0;
+"80
+[e = . . _LATCbits 0 0 -> _move0 `uc ]
+[; ;movements.c: 81: LATCbits.LATC1 = move1;
+"81
+[e = . . _LATCbits 0 1 -> _move1 `uc ]
+"82
 }
-[; ;movements.c: 79: } else if (actuator == 1)
+[; ;movements.c: 82: } else if (actuator == 1)
 [e $U 2109  ]
 [e :U 2108 ]
 [e $ ! == _actuator -> 1 `i 2110  ]
-[; ;movements.c: 80: {
-"80
-{
-[; ;movements.c: 81: LATCbits.LATC2 = move0;
-"81
-[e = . . _LATCbits 0 2 -> _move0 `uc ]
-[; ;movements.c: 82: LATCbits.LATC3 = move1;
-"82
-[e = . . _LATCbits 0 3 -> _move1 `uc ]
+[; ;movements.c: 83: {
 "83
+{
+[; ;movements.c: 84: LATCbits.LATC2 = move0;
+"84
+[e = . . _LATCbits 0 2 -> _move0 `uc ]
+[; ;movements.c: 85: LATCbits.LATC3 = move1;
+"85
+[e = . . _LATCbits 0 3 -> _move1 `uc ]
+"86
 }
-[; ;movements.c: 83: } else if (actuator == 2)
+[; ;movements.c: 86: } else if (actuator == 2)
 [e $U 2111  ]
 [e :U 2110 ]
 [e $ ! == _actuator -> 2 `i 2112  ]
-[; ;movements.c: 84: {
-"84
-{
-[; ;movements.c: 85: LATDbits.LATD0 = move0;
-"85
-[e = . . _LATDbits 0 0 -> _move0 `uc ]
-[; ;movements.c: 86: LATDbits.LATD1 = move1;
-"86
-[e = . . _LATDbits 0 1 -> _move1 `uc ]
+[; ;movements.c: 87: {
 "87
+{
+[; ;movements.c: 88: LATDbits.LATD0 = move0;
+"88
+[e = . . _LATDbits 0 0 -> _move0 `uc ]
+[; ;movements.c: 89: LATDbits.LATD1 = move1;
+"89
+[e = . . _LATDbits 0 1 -> _move1 `uc ]
+"90
 }
-[; ;movements.c: 87: } else if (actuator == 3)
+[; ;movements.c: 90: } else if (actuator == 3)
 [e $U 2113  ]
 [e :U 2112 ]
 [e $ ! == _actuator -> 3 `i 2114  ]
-[; ;movements.c: 88: {
-"88
-{
-[; ;movements.c: 89: LATDbits.LATD2 = move0;
-"89
-[e = . . _LATDbits 0 2 -> _move0 `uc ]
-[; ;movements.c: 90: LATDbits.LATD3 = move1;
-"90
-[e = . . _LATDbits 0 3 -> _move1 `uc ]
+[; ;movements.c: 91: {
 "91
+{
+[; ;movements.c: 92: LATDbits.LATD2 = move0;
+"92
+[e = . . _LATDbits 0 2 -> _move0 `uc ]
+[; ;movements.c: 93: LATDbits.LATD3 = move1;
+"93
+[e = . . _LATDbits 0 3 -> _move1 `uc ]
+"94
 }
-[; ;movements.c: 91: } else if (actuator == 4)
+[; ;movements.c: 94: } else if (actuator == 4)
 [e $U 2115  ]
 [e :U 2114 ]
 [e $ ! == _actuator -> 4 `i 2116  ]
-[; ;movements.c: 92: {
-"92
-{
-[; ;movements.c: 93: LATCbits.LATC4 = move0;
-"93
-[e = . . _LATCbits 0 4 -> _move0 `uc ]
-[; ;movements.c: 94: LATCbits.LATC5 = move1;
-"94
-[e = . . _LATCbits 0 5 -> _move1 `uc ]
+[; ;movements.c: 95: {
 "95
+{
+[; ;movements.c: 96: LATCbits.LATC4 = move0;
+"96
+[e = . . _LATCbits 0 4 -> _move0 `uc ]
+[; ;movements.c: 97: LATCbits.LATC5 = move1;
+"97
+[e = . . _LATCbits 0 5 -> _move1 `uc ]
+"98
 }
-[; ;movements.c: 95: } else if (actuator == 5)
+[; ;movements.c: 98: } else if (actuator == 5)
 [e $U 2117  ]
 [e :U 2116 ]
 [e $ ! == _actuator -> 5 `i 2118  ]
-[; ;movements.c: 96: {
-"96
-{
-[; ;movements.c: 97: LATCbits.LATC6 = move0;
-"97
-[e = . . _LATCbits 0 6 -> _move0 `uc ]
-[; ;movements.c: 98: LATCbits.LATC7 = move1;
-"98
-[e = . . _LATCbits 0 7 -> _move1 `uc ]
+[; ;movements.c: 99: {
 "99
+{
+[; ;movements.c: 100: LATCbits.LATC6 = move0;
+"100
+[e = . . _LATCbits 0 6 -> _move0 `uc ]
+[; ;movements.c: 101: LATCbits.LATC7 = move1;
+"101
+[e = . . _LATCbits 0 7 -> _move1 `uc ]
+"102
 }
-[; ;movements.c: 99: } else if (actuator == 6)
+[; ;movements.c: 102: } else if (actuator == 6)
 [e $U 2119  ]
 [e :U 2118 ]
 [e $ ! == _actuator -> 6 `i 2120  ]
-[; ;movements.c: 100: {
-"100
-{
-[; ;movements.c: 101: LATDbits.LATD4 = move0;
-"101
-[e = . . _LATDbits 0 4 -> _move0 `uc ]
-[; ;movements.c: 102: LATDbits.LATD5 = move1;
-"102
-[e = . . _LATDbits 0 5 -> _move1 `uc ]
+[; ;movements.c: 103: {
 "103
+{
+[; ;movements.c: 104: LATDbits.LATD4 = move0;
+"104
+[e = . . _LATDbits 0 4 -> _move0 `uc ]
+[; ;movements.c: 105: LATDbits.LATD5 = move1;
+"105
+[e = . . _LATDbits 0 5 -> _move1 `uc ]
+"106
 }
-[; ;movements.c: 103: } else if (actuator == 7)
+[; ;movements.c: 106: } else if (actuator == 7)
 [e $U 2121  ]
 [e :U 2120 ]
 [e $ ! == _actuator -> 7 `i 2122  ]
-[; ;movements.c: 104: {
-"104
-{
-[; ;movements.c: 105: LATDbits.LATD6 = move0;
-"105
-[e = . . _LATDbits 0 6 -> _move0 `uc ]
-[; ;movements.c: 106: LATDbits.LATD7 = move1;
-"106
-[e = . . _LATDbits 0 7 -> _move1 `uc ]
+[; ;movements.c: 107: {
 "107
+{
+[; ;movements.c: 108: LATDbits.LATD6 = move0;
+"108
+[e = . . _LATDbits 0 6 -> _move0 `uc ]
+[; ;movements.c: 109: LATDbits.LATD7 = move1;
+"109
+[e = . . _LATDbits 0 7 -> _move1 `uc ]
+"110
 }
 [e :U 2122 ]
-"109
+"112
 [e :U 2121 ]
 [e :U 2119 ]
 [e :U 2117 ]
@@ -14865,1327 +14866,1432 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2113 ]
 [e :U 2111 ]
 [e :U 2109 ]
-[; ;movements.c: 107: }
-[; ;movements.c: 109: }
+[; ;movements.c: 110: }
+[; ;movements.c: 112: }
 [e :UE 2101 ]
 }
-"157
+"160
 [v _forward_movements `(v ~T0 @X0 1 ef8`ui`ui`ui`ui`ui`ui`ui`ui ]
-"161
+"164
 {
-[; ;movements.c: 157: void forward_movements(unsigned int actuator0, unsigned int actuator1,
-[; ;movements.c: 158: unsigned int actuator2, unsigned int actuator3,
-[; ;movements.c: 159: unsigned int actuator4, unsigned int actuator5,
-[; ;movements.c: 160: unsigned int actuator6, unsigned int actuator7)
-[; ;movements.c: 161: {
+[; ;movements.c: 160: void forward_movements(unsigned int actuator0, unsigned int actuator1,
+[; ;movements.c: 161: unsigned int actuator2, unsigned int actuator3,
+[; ;movements.c: 162: unsigned int actuator4, unsigned int actuator5,
+[; ;movements.c: 163: unsigned int actuator6, unsigned int actuator7)
+[; ;movements.c: 164: {
 [e :U _forward_movements ]
-"157
+"160
 [v _actuator0 `ui ~T0 @X0 1 r1 ]
 [v _actuator1 `ui ~T0 @X0 1 r2 ]
-"158
+"161
 [v _actuator2 `ui ~T0 @X0 1 r3 ]
 [v _actuator3 `ui ~T0 @X0 1 r4 ]
-"159
+"162
 [v _actuator4 `ui ~T0 @X0 1 r5 ]
 [v _actuator5 `ui ~T0 @X0 1 r6 ]
-"160
+"163
 [v _actuator6 `ui ~T0 @X0 1 r7 ]
 [v _actuator7 `ui ~T0 @X0 1 r8 ]
-"161
-[f ]
-[; ;movements.c: 164: if (actuator0 < retractPos)
 "164
-[e $ ! < _actuator0 _retractPos 2124  ]
-[; ;movements.c: 165: {
-"165
-{
-[; ;movements.c: 166: LATCbits.LATC0 = 0;
-"166
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 167: LATCbits.LATC1 = 1;
+[f ]
+[; ;movements.c: 167: if (actuator0 < retractPos)
 "167
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[e $ ! < _actuator0 _retractPos 2124  ]
+[; ;movements.c: 168: {
 "168
+{
+[; ;movements.c: 169: LATCbits.LATC0 = 0;
+"169
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 170: LATCbits.LATC1 = 1;
+"170
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"171
 }
-[; ;movements.c: 168: } else if (actuator0 > retractPos)
+[; ;movements.c: 171: } else if (actuator0 > retractPos)
 [e $U 2125  ]
 [e :U 2124 ]
 [e $ ! > _actuator0 _retractPos 2126  ]
-[; ;movements.c: 169: {
-"169
-{
-[; ;movements.c: 170: LATCbits.LATC0 = 1;
-"170
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 171: LATCbits.LATC1 = 0;
-"171
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 172: {
 "172
-}
-[; ;movements.c: 172: } else {
-[e $U 2127  ]
-[e :U 2126 ]
 {
-[; ;movements.c: 173: LATCbits.LATC0 = 0;
+[; ;movements.c: 173: LATCbits.LATC0 = 1;
 "173
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 [; ;movements.c: 174: LATCbits.LATC1 = 0;
 "174
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 "175
 }
+[; ;movements.c: 175: } else {
+[e $U 2127  ]
+[e :U 2126 ]
+{
+[; ;movements.c: 176: LATCbits.LATC0 = 0;
+"176
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 177: LATCbits.LATC1 = 0;
+"177
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"178
+}
 [e :U 2127 ]
 [e :U 2125 ]
-[; ;movements.c: 175: }
-[; ;movements.c: 178: if (actuator1 < extendPos)
-"178
-[e $ ! < _actuator1 _extendPos 2128  ]
-[; ;movements.c: 179: {
-"179
-{
-[; ;movements.c: 180: LATCbits.LATC2 = 0;
-"180
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 181: LATCbits.LATC3 = 1;
+[; ;movements.c: 178: }
+[; ;movements.c: 181: if (actuator1 < extendPos)
 "181
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[e $ ! < _actuator1 _extendPos 2128  ]
+[; ;movements.c: 182: {
 "182
+{
+[; ;movements.c: 183: LATCbits.LATC2 = 0;
+"183
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 184: LATCbits.LATC3 = 1;
+"184
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+"185
 }
-[; ;movements.c: 182: } else if (actuator1 > extendPos)
+[; ;movements.c: 185: } else if (actuator1 > extendPos)
 [e $U 2129  ]
 [e :U 2128 ]
 [e $ ! > _actuator1 _extendPos 2130  ]
-[; ;movements.c: 183: {
-"183
-{
-[; ;movements.c: 184: LATCbits.LATC2 = 1;
-"184
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 185: LATCbits.LATC3 = 0;
-"185
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 186: {
 "186
-}
-[; ;movements.c: 186: } else {
-[e $U 2131  ]
-[e :U 2130 ]
 {
-[; ;movements.c: 187: LATCbits.LATC2 = 0;
+[; ;movements.c: 187: LATCbits.LATC2 = 1;
 "187
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
 [; ;movements.c: 188: LATCbits.LATC3 = 0;
 "188
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
 "189
 }
+[; ;movements.c: 189: } else {
+[e $U 2131  ]
+[e :U 2130 ]
+{
+[; ;movements.c: 190: LATCbits.LATC2 = 0;
+"190
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 191: LATCbits.LATC3 = 0;
+"191
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+"192
+}
 [e :U 2131 ]
 [e :U 2129 ]
-[; ;movements.c: 189: }
-[; ;movements.c: 192: if (actuator2 < retractPos)
-"192
-[e $ ! < _actuator2 _retractPos 2132  ]
-[; ;movements.c: 193: {
-"193
-{
-[; ;movements.c: 194: LATDbits.LATD0 = 0;
-"194
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 195: LATDbits.LATD1 = 1;
+[; ;movements.c: 192: }
+[; ;movements.c: 195: if (actuator2 < retractPos)
 "195
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+[e $ ! < _actuator2 _retractPos 2132  ]
+[; ;movements.c: 196: {
 "196
+{
+[; ;movements.c: 197: LATDbits.LATD0 = 0;
+"197
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 198: LATDbits.LATD1 = 1;
+"198
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+"199
 }
-[; ;movements.c: 196: } else if (actuator2 > retractPos)
+[; ;movements.c: 199: } else if (actuator2 > retractPos)
 [e $U 2133  ]
 [e :U 2132 ]
 [e $ ! > _actuator2 _retractPos 2134  ]
-[; ;movements.c: 197: {
-"197
-{
-[; ;movements.c: 198: LATDbits.LATD0 = 1;
-"198
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 199: LATDbits.LATD1 = 0;
-"199
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 200: {
 "200
-}
-[; ;movements.c: 200: } else {
-[e $U 2135  ]
-[e :U 2134 ]
 {
-[; ;movements.c: 201: LATDbits.LATD0 = 0;
+[; ;movements.c: 201: LATDbits.LATD0 = 1;
 "201
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 [; ;movements.c: 202: LATDbits.LATD1 = 0;
 "202
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
 "203
 }
+[; ;movements.c: 203: } else {
+[e $U 2135  ]
+[e :U 2134 ]
+{
+[; ;movements.c: 204: LATDbits.LATD0 = 0;
+"204
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 205: LATDbits.LATD1 = 0;
+"205
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+"206
+}
 [e :U 2135 ]
 [e :U 2133 ]
-[; ;movements.c: 203: }
-[; ;movements.c: 206: if (actuator3 < extendPos)
-"206
-[e $ ! < _actuator3 _extendPos 2136  ]
-[; ;movements.c: 207: {
-"207
-{
-[; ;movements.c: 208: LATDbits.LATD2 = 0;
-"208
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 209: LATDbits.LATD3 = 1;
+[; ;movements.c: 206: }
+[; ;movements.c: 209: if (actuator3 < extendPos)
 "209
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[e $ ! < _actuator3 _extendPos 2136  ]
+[; ;movements.c: 210: {
 "210
+{
+[; ;movements.c: 211: LATDbits.LATD2 = 0;
+"211
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 212: LATDbits.LATD3 = 1;
+"212
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"213
 }
-[; ;movements.c: 210: } else if (actuator3 > extendPos)
+[; ;movements.c: 213: } else if (actuator3 > extendPos)
 [e $U 2137  ]
 [e :U 2136 ]
 [e $ ! > _actuator3 _extendPos 2138  ]
-[; ;movements.c: 211: {
-"211
-{
-[; ;movements.c: 212: LATDbits.LATD2 = 1;
-"212
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 213: LATDbits.LATD3 = 0;
-"213
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 214: {
 "214
-}
-[; ;movements.c: 214: } else {
-[e $U 2139  ]
-[e :U 2138 ]
 {
-[; ;movements.c: 215: LATDbits.LATD2 = 0;
+[; ;movements.c: 215: LATDbits.LATD2 = 1;
 "215
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
 [; ;movements.c: 216: LATDbits.LATD3 = 0;
 "216
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "217
 }
+[; ;movements.c: 217: } else {
+[e $U 2139  ]
+[e :U 2138 ]
+{
+[; ;movements.c: 218: LATDbits.LATD2 = 0;
+"218
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 219: LATDbits.LATD3 = 0;
+"219
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"220
+}
 [e :U 2139 ]
 [e :U 2137 ]
-[; ;movements.c: 217: }
-[; ;movements.c: 220: if (actuator4 < extendPos)
-"220
-[e $ ! < _actuator4 _extendPos 2140  ]
-[; ;movements.c: 221: {
-"221
-{
-[; ;movements.c: 222: LATCbits.LATC4 = 0;
-"222
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 223: LATCbits.LATC5 = 1;
+[; ;movements.c: 220: }
+[; ;movements.c: 223: if (actuator4 < extendPos)
 "223
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[e $ ! < _actuator4 _extendPos 2140  ]
+[; ;movements.c: 224: {
 "224
+{
+[; ;movements.c: 225: LATCbits.LATC4 = 0;
+"225
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 226: LATCbits.LATC5 = 1;
+"226
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+"227
 }
-[; ;movements.c: 224: } else if (actuator4 > extendPos)
+[; ;movements.c: 227: } else if (actuator4 > extendPos)
 [e $U 2141  ]
 [e :U 2140 ]
 [e $ ! > _actuator4 _extendPos 2142  ]
-[; ;movements.c: 225: {
-"225
-{
-[; ;movements.c: 226: LATCbits.LATC4 = 1;
-"226
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 227: LATCbits.LATC5 = 0;
-"227
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 228: {
 "228
-}
-[; ;movements.c: 228: } else {
-[e $U 2143  ]
-[e :U 2142 ]
 {
-[; ;movements.c: 229: LATCbits.LATC4 = 0;
+[; ;movements.c: 229: LATCbits.LATC4 = 1;
 "229
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
 [; ;movements.c: 230: LATCbits.LATC5 = 0;
 "230
 [e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
 "231
 }
+[; ;movements.c: 231: } else {
+[e $U 2143  ]
+[e :U 2142 ]
+{
+[; ;movements.c: 232: LATCbits.LATC4 = 0;
+"232
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 233: LATCbits.LATC5 = 0;
+"233
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+"234
+}
 [e :U 2143 ]
 [e :U 2141 ]
-[; ;movements.c: 231: }
-[; ;movements.c: 234: if (actuator5 < retractPos)
-"234
-[e $ ! < _actuator5 _retractPos 2144  ]
-[; ;movements.c: 235: {
-"235
-{
-[; ;movements.c: 236: LATCbits.LATC6 = 0;
-"236
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 237: LATCbits.LATC7 = 1;
+[; ;movements.c: 234: }
+[; ;movements.c: 237: if (actuator5 < retractPos)
 "237
-[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[e $ ! < _actuator5 _retractPos 2144  ]
+[; ;movements.c: 238: {
 "238
+{
+[; ;movements.c: 239: LATCbits.LATC6 = 0;
+"239
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 240: LATCbits.LATC7 = 1;
+"240
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+"241
 }
-[; ;movements.c: 238: } else if (actuator5 > retractPos)
+[; ;movements.c: 241: } else if (actuator5 > retractPos)
 [e $U 2145  ]
 [e :U 2144 ]
 [e $ ! > _actuator5 _retractPos 2146  ]
-[; ;movements.c: 239: {
-"239
-{
-[; ;movements.c: 240: LATCbits.LATC6 = 1;
-"240
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 241: LATCbits.LATC7 = 0;
-"241
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 242: {
 "242
-}
-[; ;movements.c: 242: } else {
-[e $U 2147  ]
-[e :U 2146 ]
 {
-[; ;movements.c: 243: LATCbits.LATC6 = 0;
+[; ;movements.c: 243: LATCbits.LATC6 = 1;
 "243
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
 [; ;movements.c: 244: LATCbits.LATC7 = 0;
 "244
 [e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
 "245
 }
+[; ;movements.c: 245: } else {
+[e $U 2147  ]
+[e :U 2146 ]
+{
+[; ;movements.c: 246: LATCbits.LATC6 = 0;
+"246
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 247: LATCbits.LATC7 = 0;
+"247
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+"248
+}
 [e :U 2147 ]
 [e :U 2145 ]
-[; ;movements.c: 245: }
-[; ;movements.c: 248: if (actuator6 < extendPos)
-"248
-[e $ ! < _actuator6 _extendPos 2148  ]
-[; ;movements.c: 249: {
-"249
-{
-[; ;movements.c: 250: LATDbits.LATD4 = 0;
-"250
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 251: LATDbits.LATD5 = 1;
+[; ;movements.c: 248: }
+[; ;movements.c: 251: if (actuator6 < extendPos)
 "251
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+[e $ ! < _actuator6 _extendPos 2148  ]
+[; ;movements.c: 252: {
+"252
+{
+[; ;movements.c: 253: LATDbits.LATD4 = 0;
 "253
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 254: LATDbits.LATD5 = 1;
+"254
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+"256
 }
-[; ;movements.c: 253: } else if (actuator6 > extendPos)
+[; ;movements.c: 256: } else if (actuator6 > extendPos)
 [e $U 2149  ]
 [e :U 2148 ]
 [e $ ! > _actuator6 _extendPos 2150  ]
-[; ;movements.c: 254: {
-"254
-{
-[; ;movements.c: 255: LATDbits.LATD4 = 1;
-"255
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 256: LATDbits.LATD5 = 0;
-"256
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 257: {
 "257
-}
-[; ;movements.c: 257: } else {
-[e $U 2151  ]
-[e :U 2150 ]
 {
-[; ;movements.c: 258: LATDbits.LATD4 = 0;
+[; ;movements.c: 258: LATDbits.LATD4 = 1;
 "258
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 [; ;movements.c: 259: LATDbits.LATD5 = 0;
 "259
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 "260
 }
+[; ;movements.c: 260: } else {
+[e $U 2151  ]
+[e :U 2150 ]
+{
+[; ;movements.c: 261: LATDbits.LATD4 = 0;
+"261
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 262: LATDbits.LATD5 = 0;
+"262
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"263
+}
 [e :U 2151 ]
 [e :U 2149 ]
-[; ;movements.c: 260: }
-[; ;movements.c: 263: if (actuator7 < retractPos)
-"263
-[e $ ! < _actuator7 _retractPos 2152  ]
-[; ;movements.c: 264: {
-"264
-{
-[; ;movements.c: 265: LATDbits.LATD6 = 0;
-"265
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 266: LATDbits.LATD7 = 1;
+[; ;movements.c: 263: }
+[; ;movements.c: 266: if (actuator7 < retractPos)
 "266
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+[e $ ! < _actuator7 _retractPos 2152  ]
+[; ;movements.c: 267: {
 "267
+{
+[; ;movements.c: 268: LATDbits.LATD6 = 0;
+"268
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 269: LATDbits.LATD7 = 1;
+"269
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"270
 }
-[; ;movements.c: 267: } else if (actuator7 > retractPos)
+[; ;movements.c: 270: } else if (actuator7 > retractPos)
 [e $U 2153  ]
 [e :U 2152 ]
 [e $ ! > _actuator7 _retractPos 2154  ]
-[; ;movements.c: 268: {
-"268
-{
-[; ;movements.c: 269: LATDbits.LATD6 = 1;
-"269
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 270: LATDbits.LATD7 = 0;
-"270
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 271: {
 "271
-}
-[; ;movements.c: 271: } else {
-[e $U 2155  ]
-[e :U 2154 ]
 {
-[; ;movements.c: 272: LATDbits.LATD6 = 0;
+[; ;movements.c: 272: LATDbits.LATD6 = 1;
 "272
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 [; ;movements.c: 273: LATDbits.LATD7 = 0;
 "273
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
 "274
 }
+[; ;movements.c: 274: } else {
+[e $U 2155  ]
+[e :U 2154 ]
+{
+[; ;movements.c: 275: LATDbits.LATD6 = 0;
+"275
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 276: LATDbits.LATD7 = 0;
+"276
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"277
+}
 [e :U 2155 ]
 [e :U 2153 ]
-[; ;movements.c: 274: }
-[; ;movements.c: 275: }
-"275
+[; ;movements.c: 277: }
+[; ;movements.c: 278: }
+"278
 [e :UE 2123 ]
 }
-"277
+"280
 [v _backward_movements `(v ~T0 @X0 1 ef8`ui`ui`ui`ui`ui`ui`ui`ui ]
-"281
+"284
 {
-[; ;movements.c: 277: void backward_movements(unsigned int actuator0, unsigned int actuator1,
-[; ;movements.c: 278: unsigned int actuator2, unsigned int actuator3,
-[; ;movements.c: 279: unsigned int actuator4, unsigned int actuator5,
-[; ;movements.c: 280: unsigned int actuator6, unsigned int actuator7)
-[; ;movements.c: 281: {
+[; ;movements.c: 280: void backward_movements(unsigned int actuator0, unsigned int actuator1,
+[; ;movements.c: 281: unsigned int actuator2, unsigned int actuator3,
+[; ;movements.c: 282: unsigned int actuator4, unsigned int actuator5,
+[; ;movements.c: 283: unsigned int actuator6, unsigned int actuator7)
+[; ;movements.c: 284: {
 [e :U _backward_movements ]
-"277
+"280
 [v _actuator0 `ui ~T0 @X0 1 r1 ]
 [v _actuator1 `ui ~T0 @X0 1 r2 ]
-"278
+"281
 [v _actuator2 `ui ~T0 @X0 1 r3 ]
 [v _actuator3 `ui ~T0 @X0 1 r4 ]
-"279
+"282
 [v _actuator4 `ui ~T0 @X0 1 r5 ]
 [v _actuator5 `ui ~T0 @X0 1 r6 ]
-"280
+"283
 [v _actuator6 `ui ~T0 @X0 1 r7 ]
 [v _actuator7 `ui ~T0 @X0 1 r8 ]
-"281
-[f ]
-[; ;movements.c: 284: if (actuator0 < extendPos)
 "284
-[e $ ! < _actuator0 _extendPos 2157  ]
-[; ;movements.c: 285: {
-"285
-{
-[; ;movements.c: 286: LATCbits.LATC0 = 0;
-"286
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 287: LATCbits.LATC1 = 1;
+[f ]
+[; ;movements.c: 287: if (actuator0 < extendPos)
 "287
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[e $ ! < _actuator0 _extendPos 2157  ]
+[; ;movements.c: 288: {
 "288
+{
+[; ;movements.c: 289: LATCbits.LATC0 = 0;
+"289
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 290: LATCbits.LATC1 = 1;
+"290
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"291
 }
-[; ;movements.c: 288: } else if (actuator0 > extendPos)
+[; ;movements.c: 291: } else if (actuator0 > extendPos)
 [e $U 2158  ]
 [e :U 2157 ]
 [e $ ! > _actuator0 _extendPos 2159  ]
-[; ;movements.c: 289: {
-"289
-{
-[; ;movements.c: 290: LATCbits.LATC0 = 1;
-"290
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 291: LATCbits.LATC1 = 0;
-"291
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 292: {
 "292
-}
-[; ;movements.c: 292: } else {
-[e $U 2160  ]
-[e :U 2159 ]
 {
-[; ;movements.c: 293: LATCbits.LATC0 = 0;
+[; ;movements.c: 293: LATCbits.LATC0 = 1;
 "293
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 [; ;movements.c: 294: LATCbits.LATC1 = 0;
 "294
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 "295
 }
+[; ;movements.c: 295: } else {
+[e $U 2160  ]
+[e :U 2159 ]
+{
+[; ;movements.c: 296: LATCbits.LATC0 = 0;
+"296
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 297: LATCbits.LATC1 = 0;
+"297
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"298
+}
 [e :U 2160 ]
 [e :U 2158 ]
-[; ;movements.c: 295: }
-[; ;movements.c: 298: if (actuator1 < retractPos)
-"298
-[e $ ! < _actuator1 _retractPos 2161  ]
-[; ;movements.c: 299: {
-"299
-{
-[; ;movements.c: 300: LATCbits.LATC2 = 0;
-"300
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 301: LATCbits.LATC3 = 1;
+[; ;movements.c: 298: }
+[; ;movements.c: 301: if (actuator1 < retractPos)
 "301
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[e $ ! < _actuator1 _retractPos 2161  ]
+[; ;movements.c: 302: {
 "302
+{
+[; ;movements.c: 303: LATCbits.LATC2 = 0;
+"303
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 304: LATCbits.LATC3 = 1;
+"304
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+"305
 }
-[; ;movements.c: 302: } else if (actuator1 > retractPos)
+[; ;movements.c: 305: } else if (actuator1 > retractPos)
 [e $U 2162  ]
 [e :U 2161 ]
 [e $ ! > _actuator1 _retractPos 2163  ]
-[; ;movements.c: 303: {
-"303
-{
-[; ;movements.c: 304: LATCbits.LATC2 = 1;
-"304
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 305: LATCbits.LATC3 = 0;
-"305
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 306: {
 "306
-}
-[; ;movements.c: 306: } else {
-[e $U 2164  ]
-[e :U 2163 ]
 {
-[; ;movements.c: 307: LATCbits.LATC2 = 0;
+[; ;movements.c: 307: LATCbits.LATC2 = 1;
 "307
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
 [; ;movements.c: 308: LATCbits.LATC3 = 0;
 "308
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
 "309
 }
+[; ;movements.c: 309: } else {
+[e $U 2164  ]
+[e :U 2163 ]
+{
+[; ;movements.c: 310: LATCbits.LATC2 = 0;
+"310
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 311: LATCbits.LATC3 = 0;
+"311
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+"312
+}
 [e :U 2164 ]
 [e :U 2162 ]
-[; ;movements.c: 309: }
-[; ;movements.c: 312: if (actuator2 < extendPos)
-"312
-[e $ ! < _actuator2 _extendPos 2165  ]
-[; ;movements.c: 313: {
-"313
-{
-[; ;movements.c: 314: LATDbits.LATD0 = 0;
-"314
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 315: LATDbits.LATD1 = 1;
+[; ;movements.c: 312: }
+[; ;movements.c: 315: if (actuator2 < extendPos)
 "315
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+[e $ ! < _actuator2 _extendPos 2165  ]
+[; ;movements.c: 316: {
 "316
+{
+[; ;movements.c: 317: LATDbits.LATD0 = 0;
+"317
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 318: LATDbits.LATD1 = 1;
+"318
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+"319
 }
-[; ;movements.c: 316: } else if (actuator2 > extendPos)
+[; ;movements.c: 319: } else if (actuator2 > extendPos)
 [e $U 2166  ]
 [e :U 2165 ]
 [e $ ! > _actuator2 _extendPos 2167  ]
-[; ;movements.c: 317: {
-"317
-{
-[; ;movements.c: 318: LATDbits.LATD0 = 1;
-"318
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 319: LATDbits.LATD1 = 0;
-"319
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 320: {
 "320
-}
-[; ;movements.c: 320: } else {
-[e $U 2168  ]
-[e :U 2167 ]
 {
-[; ;movements.c: 321: LATDbits.LATD0 = 0;
+[; ;movements.c: 321: LATDbits.LATD0 = 1;
 "321
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 [; ;movements.c: 322: LATDbits.LATD1 = 0;
 "322
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
 "323
 }
+[; ;movements.c: 323: } else {
+[e $U 2168  ]
+[e :U 2167 ]
+{
+[; ;movements.c: 324: LATDbits.LATD0 = 0;
+"324
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 325: LATDbits.LATD1 = 0;
+"325
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+"326
+}
 [e :U 2168 ]
 [e :U 2166 ]
-[; ;movements.c: 323: }
-[; ;movements.c: 326: if (actuator3 < retractPos)
-"326
-[e $ ! < _actuator3 _retractPos 2169  ]
-[; ;movements.c: 327: {
-"327
-{
-[; ;movements.c: 328: LATDbits.LATD2 = 0;
-"328
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 329: LATDbits.LATD3 = 1;
+[; ;movements.c: 326: }
+[; ;movements.c: 329: if (actuator3 < retractPos)
 "329
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[e $ ! < _actuator3 _retractPos 2169  ]
+[; ;movements.c: 330: {
 "330
+{
+[; ;movements.c: 331: LATDbits.LATD2 = 0;
+"331
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 332: LATDbits.LATD3 = 1;
+"332
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"333
 }
-[; ;movements.c: 330: } else if (actuator3 > retractPos)
+[; ;movements.c: 333: } else if (actuator3 > retractPos)
 [e $U 2170  ]
 [e :U 2169 ]
 [e $ ! > _actuator3 _retractPos 2171  ]
-[; ;movements.c: 331: {
-"331
-{
-[; ;movements.c: 332: LATDbits.LATD2 = 1;
-"332
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 333: LATDbits.LATD3 = 0;
-"333
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 334: {
 "334
-}
-[; ;movements.c: 334: } else {
-[e $U 2172  ]
-[e :U 2171 ]
 {
-[; ;movements.c: 335: LATDbits.LATD2 = 0;
+[; ;movements.c: 335: LATDbits.LATD2 = 1;
 "335
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
 [; ;movements.c: 336: LATDbits.LATD3 = 0;
 "336
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "337
 }
+[; ;movements.c: 337: } else {
+[e $U 2172  ]
+[e :U 2171 ]
+{
+[; ;movements.c: 338: LATDbits.LATD2 = 0;
+"338
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 339: LATDbits.LATD3 = 0;
+"339
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"340
+}
 [e :U 2172 ]
 [e :U 2170 ]
-[; ;movements.c: 337: }
-[; ;movements.c: 340: if (actuator4 < retractPos)
-"340
-[e $ ! < _actuator4 _retractPos 2173  ]
-[; ;movements.c: 341: {
-"341
-{
-[; ;movements.c: 342: LATCbits.LATC4 = 0;
-"342
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 343: LATCbits.LATC5 = 1;
+[; ;movements.c: 340: }
+[; ;movements.c: 343: if (actuator4 < retractPos)
 "343
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[e $ ! < _actuator4 _retractPos 2173  ]
+[; ;movements.c: 344: {
 "344
+{
+[; ;movements.c: 345: LATCbits.LATC4 = 0;
+"345
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 346: LATCbits.LATC5 = 1;
+"346
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+"347
 }
-[; ;movements.c: 344: } else if (actuator4 > retractPos)
+[; ;movements.c: 347: } else if (actuator4 > retractPos)
 [e $U 2174  ]
 [e :U 2173 ]
 [e $ ! > _actuator4 _retractPos 2175  ]
-[; ;movements.c: 345: {
-"345
-{
-[; ;movements.c: 346: LATCbits.LATC4 = 1;
-"346
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 347: LATCbits.LATC5 = 0;
-"347
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 348: {
 "348
-}
-[; ;movements.c: 348: } else {
-[e $U 2176  ]
-[e :U 2175 ]
 {
-[; ;movements.c: 349: LATCbits.LATC4 = 0;
+[; ;movements.c: 349: LATCbits.LATC4 = 1;
 "349
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
 [; ;movements.c: 350: LATCbits.LATC5 = 0;
 "350
 [e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
 "351
 }
+[; ;movements.c: 351: } else {
+[e $U 2176  ]
+[e :U 2175 ]
+{
+[; ;movements.c: 352: LATCbits.LATC4 = 0;
+"352
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 353: LATCbits.LATC5 = 0;
+"353
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+"354
+}
 [e :U 2176 ]
 [e :U 2174 ]
-[; ;movements.c: 351: }
-[; ;movements.c: 354: if (actuator5 < extendPos)
-"354
-[e $ ! < _actuator5 _extendPos 2177  ]
-[; ;movements.c: 355: {
-"355
-{
-[; ;movements.c: 356: LATCbits.LATC6 = 0;
-"356
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 357: LATCbits.LATC7 = 1;
+[; ;movements.c: 354: }
+[; ;movements.c: 357: if (actuator5 < extendPos)
 "357
-[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[e $ ! < _actuator5 _extendPos 2177  ]
+[; ;movements.c: 358: {
 "358
+{
+[; ;movements.c: 359: LATCbits.LATC6 = 0;
+"359
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 360: LATCbits.LATC7 = 1;
+"360
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+"361
 }
-[; ;movements.c: 358: } else if (actuator5 > extendPos)
+[; ;movements.c: 361: } else if (actuator5 > extendPos)
 [e $U 2178  ]
 [e :U 2177 ]
 [e $ ! > _actuator5 _extendPos 2179  ]
-[; ;movements.c: 359: {
-"359
-{
-[; ;movements.c: 360: LATCbits.LATC6 = 1;
-"360
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 361: LATCbits.LATC7 = 0;
-"361
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 362: {
 "362
-}
-[; ;movements.c: 362: } else {
-[e $U 2180  ]
-[e :U 2179 ]
 {
-[; ;movements.c: 363: LATCbits.LATC6 = 0;
+[; ;movements.c: 363: LATCbits.LATC6 = 1;
 "363
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
 [; ;movements.c: 364: LATCbits.LATC7 = 0;
 "364
 [e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
 "365
 }
+[; ;movements.c: 365: } else {
+[e $U 2180  ]
+[e :U 2179 ]
+{
+[; ;movements.c: 366: LATCbits.LATC6 = 0;
+"366
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 367: LATCbits.LATC7 = 0;
+"367
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+"368
+}
 [e :U 2180 ]
 [e :U 2178 ]
-[; ;movements.c: 365: }
-[; ;movements.c: 368: if (actuator6 < retractPos)
-"368
-[e $ ! < _actuator6 _retractPos 2181  ]
-[; ;movements.c: 369: {
-"369
-{
-[; ;movements.c: 370: LATDbits.LATD4 = 0;
-"370
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 371: LATDbits.LATD5 = 1;
+[; ;movements.c: 368: }
+[; ;movements.c: 371: if (actuator6 < retractPos)
 "371
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+[e $ ! < _actuator6 _retractPos 2181  ]
+[; ;movements.c: 372: {
 "372
+{
+[; ;movements.c: 373: LATDbits.LATD4 = 0;
+"373
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 374: LATDbits.LATD5 = 1;
+"374
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+"375
 }
-[; ;movements.c: 372: } else if (actuator6 > retractPos)
+[; ;movements.c: 375: } else if (actuator6 > retractPos)
 [e $U 2182  ]
 [e :U 2181 ]
 [e $ ! > _actuator6 _retractPos 2183  ]
-[; ;movements.c: 373: {
-"373
-{
-[; ;movements.c: 374: LATDbits.LATD4 = 1;
-"374
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 375: LATDbits.LATD5 = 0;
-"375
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 376: {
 "376
-}
-[; ;movements.c: 376: } else {
-[e $U 2184  ]
-[e :U 2183 ]
 {
-[; ;movements.c: 377: LATDbits.LATD4 = 0;
+[; ;movements.c: 377: LATDbits.LATD4 = 1;
 "377
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 [; ;movements.c: 378: LATDbits.LATD5 = 0;
 "378
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 "379
 }
+[; ;movements.c: 379: } else {
+[e $U 2184  ]
+[e :U 2183 ]
+{
+[; ;movements.c: 380: LATDbits.LATD4 = 0;
+"380
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 381: LATDbits.LATD5 = 0;
+"381
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"382
+}
 [e :U 2184 ]
 [e :U 2182 ]
-[; ;movements.c: 379: }
-[; ;movements.c: 382: if (actuator7 < extendPos)
-"382
-[e $ ! < _actuator7 _extendPos 2185  ]
-[; ;movements.c: 383: {
-"383
-{
-[; ;movements.c: 384: LATDbits.LATD6 = 0;
-"384
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 385: LATDbits.LATD7 = 1;
+[; ;movements.c: 382: }
+[; ;movements.c: 385: if (actuator7 < extendPos)
 "385
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+[e $ ! < _actuator7 _extendPos 2185  ]
+[; ;movements.c: 386: {
 "386
+{
+[; ;movements.c: 387: LATDbits.LATD6 = 0;
+"387
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 388: LATDbits.LATD7 = 1;
+"388
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"389
 }
-[; ;movements.c: 386: } else if (actuator7 > extendPos)
+[; ;movements.c: 389: } else if (actuator7 > extendPos)
 [e $U 2186  ]
 [e :U 2185 ]
 [e $ ! > _actuator7 _extendPos 2187  ]
-[; ;movements.c: 387: {
-"387
-{
-[; ;movements.c: 388: LATDbits.LATD6 = 1;
-"388
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 389: LATDbits.LATD7 = 0;
-"389
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 390: {
 "390
-}
-[; ;movements.c: 390: } else {
-[e $U 2188  ]
-[e :U 2187 ]
 {
-[; ;movements.c: 391: LATDbits.LATD6 = 0;
+[; ;movements.c: 391: LATDbits.LATD6 = 1;
 "391
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 [; ;movements.c: 392: LATDbits.LATD7 = 0;
 "392
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
 "393
 }
+[; ;movements.c: 393: } else {
+[e $U 2188  ]
+[e :U 2187 ]
+{
+[; ;movements.c: 394: LATDbits.LATD6 = 0;
+"394
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 395: LATDbits.LATD7 = 0;
+"395
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"396
+}
 [e :U 2188 ]
 [e :U 2186 ]
-[; ;movements.c: 393: }
-[; ;movements.c: 394: }
-"394
+[; ;movements.c: 396: }
+[; ;movements.c: 397: }
+"397
 [e :UE 2156 ]
 }
-"396
+"399
 [v _idle_movements `(v ~T0 @X0 1 ef8`ui`ui`ui`ui`ui`ui`ui`ui ]
-"400
+"403
 {
-[; ;movements.c: 396: void idle_movements(unsigned int actuator0, unsigned int actuator1,
-[; ;movements.c: 397: unsigned int actuator2, unsigned int actuator3,
-[; ;movements.c: 398: unsigned int actuator4, unsigned int actuator5,
-[; ;movements.c: 399: unsigned int actuator6, unsigned int actuator7)
-[; ;movements.c: 400: {
+[; ;movements.c: 399: void idle_movements(unsigned int actuator0, unsigned int actuator1,
+[; ;movements.c: 400: unsigned int actuator2, unsigned int actuator3,
+[; ;movements.c: 401: unsigned int actuator4, unsigned int actuator5,
+[; ;movements.c: 402: unsigned int actuator6, unsigned int actuator7)
+[; ;movements.c: 403: {
 [e :U _idle_movements ]
-"396
+"399
 [v _actuator0 `ui ~T0 @X0 1 r1 ]
 [v _actuator1 `ui ~T0 @X0 1 r2 ]
-"397
+"400
 [v _actuator2 `ui ~T0 @X0 1 r3 ]
 [v _actuator3 `ui ~T0 @X0 1 r4 ]
-"398
+"401
 [v _actuator4 `ui ~T0 @X0 1 r5 ]
 [v _actuator5 `ui ~T0 @X0 1 r6 ]
-"399
+"402
 [v _actuator6 `ui ~T0 @X0 1 r7 ]
 [v _actuator7 `ui ~T0 @X0 1 r8 ]
-"400
-[f ]
-[; ;movements.c: 401: if (actuator0 < extendPos)
-"401
-[e $ ! < _actuator0 _extendPos 2190  ]
-[; ;movements.c: 402: {
-"402
-{
-[; ;movements.c: 403: LATCbits.LATC0 = 0;
 "403
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 404: LATCbits.LATC1 = 1;
+[f ]
+[; ;movements.c: 404: if (actuator0 < extendPos)
 "404
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[e $ ! < _actuator0 _extendPos 2190  ]
+[; ;movements.c: 405: {
 "405
+{
+[; ;movements.c: 406: LATCbits.LATC0 = 0;
+"406
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 407: LATCbits.LATC1 = 1;
+"407
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"408
 }
-[; ;movements.c: 405: } else if (actuator0 > extendPos)
+[; ;movements.c: 408: } else if (actuator0 > extendPos)
 [e $U 2191  ]
 [e :U 2190 ]
 [e $ ! > _actuator0 _extendPos 2192  ]
-[; ;movements.c: 406: {
-"406
-{
-[; ;movements.c: 407: LATCbits.LATC0 = 1;
-"407
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 408: LATCbits.LATC1 = 0;
-"408
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 409: {
 "409
-}
-[; ;movements.c: 409: } else {
-[e $U 2193  ]
-[e :U 2192 ]
 {
-[; ;movements.c: 410: LATCbits.LATC0 = 0;
+[; ;movements.c: 410: LATCbits.LATC0 = 1;
 "410
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 [; ;movements.c: 411: LATCbits.LATC1 = 0;
 "411
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 "412
 }
+[; ;movements.c: 412: } else {
+[e $U 2193  ]
+[e :U 2192 ]
+{
+[; ;movements.c: 413: LATCbits.LATC0 = 0;
+"413
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 414: LATCbits.LATC1 = 0;
+"414
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"415
+}
 [e :U 2193 ]
 [e :U 2191 ]
-[; ;movements.c: 412: }
-[; ;movements.c: 415: if (actuator1 < extendPos)
-"415
-[e $ ! < _actuator1 _extendPos 2194  ]
-[; ;movements.c: 416: {
-"416
-{
-[; ;movements.c: 417: LATCbits.LATC2 = 0;
-"417
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 418: LATCbits.LATC3 = 1;
+[; ;movements.c: 415: }
+[; ;movements.c: 418: if (actuator1 < extendPos)
 "418
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[e $ ! < _actuator1 _extendPos 2194  ]
+[; ;movements.c: 419: {
 "419
+{
+[; ;movements.c: 420: LATCbits.LATC2 = 0;
+"420
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 421: LATCbits.LATC3 = 1;
+"421
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+"422
 }
-[; ;movements.c: 419: } else if (actuator1 > extendPos)
+[; ;movements.c: 422: } else if (actuator1 > extendPos)
 [e $U 2195  ]
 [e :U 2194 ]
 [e $ ! > _actuator1 _extendPos 2196  ]
-[; ;movements.c: 420: {
-"420
-{
-[; ;movements.c: 421: LATCbits.LATC2 = 1;
-"421
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 422: LATCbits.LATC3 = 0;
-"422
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 423: {
 "423
-}
-[; ;movements.c: 423: } else {
-[e $U 2197  ]
-[e :U 2196 ]
 {
-[; ;movements.c: 424: LATCbits.LATC2 = 0;
+[; ;movements.c: 424: LATCbits.LATC2 = 1;
 "424
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
 [; ;movements.c: 425: LATCbits.LATC3 = 0;
 "425
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
 "426
 }
+[; ;movements.c: 426: } else {
+[e $U 2197  ]
+[e :U 2196 ]
+{
+[; ;movements.c: 427: LATCbits.LATC2 = 0;
+"427
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 428: LATCbits.LATC3 = 0;
+"428
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+"429
+}
 [e :U 2197 ]
 [e :U 2195 ]
-[; ;movements.c: 426: }
-[; ;movements.c: 429: if (actuator2 < extendPos)
-"429
-[e $ ! < _actuator2 _extendPos 2198  ]
-[; ;movements.c: 430: {
-"430
-{
-[; ;movements.c: 431: LATDbits.LATD0 = 0;
-"431
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 432: LATDbits.LATD1 = 1;
+[; ;movements.c: 429: }
+[; ;movements.c: 432: if (actuator2 < extendPos)
 "432
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+[e $ ! < _actuator2 _extendPos 2198  ]
+[; ;movements.c: 433: {
 "433
+{
+[; ;movements.c: 434: LATDbits.LATD0 = 0;
+"434
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 435: LATDbits.LATD1 = 1;
+"435
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+"436
 }
-[; ;movements.c: 433: } else if (actuator2 > extendPos)
+[; ;movements.c: 436: } else if (actuator2 > extendPos)
 [e $U 2199  ]
 [e :U 2198 ]
 [e $ ! > _actuator2 _extendPos 2200  ]
-[; ;movements.c: 434: {
-"434
-{
-[; ;movements.c: 435: LATDbits.LATD0 = 1;
-"435
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 436: LATDbits.LATD1 = 0;
-"436
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 437: {
 "437
-}
-[; ;movements.c: 437: } else {
-[e $U 2201  ]
-[e :U 2200 ]
 {
-[; ;movements.c: 438: LATDbits.LATD0 = 0;
+[; ;movements.c: 438: LATDbits.LATD0 = 1;
 "438
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 [; ;movements.c: 439: LATDbits.LATD1 = 0;
 "439
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
 "440
 }
+[; ;movements.c: 440: } else {
+[e $U 2201  ]
+[e :U 2200 ]
+{
+[; ;movements.c: 441: LATDbits.LATD0 = 0;
+"441
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 442: LATDbits.LATD1 = 0;
+"442
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+"443
+}
 [e :U 2201 ]
 [e :U 2199 ]
-[; ;movements.c: 440: }
-[; ;movements.c: 443: if (actuator3 < extendPos)
-"443
-[e $ ! < _actuator3 _extendPos 2202  ]
-[; ;movements.c: 444: {
-"444
-{
-[; ;movements.c: 445: LATDbits.LATD2 = 0;
-"445
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 446: LATDbits.LATD3 = 1;
+[; ;movements.c: 443: }
+[; ;movements.c: 446: if (actuator3 < extendPos)
 "446
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[e $ ! < _actuator3 _extendPos 2202  ]
+[; ;movements.c: 447: {
 "447
+{
+[; ;movements.c: 448: LATDbits.LATD2 = 0;
+"448
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 449: LATDbits.LATD3 = 1;
+"449
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"450
 }
-[; ;movements.c: 447: } else if (actuator3 > extendPos)
+[; ;movements.c: 450: } else if (actuator3 > extendPos)
 [e $U 2203  ]
 [e :U 2202 ]
 [e $ ! > _actuator3 _extendPos 2204  ]
-[; ;movements.c: 448: {
-"448
-{
-[; ;movements.c: 449: LATDbits.LATD2 = 1;
-"449
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 450: LATDbits.LATD3 = 0;
-"450
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 451: {
 "451
-}
-[; ;movements.c: 451: } else {
-[e $U 2205  ]
-[e :U 2204 ]
 {
-[; ;movements.c: 452: LATDbits.LATD2 = 0;
+[; ;movements.c: 452: LATDbits.LATD2 = 1;
 "452
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
 [; ;movements.c: 453: LATDbits.LATD3 = 0;
 "453
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "454
 }
+[; ;movements.c: 454: } else {
+[e $U 2205  ]
+[e :U 2204 ]
+{
+[; ;movements.c: 455: LATDbits.LATD2 = 0;
+"455
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 456: LATDbits.LATD3 = 0;
+"456
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"457
+}
 [e :U 2205 ]
 [e :U 2203 ]
-[; ;movements.c: 454: }
-[; ;movements.c: 457: if (actuator4 < extendPos)
-"457
-[e $ ! < _actuator4 _extendPos 2206  ]
-[; ;movements.c: 458: {
-"458
-{
-[; ;movements.c: 459: LATCbits.LATC4 = 0;
-"459
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 460: LATCbits.LATC5 = 1;
+[; ;movements.c: 457: }
+[; ;movements.c: 460: if (actuator4 < extendPos)
 "460
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[e $ ! < _actuator4 _extendPos 2206  ]
+[; ;movements.c: 461: {
 "461
+{
+[; ;movements.c: 462: LATCbits.LATC4 = 0;
+"462
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 463: LATCbits.LATC5 = 1;
+"463
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+"464
 }
-[; ;movements.c: 461: } else if (actuator4 > extendPos)
+[; ;movements.c: 464: } else if (actuator4 > extendPos)
 [e $U 2207  ]
 [e :U 2206 ]
 [e $ ! > _actuator4 _extendPos 2208  ]
-[; ;movements.c: 462: {
-"462
-{
-[; ;movements.c: 463: LATCbits.LATC4 = 1;
-"463
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 464: LATCbits.LATC5 = 0;
-"464
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 465: {
 "465
-}
-[; ;movements.c: 465: } else {
-[e $U 2209  ]
-[e :U 2208 ]
 {
-[; ;movements.c: 466: LATCbits.LATC4 = 0;
+[; ;movements.c: 466: LATCbits.LATC4 = 1;
 "466
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
 [; ;movements.c: 467: LATCbits.LATC5 = 0;
 "467
 [e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
 "468
 }
+[; ;movements.c: 468: } else {
+[e $U 2209  ]
+[e :U 2208 ]
+{
+[; ;movements.c: 469: LATCbits.LATC4 = 0;
+"469
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 470: LATCbits.LATC5 = 0;
+"470
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+"471
+}
 [e :U 2209 ]
 [e :U 2207 ]
-[; ;movements.c: 468: }
-[; ;movements.c: 471: if (actuator5 < extendPos)
-"471
-[e $ ! < _actuator5 _extendPos 2210  ]
-[; ;movements.c: 472: {
-"472
-{
-[; ;movements.c: 473: LATCbits.LATC6 = 0;
-"473
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 474: LATCbits.LATC7 = 1;
+[; ;movements.c: 471: }
+[; ;movements.c: 474: if (actuator5 < extendPos)
 "474
-[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[e $ ! < _actuator5 _extendPos 2210  ]
+[; ;movements.c: 475: {
 "475
+{
+[; ;movements.c: 476: LATCbits.LATC6 = 0;
+"476
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 477: LATCbits.LATC7 = 1;
+"477
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+"478
 }
-[; ;movements.c: 475: } else if (actuator5 > extendPos)
+[; ;movements.c: 478: } else if (actuator5 > extendPos)
 [e $U 2211  ]
 [e :U 2210 ]
 [e $ ! > _actuator5 _extendPos 2212  ]
-[; ;movements.c: 476: {
-"476
-{
-[; ;movements.c: 477: LATCbits.LATC6 = 1;
-"477
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 478: LATCbits.LATC7 = 0;
-"478
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 479: {
 "479
-}
-[; ;movements.c: 479: } else {
-[e $U 2213  ]
-[e :U 2212 ]
 {
-[; ;movements.c: 480: LATCbits.LATC6 = 0;
+[; ;movements.c: 480: LATCbits.LATC6 = 1;
 "480
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
 [; ;movements.c: 481: LATCbits.LATC7 = 0;
 "481
 [e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
 "482
 }
+[; ;movements.c: 482: } else {
+[e $U 2213  ]
+[e :U 2212 ]
+{
+[; ;movements.c: 483: LATCbits.LATC6 = 0;
+"483
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 484: LATCbits.LATC7 = 0;
+"484
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+"485
+}
 [e :U 2213 ]
 [e :U 2211 ]
-[; ;movements.c: 482: }
-[; ;movements.c: 485: if (actuator6 < extendPos)
-"485
-[e $ ! < _actuator6 _extendPos 2214  ]
-[; ;movements.c: 486: {
-"486
-{
-[; ;movements.c: 487: LATDbits.LATD4 = 0;
-"487
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 488: LATDbits.LATD5 = 1;
+[; ;movements.c: 485: }
+[; ;movements.c: 488: if (actuator6 < extendPos)
 "488
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+[e $ ! < _actuator6 _extendPos 2214  ]
+[; ;movements.c: 489: {
 "489
+{
+[; ;movements.c: 490: LATDbits.LATD4 = 0;
+"490
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 491: LATDbits.LATD5 = 1;
+"491
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+"492
 }
-[; ;movements.c: 489: } else if (actuator6 > extendPos)
+[; ;movements.c: 492: } else if (actuator6 > extendPos)
 [e $U 2215  ]
 [e :U 2214 ]
 [e $ ! > _actuator6 _extendPos 2216  ]
-[; ;movements.c: 490: {
-"490
-{
-[; ;movements.c: 491: LATDbits.LATD4 = 1;
-"491
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 492: LATDbits.LATD5 = 0;
-"492
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 493: {
 "493
-}
-[; ;movements.c: 493: } else {
-[e $U 2217  ]
-[e :U 2216 ]
 {
-[; ;movements.c: 494: LATDbits.LATD4 = 0;
+[; ;movements.c: 494: LATDbits.LATD4 = 1;
 "494
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 [; ;movements.c: 495: LATDbits.LATD5 = 0;
 "495
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 "496
 }
+[; ;movements.c: 496: } else {
+[e $U 2217  ]
+[e :U 2216 ]
+{
+[; ;movements.c: 497: LATDbits.LATD4 = 0;
+"497
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 498: LATDbits.LATD5 = 0;
+"498
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"499
+}
 [e :U 2217 ]
 [e :U 2215 ]
-[; ;movements.c: 496: }
-[; ;movements.c: 499: if (actuator7 < extendPos)
-"499
-[e $ ! < _actuator7 _extendPos 2218  ]
-[; ;movements.c: 500: {
-"500
-{
-[; ;movements.c: 501: LATDbits.LATD6 = 0;
-"501
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 502: LATDbits.LATD7 = 1;
+[; ;movements.c: 499: }
+[; ;movements.c: 502: if (actuator7 < extendPos)
 "502
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+[e $ ! < _actuator7 _extendPos 2218  ]
+[; ;movements.c: 503: {
 "503
+{
+[; ;movements.c: 504: LATDbits.LATD6 = 0;
+"504
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 505: LATDbits.LATD7 = 1;
+"505
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"506
 }
-[; ;movements.c: 503: } else if (actuator7 > extendPos)
+[; ;movements.c: 506: } else if (actuator7 > extendPos)
 [e $U 2219  ]
 [e :U 2218 ]
 [e $ ! > _actuator7 _extendPos 2220  ]
-[; ;movements.c: 504: {
-"504
-{
-[; ;movements.c: 505: LATDbits.LATD6 = 1;
-"505
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 506: LATDbits.LATD7 = 0;
-"506
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 507: {
 "507
-}
-[; ;movements.c: 507: } else {
-[e $U 2221  ]
-[e :U 2220 ]
 {
-[; ;movements.c: 508: LATDbits.LATD6 = 0;
+[; ;movements.c: 508: LATDbits.LATD6 = 1;
 "508
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 [; ;movements.c: 509: LATDbits.LATD7 = 0;
 "509
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
 "510
 }
+[; ;movements.c: 510: } else {
+[e $U 2221  ]
+[e :U 2220 ]
+{
+[; ;movements.c: 511: LATDbits.LATD6 = 0;
+"511
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 512: LATDbits.LATD7 = 0;
+"512
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"513
+}
 [e :U 2221 ]
 [e :U 2219 ]
-[; ;movements.c: 510: }
-[; ;movements.c: 511: }
-"511
+[; ;movements.c: 513: }
+[; ;movements.c: 514: }
+"514
 [e :UE 2189 ]
 }
-"529
+"532
 [v _testEveryOther `(v ~T0 @X0 1 ef ]
-"530
+"533
 {
-[; ;movements.c: 529: void testEveryOther()
-[; ;movements.c: 530: {
+[; ;movements.c: 532: void testEveryOther()
+[; ;movements.c: 533: {
 [e :U _testEveryOther ]
 [f ]
-[; ;movements.c: 531: LATCbits.LATC0 = 1;
-"531
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 532: LATCbits.LATC1 = 0;
-"532
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 533: LATCbits.LATC2 = 1;
-"533
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 534: LATCbits.LATC3 = 0;
+[; ;movements.c: 534: LATCbits.LATC0 = 1;
 "534
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 535: LATDbits.LATD0 = 1;
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;movements.c: 535: LATCbits.LATC1 = 0;
 "535
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 536: LATDbits.LATD1 = 0;
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 536: LATCbits.LATC2 = 1;
 "536
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 537: LATDbits.LATD2 = 1;
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+[; ;movements.c: 537: LATCbits.LATC3 = 0;
 "537
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 538: LATDbits.LATD3 = 0;
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 538: LATDbits.LATD0 = 1;
 "538
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 539: LATCbits.LATC4 = 1;
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+[; ;movements.c: 539: LATDbits.LATD1 = 0;
 "539
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 540: LATCbits.LATC5 = 0;
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 540: LATDbits.LATD2 = 1;
 "540
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 541: LATCbits.LATC6 = 1;
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
+[; ;movements.c: 541: LATDbits.LATD3 = 0;
 "541
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 542: LATCbits.LATC7 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 542: LATCbits.LATC4 = 1;
 "542
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 543: LATDbits.LATD4 = 1;
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+[; ;movements.c: 543: LATCbits.LATC5 = 0;
 "543
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 544: LATDbits.LATD5 = 0;
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 544: LATCbits.LATC6 = 1;
 "544
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 545: LATDbits.LATD6 = 1;
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;movements.c: 545: LATCbits.LATC7 = 0;
 "545
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 546: LATDbits.LATD7 = 0;
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 546: LATDbits.LATD4 = 1;
 "546
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 547: }
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+[; ;movements.c: 547: LATDbits.LATD5 = 0;
 "547
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 548: LATDbits.LATD6 = 1;
+"548
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+[; ;movements.c: 549: LATDbits.LATD7 = 0;
+"549
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 550: }
+"550
 [e :UE 2222 ]
 }
-"548
+"551
 [v _testALLON `(v ~T0 @X0 1 ef ]
-"549
+"552
 {
-[; ;movements.c: 548: void testALLON()
-[; ;movements.c: 549: {
+[; ;movements.c: 551: void testALLON()
+[; ;movements.c: 552: {
 [e :U _testALLON ]
 [f ]
-[; ;movements.c: 550: LATCbits.LATC0 = 1;
-"550
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 551: LATCbits.LATC1 = 1;
-"551
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
-[; ;movements.c: 552: LATCbits.LATC2 = 1;
-"552
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 553: LATCbits.LATC3 = 1;
+[; ;movements.c: 553: LATCbits.LATC0 = 1;
 "553
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;movements.c: 554: LATDbits.LATD0 = 1;
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;movements.c: 554: LATCbits.LATC1 = 1;
 "554
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 555: LATDbits.LATD1 = 1;
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[; ;movements.c: 555: LATCbits.LATC2 = 1;
 "555
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-[; ;movements.c: 556: LATDbits.LATD2 = 1;
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+[; ;movements.c: 556: LATCbits.LATC3 = 1;
 "556
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 557: LATDbits.LATD3 = 1;
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[; ;movements.c: 557: LATDbits.LATD0 = 1;
 "557
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-[; ;movements.c: 558: LATCbits.LATC4 = 1;
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+[; ;movements.c: 558: LATDbits.LATD1 = 1;
 "558
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 559: LATCbits.LATC5 = 1;
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+[; ;movements.c: 559: LATDbits.LATD2 = 1;
 "559
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;movements.c: 560: LATCbits.LATC6 = 1;
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
+[; ;movements.c: 560: LATDbits.LATD3 = 1;
 "560
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 561: LATCbits.LATC7 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[; ;movements.c: 561: LATCbits.LATC4 = 1;
 "561
-[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
-[; ;movements.c: 562: LATDbits.LATD4 = 1;
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+[; ;movements.c: 562: LATCbits.LATC5 = 1;
 "562
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 563: LATDbits.LATD5 = 1;
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;movements.c: 563: LATCbits.LATC6 = 1;
 "563
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
-[; ;movements.c: 564: LATDbits.LATD6 = 1;
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;movements.c: 564: LATCbits.LATC7 = 1;
 "564
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 565: LATDbits.LATD7 = 1;
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[; ;movements.c: 565: LATDbits.LATD4 = 1;
 "565
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-[; ;movements.c: 566: }
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+[; ;movements.c: 566: LATDbits.LATD5 = 1;
 "566
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+[; ;movements.c: 567: LATDbits.LATD6 = 1;
+"567
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+[; ;movements.c: 568: LATDbits.LATD7 = 1;
+"568
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+[; ;movements.c: 569: }
+"569
 [e :UE 2223 ]
 }
-"567
+"570
 [v _testALLOFF `(v ~T0 @X0 1 ef ]
-"568
+"571
 {
-[; ;movements.c: 567: void testALLOFF()
-[; ;movements.c: 568: {
+[; ;movements.c: 570: void testALLOFF()
+[; ;movements.c: 571: {
 [e :U _testALLOFF ]
 [f ]
-[; ;movements.c: 569: LATCbits.LATC0 = 0;
-"569
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 570: LATCbits.LATC1 = 0;
-"570
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 571: LATCbits.LATC2 = 0;
-"571
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 572: LATCbits.LATC3 = 0;
+[; ;movements.c: 572: LATCbits.LATC0 = 0;
 "572
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 573: LATDbits.LATD0 = 0;
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 573: LATCbits.LATC1 = 0;
 "573
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 574: LATDbits.LATD1 = 0;
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 574: LATCbits.LATC2 = 0;
 "574
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 575: LATDbits.LATD2 = 0;
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 575: LATCbits.LATC3 = 0;
 "575
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 576: LATDbits.LATD3 = 0;
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 576: LATDbits.LATD0 = 0;
 "576
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 577: LATCbits.LATC4 = 0;
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;movements.c: 577: LATDbits.LATD1 = 0;
 "577
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 578: LATCbits.LATC5 = 0;
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;movements.c: 578: LATDbits.LATD2 = 0;
 "578
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 579: LATCbits.LATC6 = 0;
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;movements.c: 579: LATDbits.LATD3 = 0;
 "579
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 580: LATCbits.LATC7 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;movements.c: 580: LATCbits.LATC4 = 0;
 "580
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 581: LATDbits.LATD4 = 0;
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 581: LATCbits.LATC5 = 0;
 "581
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 582: LATDbits.LATD5 = 0;
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 582: LATCbits.LATC6 = 0;
 "582
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 583: LATDbits.LATD6 = 0;
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 583: LATCbits.LATC7 = 0;
 "583
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 584: LATDbits.LATD7 = 0;
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 584: LATDbits.LATD4 = 0;
 "584
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 585: }
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;movements.c: 585: LATDbits.LATD5 = 0;
 "585
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[; ;movements.c: 586: LATDbits.LATD6 = 0;
+"586
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;movements.c: 587: LATDbits.LATD7 = 0;
+"587
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;movements.c: 588: }
+"588
 [e :UE 2224 ]
+}
+"591
+[v _speedCheck `(v ~T0 @X0 1 ef5`ui`ui`ui`*i`*i ]
+"593
+{
+[; ;movements.c: 591: void speedCheck(unsigned int actuatorSlow, unsigned int actuatorFast,
+[; ;movements.c: 592: unsigned int set_point, int *marginSlow, int *marginFast)
+[; ;movements.c: 593: {
+[e :U _speedCheck ]
+"591
+[v _actuatorSlow `ui ~T0 @X0 1 r1 ]
+[v _actuatorFast `ui ~T0 @X0 1 r2 ]
+"592
+[v _set_point `ui ~T0 @X0 1 r3 ]
+[v _marginSlow `*i ~T0 @X0 1 r4 ]
+[v _marginFast `*i ~T0 @X0 1 r5 ]
+"593
+[f ]
+[; ;movements.c: 594: if(set_point == extendPos)
+"594
+[e $ ! == _set_point _extendPos 2226  ]
+[; ;movements.c: 595: {
+"595
+{
+[; ;movements.c: 596: if((actuatorFast - actuatorSlow) == 10)
+"596
+[e $ ! == - _actuatorFast _actuatorSlow -> -> 10 `i `ui 2227  ]
+[; ;movements.c: 597: {
+"597
+{
+[; ;movements.c: 598: *marginFast = 1;
+"598
+[e = *U _marginFast -> 1 `i ]
+[; ;movements.c: 599: *marginSlow = 0;
+"599
+[e = *U _marginSlow -> 0 `i ]
+"600
+}
+[e :U 2227 ]
+[; ;movements.c: 600: }
+[; ;movements.c: 601: if ((actuatorSlow - actuatorFast) == 10)
+"601
+[e $ ! == - _actuatorSlow _actuatorFast -> -> 10 `i `ui 2228  ]
+[; ;movements.c: 602: {
+"602
+{
+[; ;movements.c: 603: *marginFast = 0;
+"603
+[e = *U _marginFast -> 0 `i ]
+[; ;movements.c: 604: *marginSlow = 1;
+"604
+[e = *U _marginSlow -> 1 `i ]
+"605
+}
+[e :U 2228 ]
+"606
+}
+[; ;movements.c: 605: }
+[; ;movements.c: 606: } else if(set_point == retractPos)
+[e $U 2229  ]
+[e :U 2226 ]
+[e $ ! == _set_point _retractPos 2230  ]
+[; ;movements.c: 607: {
+"607
+{
+[; ;movements.c: 608: if((actuatorFast - actuatorSlow) == -10)
+"608
+[e $ ! == - _actuatorFast _actuatorSlow -> -U -> 10 `i `ui 2231  ]
+[; ;movements.c: 609: {
+"609
+{
+[; ;movements.c: 610: *marginFast = 1;
+"610
+[e = *U _marginFast -> 1 `i ]
+[; ;movements.c: 611: *marginSlow = 0;
+"611
+[e = *U _marginSlow -> 0 `i ]
+"612
+}
+[e :U 2231 ]
+[; ;movements.c: 612: }
+[; ;movements.c: 613: if ((actuatorSlow - actuatorFast) == -10)
+"613
+[e $ ! == - _actuatorSlow _actuatorFast -> -U -> 10 `i `ui 2232  ]
+[; ;movements.c: 614: {
+"614
+{
+[; ;movements.c: 615: *marginFast = 0;
+"615
+[e = *U _marginFast -> 0 `i ]
+[; ;movements.c: 616: *marginSlow = 1;
+"616
+[e = *U _marginSlow -> 1 `i ]
+"617
+}
+[e :U 2232 ]
+"618
+}
+[e :U 2230 ]
+"620
+[e :U 2229 ]
+[; ;movements.c: 617: }
+[; ;movements.c: 618: }
+[; ;movements.c: 620: }
+[e :UE 2225 ]
 }

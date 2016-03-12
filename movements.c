@@ -21,6 +21,9 @@
 
 #endif
 
+typedef int bool;
+#define true 1
+#define false 0
 
 unsigned int retractPos = 200;
 unsigned int extendPos = 800;
@@ -582,4 +585,36 @@ void testALLOFF()
     LATDbits.LATD5 = 0;
     LATDbits.LATD6 = 0;
     LATDbits.LATD7 = 0;
+}
+
+
+void speedCheck(unsigned int actuatorSlow, unsigned int actuatorFast,
+                     unsigned int set_point, int *marginSlow, int *marginFast)
+{
+    if(set_point == extendPos)
+    {
+        if((actuatorFast - actuatorSlow) == 10)
+        {
+           *marginFast = 1;
+           *marginSlow = 0;
+        }
+        if ((actuatorSlow - actuatorFast) == 10)
+        {
+           *marginFast = 0;
+           *marginSlow = 1;
+        }
+    } else if(set_point == retractPos)
+    {
+        if((actuatorFast - actuatorSlow) == -10)
+        {
+           *marginFast = 1;
+           *marginSlow = 0;
+        }
+        if ((actuatorSlow - actuatorFast) == -10)
+        {
+           *marginFast = 0;
+           *marginSlow = 1;
+        }
+    }
+
 }

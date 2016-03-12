@@ -38,6 +38,9 @@ void idle_movements(unsigned int actuator0, unsigned int actuator1,
 void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin);
 //void retract(unsigned int current_pos, unsigned int set_point, int actuator, bool *go);
 
+void speedCheck(unsigned int actuator4, unsigned int actuator6, unsigned int set_point,
+                int *margin4, int *margin6);
+
 void testEveryOther();
 void testALLON();
 void testALLOFF();
