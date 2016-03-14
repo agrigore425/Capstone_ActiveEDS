@@ -6,5 +6,6 @@ interrupts.h  \
 ADC_Config.h  \
 config.h  \
 user.h  \
+uart.h  \
 system.h  \
 can.h 

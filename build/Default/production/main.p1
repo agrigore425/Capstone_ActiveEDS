@@ -4,62 +4,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
 "11 can.h
 [v _ecan_init `(v ~T0 @X0 0 ef ]
+"4 uart.h
+[v _uart_init `(v ~T0 @X0 0 ef1`Cl ]
 "14 system.h
 [v _setAnalogIn `(v ~T0 @X0 0 ef ]
 "15
 [v _setActuatorCntrl `(v ~T0 @X0 0 ef ]
-"25931 /opt/microchip/xc8/v1.36/include/pic18f4685.h
-[s S1639 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1639 . FILHIT0 JTOFF_FILHIT1 RXB0DBEN_FILHIT2 RXRTRRO_FILHIT3 FILHIT4 RXM0_RTRRO RXM1 RXFUL ]
-"25941
-[s S1640 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1640 . . JTOFF RXB0DBEN RXRTRRO . RXM0 ]
-"25949
-[s S1641 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1641 . . FILHIT1 FILHIT2 FILHIT3 . RTRRO ]
-"25957
-[s S1642 :2 `uc 1 :1 `uc 1 ]
-[n S1642 . . RXBODBEN ]
-"25961
-[s S1643 :1 `uc 1 ]
-[n S1643 . RXB0FILHIT0 ]
-"25964
-[s S1644 :1 `uc 1 :1 `uc 1 ]
-[n S1644 . . RXB0FILHIT1 ]
-"25968
-[s S1645 :2 `uc 1 :1 `uc 1 ]
-[n S1645 . . RXB0FILHIT2 ]
-"25972
-[s S1646 :3 `uc 1 :1 `uc 1 ]
-[n S1646 . . RXB0FILHIT3 ]
-"25976
-[s S1647 :4 `uc 1 :1 `uc 1 ]
-[n S1647 . . RXB0FILHIT4 ]
-"25980
-[s S1648 :7 `uc 1 :1 `uc 1 ]
-[n S1648 . . RXB0FUL ]
-"25984
-[s S1649 :5 `uc 1 :1 `uc 1 ]
-[n S1649 . . RXB0M0 ]
-"25988
-[s S1650 :6 `uc 1 :1 `uc 1 ]
-[n S1650 . . RXB0M1 ]
-"25992
-[s S1651 :3 `uc 1 :1 `uc 1 ]
-[n S1651 . . RXB0RTRR0 ]
-"25996
-[s S1652 :5 `uc 1 :1 `uc 1 ]
-[n S1652 . . RXB0RTRRO ]
-"25930
-[u S1638 `S1639 1 `S1640 1 `S1641 1 `S1642 1 `S1643 1 `S1644 1 `S1645 1 `S1646 1 `S1647 1 `S1648 1 `S1649 1 `S1650 1 `S1651 1 `S1652 1 ]
-[n S1638 . . . . . . . . . . . . . . . ]
-"26001
-[v _RXB0CONbits `VS1638 ~T0 @X0 0 e@3936 ]
-"5 can.h
-[s S2101 `uc -> 8 `i `s 1 `uc 1 ]
-[n S2101 Message data sid len ]
-"13
-[v _ecan_receive_rxb0 `(v ~T0 @X0 0 ef1`*S2101 ]
 "28926 /opt/microchip/xc8/v1.36/include/pic18f4685.h
 [s S1796 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1796 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
@@ -92,8 +42,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1795 . . . . . . . . . . ]
 "28968
 [v _LATAbits `VS1795 ~T0 @X0 0 e@3977 ]
-"17 can.h
-[v _ecan_rxb0_clear `(v ~T0 @X0 0 ef ]
+"5 uart.h
+[v _uart_data_ready `(uc ~T0 @X0 0 ef ]
+"6
+[v _uart_read `(uc ~T0 @X0 0 ef ]
+"8
+[v _uart_write_text `(v ~T0 @X0 0 ef1`*uc ]
 "14 ADC_Config.h
 [v _selectAN0 `(v ~T0 @X0 0 ef ]
 "23
@@ -112,10 +66,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _selectAN6 `(v ~T0 @X0 0 ef ]
 "21
 [v _selectAN7 `(v ~T0 @X0 0 ef ]
-"41 movements.h
-[v _speedCheck `(v ~T0 @X0 0 ef5`ui`ui`ui`*i`*i ]
-"38
-[v _movement `(v ~T0 @X0 0 ef4`ui`ui`i`*i ]
+"26 movements.h
+[v _testALLON `(v ~T0 @X0 0 ef ]
+"27
+[v _testALLOFF `(v ~T0 @X0 0 ef ]
+"25
+[v _testEveryOther `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -14688,404 +14644,479 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;can.h: 16: char ecan_rxb1_data_ready();
 [; ;can.h: 17: void ecan_rxb0_clear();
 [; ;can.h: 18: void ecan_rxb1_clear();
-[; ;movements.h: 21: void forward_movements(unsigned int actuator0, unsigned int actuator1,
-[; ;movements.h: 22: unsigned int actuator2, unsigned int actuator3,
-[; ;movements.h: 23: unsigned int actuator4, unsigned int actuator5,
-[; ;movements.h: 24: unsigned int actuator6, unsigned int actuator7);
-[; ;movements.h: 26: void backward_movements(unsigned int actuator0, unsigned int actuator1,
-[; ;movements.h: 27: unsigned int actuator2, unsigned int actuator3,
-[; ;movements.h: 28: unsigned int actuator4, unsigned int actuator5,
-[; ;movements.h: 29: unsigned int actuator6, unsigned int actuator7);
-[; ;movements.h: 31: void idle_movements(unsigned int actuator0, unsigned int actuator1,
-[; ;movements.h: 32: unsigned int actuator2, unsigned int actuator3,
-[; ;movements.h: 33: unsigned int actuator4, unsigned int actuator5,
-[; ;movements.h: 34: unsigned int actuator6, unsigned int actuator7);
-[; ;movements.h: 38: void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin);
-[; ;movements.h: 41: void speedCheck(unsigned int actuator4, unsigned int actuator6, unsigned int set_point,
-[; ;movements.h: 42: int *margin4, int *margin6);
-[; ;movements.h: 44: void testEveryOther();
-[; ;movements.h: 45: void testALLON();
-[; ;movements.h: 46: void testALLOFF();
-[; ;main.c: 33: typedef int bool;
-"38 main.c
+[; ;movements.h: 21: void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin);
+[; ;movements.h: 22: void speedCheck(unsigned int actuator4, unsigned int actuator6, unsigned int set_point,
+[; ;movements.h: 23: int *margin4, int *margin6);
+[; ;movements.h: 25: void testEveryOther();
+[; ;movements.h: 26: void testALLON();
+[; ;movements.h: 27: void testALLOFF();
+[; ;uart.h: 4: void uart_init(const long int baudrate);
+[; ;uart.h: 5: char uart_data_ready();
+[; ;uart.h: 6: char uart_read();
+[; ;uart.h: 7: void uart_write(char data);
+[; ;uart.h: 8: void uart_write_text(char *text);
+[; ;uart.h: 9: void uart_write_array(char *text, unsigned int len);
+[; ;uart.h: 10: void uart_read_text(char *Output, unsigned int length);
+[; ;main.c: 34: typedef int bool;
+"39 main.c
 [v _FORW `uc ~T0 @X0 1 e ]
 [i _FORW
 -> -> 0 `i `uc
 ]
-[; ;main.c: 38: bool FORW = 0;
-"39
+[; ;main.c: 39: bool FORW = 0;
+"40
 [v _BACK `uc ~T0 @X0 1 e ]
 [i _BACK
 -> -> 0 `i `uc
 ]
-[; ;main.c: 39: bool BACK = 0;
-"40
+[; ;main.c: 40: bool BACK = 0;
+"41
+[v _EXTEND `uc ~T0 @X0 1 e ]
+[i _EXTEND
+-> -> 0 `i `uc
+]
+[; ;main.c: 41: bool EXTEND = 0;
+"42
+[v _RETRACT `uc ~T0 @X0 1 e ]
+[i _RETRACT
+-> -> 0 `i `uc
+]
+[; ;main.c: 42: bool RETRACT = 0;
+"44
 [v _margin0 `i ~T0 @X0 1 e ]
 [i _margin0
 -> 0 `i
 ]
-[; ;main.c: 40: int margin0 = 0;
-"41
+[; ;main.c: 44: int margin0 = 0;
+"45
 [v _margin1 `i ~T0 @X0 1 e ]
 [i _margin1
 -> 0 `i
 ]
-[; ;main.c: 41: int margin1 = 0;
-"42
+[; ;main.c: 45: int margin1 = 0;
+"46
 [v _margin2 `i ~T0 @X0 1 e ]
 [i _margin2
 -> 0 `i
 ]
-[; ;main.c: 42: int margin2 = 0;
-"43
+[; ;main.c: 46: int margin2 = 0;
+"47
 [v _margin3 `i ~T0 @X0 1 e ]
 [i _margin3
 -> 0 `i
 ]
-[; ;main.c: 43: int margin3 = 0;
-"44
+[; ;main.c: 47: int margin3 = 0;
+"48
 [v _margin4 `i ~T0 @X0 1 e ]
 [i _margin4
 -> 0 `i
 ]
-[; ;main.c: 44: int margin4 = 0;
-"45
+[; ;main.c: 48: int margin4 = 0;
+"49
 [v _margin5 `i ~T0 @X0 1 e ]
 [i _margin5
 -> 0 `i
 ]
-[; ;main.c: 45: int margin5 = 0;
-"46
+[; ;main.c: 49: int margin5 = 0;
+"50
 [v _margin6 `i ~T0 @X0 1 e ]
 [i _margin6
 -> 0 `i
 ]
-[; ;main.c: 46: int margin6 = 0;
-"47
+[; ;main.c: 50: int margin6 = 0;
+"51
 [v _margin7 `i ~T0 @X0 1 e ]
 [i _margin7
 -> 0 `i
 ]
-[; ;main.c: 47: int margin7 = 0;
-"53
+[; ;main.c: 51: int margin7 = 0;
+"57
 [v _main `(v ~T0 @X0 1 ef ]
-"54
+"58
 {
-[; ;main.c: 53: void main(void)
-[; ;main.c: 54: {
+[; ;main.c: 57: void main(void)
+[; ;main.c: 58: {
 [e :U _main ]
 [f ]
-[; ;main.c: 56: ConfigureOscillator();
-"56
+[; ;main.c: 60: ConfigureOscillator();
+"60
 [e ( _ConfigureOscillator ..  ]
-[; ;main.c: 57: ecan_init();
-"57
-[e ( _ecan_init ..  ]
-[; ;main.c: 61: setAnalogIn();
+[; ;main.c: 61: ecan_init();
 "61
-[e ( _setAnalogIn ..  ]
-[; ;main.c: 62: setActuatorCntrl();
+[e ( _ecan_init ..  ]
+[; ;main.c: 62: uart_init(9600);
 "62
-[e ( _setActuatorCntrl ..  ]
-"63
-[v _actuator0 `ui ~T0 @X0 1 a ]
-[; ;main.c: 63: unsigned int actuator0 = 0;
-[e = _actuator0 -> -> 0 `i `ui ]
-"64
-[v _actuator1 `ui ~T0 @X0 1 a ]
-[; ;main.c: 64: unsigned int actuator1 = 0;
-[e = _actuator1 -> -> 0 `i `ui ]
+[e ( _uart_init (1 -> -> 9600 `i `l ]
+[; ;main.c: 65: setAnalogIn();
 "65
-[v _actuator2 `ui ~T0 @X0 1 a ]
-[; ;main.c: 65: unsigned int actuator2 = 0;
-[e = _actuator2 -> -> 0 `i `ui ]
+[e ( _setAnalogIn ..  ]
+[; ;main.c: 66: setActuatorCntrl();
 "66
-[v _actuator3 `ui ~T0 @X0 1 a ]
-[; ;main.c: 66: unsigned int actuator3 = 0;
-[e = _actuator3 -> -> 0 `i `ui ]
+[e ( _setActuatorCntrl ..  ]
 "67
-[v _actuator4 `ui ~T0 @X0 1 a ]
-[; ;main.c: 67: unsigned int actuator4 = 0;
-[e = _actuator4 -> -> 0 `i `ui ]
+[v _actuator0 `ui ~T0 @X0 1 a ]
+[; ;main.c: 67: unsigned int actuator0 = 0;
+[e = _actuator0 -> -> 0 `i `ui ]
 "68
-[v _actuator5 `ui ~T0 @X0 1 a ]
-[; ;main.c: 68: unsigned int actuator5 = 0;
-[e = _actuator5 -> -> 0 `i `ui ]
+[v _actuator1 `ui ~T0 @X0 1 a ]
+[; ;main.c: 68: unsigned int actuator1 = 0;
+[e = _actuator1 -> -> 0 `i `ui ]
 "69
-[v _actuator6 `ui ~T0 @X0 1 a ]
-[; ;main.c: 69: unsigned int actuator6 = 0;
-[e = _actuator6 -> -> 0 `i `ui ]
+[v _actuator2 `ui ~T0 @X0 1 a ]
+[; ;main.c: 69: unsigned int actuator2 = 0;
+[e = _actuator2 -> -> 0 `i `ui ]
 "70
-[v _actuator7 `ui ~T0 @X0 1 a ]
-[; ;main.c: 70: unsigned int actuator7 = 0;
-[e = _actuator7 -> -> 0 `i `ui ]
+[v _actuator3 `ui ~T0 @X0 1 a ]
+[; ;main.c: 70: unsigned int actuator3 = 0;
+[e = _actuator3 -> -> 0 `i `ui ]
+"71
+[v _actuator4 `ui ~T0 @X0 1 a ]
+[; ;main.c: 71: unsigned int actuator4 = 0;
+[e = _actuator4 -> -> 0 `i `ui ]
+"72
+[v _actuator5 `ui ~T0 @X0 1 a ]
+[; ;main.c: 72: unsigned int actuator5 = 0;
+[e = _actuator5 -> -> 0 `i `ui ]
 "73
-[v _retractPos `ui ~T0 @X0 1 a ]
-[; ;main.c: 73: unsigned int retractPos = 200;
-[e = _retractPos -> -> 200 `i `ui ]
+[v _actuator6 `ui ~T0 @X0 1 a ]
+[; ;main.c: 73: unsigned int actuator6 = 0;
+[e = _actuator6 -> -> 0 `i `ui ]
 "74
-[v _extendPos `ui ~T0 @X0 1 a ]
-[; ;main.c: 74: unsigned int extendPos = 800;
-[e = _extendPos -> -> 800 `i `ui ]
-[; ;main.c: 76: while(1)
+[v _actuator7 `ui ~T0 @X0 1 a ]
+[; ;main.c: 74: unsigned int actuator7 = 0;
+[e = _actuator7 -> -> 0 `i `ui ]
+[; ;main.c: 76: LATAbits.LATA7 = 1;
 "76
-[e :U 2104 ]
-[; ;main.c: 77: {
-"77
-{
-[; ;main.c: 78: if(RXB0CONbits.RXB0FUL)
+[e = . . _LATAbits 0 7 -> -> 1 `i `uc ]
 "78
-[e $ ! != -> . . _RXB0CONbits 9 1 `i -> -> -> 0 `i `Vuc `i 2106  ]
-[; ;main.c: 79: {
+[v _retractPos `ui ~T0 @X0 1 a ]
+[; ;main.c: 78: unsigned int retractPos = 200;
+[e = _retractPos -> -> 200 `i `ui ]
 "79
-{
-"80
-[v _newMessage `S2101 ~T0 @X0 1 a ]
-[; ;main.c: 80: Message newMessage;
-[; ;main.c: 81: ecan_receive_rxb0(&newMessage);
-"81
-[e ( _ecan_receive_rxb0 (1 &U _newMessage ]
-[; ;main.c: 83: margin0 = 0;
+[v _extendPos `ui ~T0 @X0 1 a ]
+[; ;main.c: 79: unsigned int extendPos = 500;
+[e = _extendPos -> -> 500 `i `ui ]
+[; ;main.c: 83: while(1)
 "83
-[e = _margin0 -> 0 `i ]
-[; ;main.c: 84: margin1 = 0;
+[e :U 2104 ]
+[; ;main.c: 84: {
 "84
+{
+[; ;main.c: 146: if(uart_data_ready())
+"146
+[e $ ! != -> ( _uart_data_ready ..  `i -> -> -> 0 `i `uc `i 2106  ]
+[; ;main.c: 147: {
+"147
+{
+"148
+[v _message `uc ~T0 @X0 1 a ]
+[; ;main.c: 148: char message = uart_read();
+[e = _message ( _uart_read ..  ]
+[; ;main.c: 150: margin0 = 0;
+"150
+[e = _margin0 -> 0 `i ]
+[; ;main.c: 151: margin1 = 0;
+"151
 [e = _margin1 -> 0 `i ]
-[; ;main.c: 85: margin2 = 0;
-"85
+[; ;main.c: 152: margin2 = 0;
+"152
 [e = _margin2 -> 0 `i ]
-[; ;main.c: 86: margin3 = 0;
-"86
+[; ;main.c: 153: margin3 = 0;
+"153
 [e = _margin3 -> 0 `i ]
-[; ;main.c: 87: margin4 = 0;
-"87
+[; ;main.c: 154: margin4 = 0;
+"154
 [e = _margin4 -> 0 `i ]
-[; ;main.c: 88: margin5 = 0;
-"88
+[; ;main.c: 155: margin5 = 0;
+"155
 [e = _margin5 -> 0 `i ]
-[; ;main.c: 89: margin6 = 0;
-"89
+[; ;main.c: 156: margin6 = 0;
+"156
 [e = _margin6 -> 0 `i ]
-[; ;main.c: 90: margin7 = 0;
-"90
+[; ;main.c: 157: margin7 = 0;
+"157
 [e = _margin7 -> 0 `i ]
-[; ;main.c: 92: LATAbits.LATA7 ^= 1;
-"92
+[; ;main.c: 159: LATAbits.LATA7 ^= 1;
+"159
 [e =^ . . _LATAbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 100: if (newMessage.data[0] == 0x00)
-"100
-[e $ ! == -> *U + &U . _newMessage 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _newMessage 0 `ui `ux `i -> 0 `i 2107  ]
-[; ;main.c: 101: {
-"101
+[; ;main.c: 161: if (message == 'e')
+"161
+[e $ ! == -> _message `ui -> 101 `ui 2107  ]
+[; ;main.c: 162: {
+"162
 {
-[; ;main.c: 102: FORW = 0;
-"102
+[; ;main.c: 163: FORW = 0;
+"163
 [e = _FORW -> -> 0 `i `uc ]
-[; ;main.c: 103: BACK = 0;
-"103
+[; ;main.c: 164: BACK = 0;
+"164
 [e = _BACK -> -> 0 `i `uc ]
-"104
+[; ;main.c: 165: EXTEND = 1;
+"165
+[e = _EXTEND -> -> 1 `i `uc ]
+[; ;main.c: 166: RETRACT = 0;
+"166
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 167: uart_write_text("Command Sent (Array Extended)\r\n");
+"167
+[e ( _uart_write_text (1 -> :s 1C `*uc ]
+"168
 }
+[; ;main.c: 168: }
+[e $U 2108  ]
+"169
 [e :U 2107 ]
-[; ;main.c: 104: }
-[; ;main.c: 105: if (newMessage.data[0] == 0x01)
-"105
-[e $ ! == -> *U + &U . _newMessage 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _newMessage 0 `ui `ux `i -> 1 `i 2108  ]
-[; ;main.c: 106: {
-"106
+[; ;main.c: 169: else if (message == 'r')
+[e $ ! == -> _message `ui -> 114 `ui 2109  ]
+[; ;main.c: 170: {
+"170
 {
-[; ;main.c: 107: FORW = 1;
-"107
-[e = _FORW -> -> 1 `i `uc ]
-[; ;main.c: 108: BACK = 0;
-"108
-[e = _BACK -> -> 0 `i `uc ]
-"109
-}
-[e :U 2108 ]
-[; ;main.c: 109: }
-[; ;main.c: 110: if (newMessage.data[0] == 0x02)
-"110
-[e $ ! == -> *U + &U . _newMessage 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _newMessage 0 `ui `ux `i -> 2 `i 2109  ]
-[; ;main.c: 111: {
-"111
-{
-[; ;main.c: 112: FORW = 0;
-"112
+[; ;main.c: 171: FORW = 0;
+"171
 [e = _FORW -> -> 0 `i `uc ]
-[; ;main.c: 113: BACK = 1;
-"113
-[e = _BACK -> -> 1 `i `uc ]
-"114
+[; ;main.c: 172: BACK = 0;
+"172
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 173: EXTEND = 0;
+"173
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 174: RETRACT = 1;
+"174
+[e = _RETRACT -> -> 1 `i `uc ]
+[; ;main.c: 175: uart_write_text("Command Sent (Array Retracted)\r\n");
+"175
+[e ( _uart_write_text (1 -> :s 2C `*uc ]
+"176
 }
+[; ;main.c: 176: }
+[e $U 2110  ]
+"177
 [e :U 2109 ]
-[; ;main.c: 114: }
-[; ;main.c: 116: ecan_rxb0_clear();
-"116
-[e ( _ecan_rxb0_clear ..  ]
-"117
+[; ;main.c: 177: else if (message == 'f')
+[e $ ! == -> _message `ui -> 102 `ui 2111  ]
+[; ;main.c: 178: {
+"178
+{
+[; ;main.c: 179: FORW = 1;
+"179
+[e = _FORW -> -> 1 `i `uc ]
+[; ;main.c: 180: BACK = 0;
+"180
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 181: EXTEND = 0;
+"181
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 182: RETRACT = 0;
+"182
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 183: uart_write_text("Command Sent (Array Forward)\r\n");
+"183
+[e ( _uart_write_text (1 -> :s 3C `*uc ]
+"184
+}
+[; ;main.c: 184: }
+[e $U 2112  ]
+"185
+[e :U 2111 ]
+[; ;main.c: 185: else if (message == 'b')
+[e $ ! == -> _message `ui -> 98 `ui 2113  ]
+[; ;main.c: 186: {
+"186
+{
+[; ;main.c: 187: FORW = 0;
+"187
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 188: BACK = 1;
+"188
+[e = _BACK -> -> 1 `i `uc ]
+[; ;main.c: 189: EXTEND = 0;
+"189
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 190: RETRACT = 0;
+"190
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 191: uart_write_text("Command Sent (Array Backward)\r\n");
+"191
+[e ( _uart_write_text (1 -> :s 4C `*uc ]
+"192
+}
+[e :U 2113 ]
+"193
+[e :U 2112 ]
+[e :U 2110 ]
+[e :U 2108 ]
 }
 [e :U 2106 ]
-[; ;main.c: 117: }
-[; ;main.c: 125: selectAN0();
-"125
+[; ;main.c: 192: }
+[; ;main.c: 193: }
+[; ;main.c: 196: if(margin0 == 0){
+"196
+[e $ ! == _margin0 -> 0 `i 2114  ]
+{
+[; ;main.c: 198: selectAN0();
+"198
 [e ( _selectAN0 ..  ]
-[; ;main.c: 126: actuator0 = readADC();
-"126
+[; ;main.c: 199: actuator0 = readADC();
+"199
 [e = _actuator0 ( _readADC ..  ]
-[; ;main.c: 131: selectAN1();
-"131
-[e ( _selectAN1 ..  ]
-[; ;main.c: 132: actuator1 = readADC();
-"132
-[e = _actuator1 ( _readADC ..  ]
-[; ;main.c: 137: selectAN2();
-"137
-[e ( _selectAN2 ..  ]
-[; ;main.c: 138: actuator2 = readADC();
-"138
-[e = _actuator2 ( _readADC ..  ]
-[; ;main.c: 143: selectAN3();
-"143
-[e ( _selectAN3 ..  ]
-[; ;main.c: 144: actuator3 = readADC();
-"144
-[e = _actuator3 ( _readADC ..  ]
-[; ;main.c: 150: selectAN4();
-"150
-[e ( _selectAN4 ..  ]
-[; ;main.c: 151: actuator4 = readADC();
-"151
-[e = _actuator4 ( _readADC ..  ]
-[; ;main.c: 156: selectAN5();
-"156
-[e ( _selectAN5 ..  ]
-[; ;main.c: 157: actuator5 = readADC();
-"157
-[e = _actuator5 ( _readADC ..  ]
-[; ;main.c: 163: selectAN6();
-"163
-[e ( _selectAN6 ..  ]
-[; ;main.c: 164: actuator6 = readADC();
-"164
-[e = _actuator6 ( _readADC ..  ]
-[; ;main.c: 166: if(margin7 == 0)
-"166
-[e $ ! == _margin7 -> 0 `i 2110  ]
-[; ;main.c: 167: {
-"167
-{
-[; ;main.c: 170: selectAN7();
-"170
-[e ( _selectAN7 ..  ]
-[; ;main.c: 171: actuator7 = readADC();
-"171
-[e = _actuator7 ( _readADC ..  ]
-"172
-}
-[e :U 2110 ]
-[; ;main.c: 172: }
-[; ;main.c: 175: if(FORW == 1 && BACK == 0)
-"175
-[e $ ! && == -> _FORW `i -> 1 `i == -> _BACK `i -> 0 `i 2111  ]
-[; ;main.c: 176: {
-"176
-{
-[; ;main.c: 182: speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
-"182
-[e ( _speedCheck (4 , , , , _actuator3 _actuator1 _extendPos &U _margin3 &U _margin1 ]
-[; ;main.c: 183: speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
-"183
-[e ( _speedCheck (4 , , , , _actuator4 _actuator6 _extendPos &U _margin4 &U _margin6 ]
-[; ;main.c: 189: movement(actuator0, retractPos, 0, &margin0);
-"189
-[e ( _movement (4 , , , _actuator0 _retractPos -> 0 `i &U _margin0 ]
-[; ;main.c: 190: movement(actuator1, extendPos, 1, &margin1);
-"190
-[e ( _movement (4 , , , _actuator1 _extendPos -> 1 `i &U _margin1 ]
-[; ;main.c: 191: movement(actuator2, retractPos, 2, &margin2);
-"191
-[e ( _movement (4 , , , _actuator2 _retractPos -> 2 `i &U _margin2 ]
-[; ;main.c: 192: movement(actuator3, extendPos, 3, &margin3);
-"192
-[e ( _movement (4 , , , _actuator3 _extendPos -> 3 `i &U _margin3 ]
-[; ;main.c: 193: movement(actuator4, extendPos, 4, &margin4);
-"193
-[e ( _movement (4 , , , _actuator4 _extendPos -> 4 `i &U _margin4 ]
-[; ;main.c: 194: movement(actuator5, retractPos, 5, &margin5);
-"194
-[e ( _movement (4 , , , _actuator5 _retractPos -> 5 `i &U _margin5 ]
-[; ;main.c: 195: movement(actuator6, extendPos, 6, &margin6);
-"195
-[e ( _movement (4 , , , _actuator6 _extendPos -> 6 `i &U _margin6 ]
-"206
-}
-[; ;main.c: 206: } else if(BACK == 1 && FORW == 0) {
-[e $U 2112  ]
-[e :U 2111 ]
-[e $ ! && == -> _BACK `i -> 1 `i == -> _FORW `i -> 0 `i 2113  ]
-{
-[; ;main.c: 213: movement(actuator0, extendPos, 0, &margin0);
-"213
-[e ( _movement (4 , , , _actuator0 _extendPos -> 0 `i &U _margin0 ]
-[; ;main.c: 214: movement(actuator1, retractPos, 1, &margin1);
-"214
-[e ( _movement (4 , , , _actuator1 _retractPos -> 1 `i &U _margin1 ]
-[; ;main.c: 215: movement(actuator2, extendPos, 2, &margin2);
-"215
-[e ( _movement (4 , , , _actuator2 _extendPos -> 2 `i &U _margin2 ]
-[; ;main.c: 216: movement(actuator3, retractPos, 3, &margin3);
-"216
-[e ( _movement (4 , , , _actuator3 _retractPos -> 3 `i &U _margin3 ]
-[; ;main.c: 217: movement(actuator4, retractPos, 4, &margin4);
-"217
-[e ( _movement (4 , , , _actuator4 _retractPos -> 4 `i &U _margin4 ]
-[; ;main.c: 218: movement(actuator5, extendPos, 5, &margin5);
-"218
-[e ( _movement (4 , , , _actuator5 _extendPos -> 5 `i &U _margin5 ]
-[; ;main.c: 219: movement(actuator6, retractPos, 6, &margin6);
-"219
-[e ( _movement (4 , , , _actuator6 _retractPos -> 6 `i &U _margin6 ]
-"226
-}
-[; ;main.c: 226: } else {
-[e $U 2114  ]
-[e :U 2113 ]
-{
-[; ;main.c: 229: movement(actuator0, extendPos, 0, &margin0);
-"229
-[e ( _movement (4 , , , _actuator0 _extendPos -> 0 `i &U _margin0 ]
-[; ;main.c: 230: movement(actuator1, extendPos, 1, &margin1);
-"230
-[e ( _movement (4 , , , _actuator1 _extendPos -> 1 `i &U _margin1 ]
-[; ;main.c: 231: movement(actuator2, extendPos, 2, &margin2);
-"231
-[e ( _movement (4 , , , _actuator2 _extendPos -> 2 `i &U _margin2 ]
-[; ;main.c: 232: movement(actuator3, extendPos, 3, &margin3);
-"232
-[e ( _movement (4 , , , _actuator3 _extendPos -> 3 `i &U _margin3 ]
-[; ;main.c: 233: movement(actuator4, extendPos, 4, &margin4);
-"233
-[e ( _movement (4 , , , _actuator4 _extendPos -> 4 `i &U _margin4 ]
-[; ;main.c: 234: movement(actuator5, extendPos, 5, &margin5);
-"234
-[e ( _movement (4 , , , _actuator5 _extendPos -> 5 `i &U _margin5 ]
-[; ;main.c: 235: movement(actuator6, extendPos, 6, &margin6);
-"235
-[e ( _movement (4 , , , _actuator6 _extendPos -> 6 `i &U _margin6 ]
-"241
+"200
 }
 [e :U 2114 ]
-[e :U 2112 ]
+[; ;main.c: 200: }
+[; ;main.c: 201: if(margin1 == 0){
+"201
+[e $ ! == _margin1 -> 0 `i 2115  ]
+{
+[; ;main.c: 204: selectAN1();
+"204
+[e ( _selectAN1 ..  ]
+[; ;main.c: 205: actuator1 = readADC();
+"205
+[e = _actuator1 ( _readADC ..  ]
+"206
+}
+[e :U 2115 ]
+[; ;main.c: 206: }
+[; ;main.c: 207: if(margin2 == 0){
+"207
+[e $ ! == _margin2 -> 0 `i 2116  ]
+{
+[; ;main.c: 210: selectAN2();
+"210
+[e ( _selectAN2 ..  ]
+[; ;main.c: 211: actuator2 = readADC();
+"211
+[e = _actuator2 ( _readADC ..  ]
+"212
+}
+[e :U 2116 ]
+[; ;main.c: 212: }
+[; ;main.c: 213: if(margin3 == 0){
+"213
+[e $ ! == _margin3 -> 0 `i 2117  ]
+{
+[; ;main.c: 216: selectAN3();
+"216
+[e ( _selectAN3 ..  ]
+[; ;main.c: 217: actuator3 = readADC();
+"217
+[e = _actuator3 ( _readADC ..  ]
+"218
+}
+[e :U 2117 ]
+[; ;main.c: 218: }
+[; ;main.c: 220: if(margin4 == 0){
+"220
+[e $ ! == _margin4 -> 0 `i 2118  ]
+{
+[; ;main.c: 223: selectAN4();
+"223
+[e ( _selectAN4 ..  ]
+[; ;main.c: 224: actuator4 = readADC();
+"224
+[e = _actuator4 ( _readADC ..  ]
+"225
+}
+[e :U 2118 ]
+[; ;main.c: 225: }
+[; ;main.c: 226: if(margin5 == 0){
+"226
+[e $ ! == _margin5 -> 0 `i 2119  ]
+{
+[; ;main.c: 229: selectAN5();
+"229
+[e ( _selectAN5 ..  ]
+[; ;main.c: 230: actuator5 = readADC();
+"230
+[e = _actuator5 ( _readADC ..  ]
+"231
+}
+[e :U 2119 ]
+[; ;main.c: 231: }
+[; ;main.c: 233: if(margin6 == 0){
+"233
+[e $ ! == _margin6 -> 0 `i 2120  ]
+{
+[; ;main.c: 236: selectAN6();
+"236
+[e ( _selectAN6 ..  ]
+[; ;main.c: 237: actuator6 = readADC();
+"237
+[e = _actuator6 ( _readADC ..  ]
+"238
+}
+[e :U 2120 ]
+[; ;main.c: 238: }
+[; ;main.c: 239: if(margin7 == 0){
+"239
+[e $ ! == _margin7 -> 0 `i 2121  ]
+{
+[; ;main.c: 242: selectAN7();
+"242
+[e ( _selectAN7 ..  ]
+[; ;main.c: 243: actuator7 = readADC();
+"243
+[e = _actuator7 ( _readADC ..  ]
 "244
 }
+[e :U 2121 ]
+[; ;main.c: 244: }
+[; ;main.c: 247: if(FORW == 1 && BACK == 0 && EXTEND == 0 && RETRACT == 0)
+"247
+[e $ ! && && && == -> _FORW `i -> 1 `i == -> _BACK `i -> 0 `i == -> _EXTEND `i -> 0 `i == -> _RETRACT `i -> 0 `i 2122  ]
+[; ;main.c: 248: {
+"248
+{
+[; ;main.c: 252: testALLON();
+"252
+[e ( _testALLON ..  ]
+"271
+}
+[; ;main.c: 271: } else if(BACK == 1 && FORW == 0 && EXTEND == 0 && RETRACT == 0) {
+[e $U 2123  ]
+[e :U 2122 ]
+[e $ ! && && && == -> _BACK `i -> 1 `i == -> _FORW `i -> 0 `i == -> _EXTEND `i -> 0 `i == -> _RETRACT `i -> 0 `i 2124  ]
+{
+[; ;main.c: 274: testALLOFF();
+"274
+[e ( _testALLOFF ..  ]
+"289
+}
+[; ;main.c: 289: } else if (FORW == 0 && BACK == 0 && EXTEND == 1 && RETRACT == 0){
+[e $U 2125  ]
+[e :U 2124 ]
+[e $ ! && && && == -> _FORW `i -> 0 `i == -> _BACK `i -> 0 `i == -> _EXTEND `i -> 1 `i == -> _RETRACT `i -> 0 `i 2126  ]
+{
+[; ;main.c: 292: testEveryOther();
+"292
+[e ( _testEveryOther ..  ]
+"304
+}
+[; ;main.c: 304: } else {
+[e $U 2127  ]
+[e :U 2126 ]
+{
+[; ;main.c: 305: testEveryOther();
+"305
+[e ( _testEveryOther ..  ]
+"315
+}
+[e :U 2127 ]
+[e :U 2125 ]
+[e :U 2123 ]
+"316
+}
 [e :U 2103 ]
-"76
+"83
 [e $U 2104  ]
 [e :U 2105 ]
-[; ;main.c: 241: }
-[; ;main.c: 244: }
-[; ;main.c: 246: }
-"246
+[; ;main.c: 315: }
+[; ;main.c: 316: }
+[; ;main.c: 317: }
+"317
 [e :UE 2102 ]
 }
+[a 3C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 70 111 114 119 97 114 100 41 13 10 0 ]
+[a 4C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 66 97 99 107 119 97 114 100 41 13 10 0 ]
+[a 2C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 82 101 116 114 97 99 116 101 100 41 13 10 0 ]
+[a 1C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 69 120 116 101 110 100 101 100 41 13 10 0 ]

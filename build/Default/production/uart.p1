@@ -1,103 +1,129 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"29190 /opt/microchip/xc8/v1.36/include/pic18f4685.h
-[s S1816 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1816 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"29200
-[s S1817 :1 `uc 1 ]
-[n S1817 . LC0 ]
-"29203
-[s S1818 :1 `uc 1 :1 `uc 1 ]
-[n S1818 . . LC1 ]
-"29207
-[s S1819 :2 `uc 1 :1 `uc 1 ]
-[n S1819 . . LC2 ]
-"29211
-[s S1820 :3 `uc 1 :1 `uc 1 ]
-[n S1820 . . LC3 ]
-"29215
-[s S1821 :4 `uc 1 :1 `uc 1 ]
-[n S1821 . . LC4 ]
-"29219
-[s S1822 :5 `uc 1 :1 `uc 1 ]
-[n S1822 . . LC5 ]
-"29223
-[s S1823 :6 `uc 1 :1 `uc 1 ]
-[n S1823 . . LC6 ]
-"29227
-[s S1824 :7 `uc 1 :1 `uc 1 ]
-[n S1824 . . LC7 ]
-"29189
-[u S1815 `S1816 1 `S1817 1 `S1818 1 `S1819 1 `S1820 1 `S1821 1 `S1822 1 `S1823 1 `S1824 1 ]
-[n S1815 . . . . . . . . . . ]
-"29232
-[v _LATCbits `VS1815 ~T0 @X0 0 e@3979 ]
-"29322
-[s S1826 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1826 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"29332
-[s S1827 :1 `uc 1 ]
-[n S1827 . LD0 ]
-"29335
-[s S1828 :1 `uc 1 :1 `uc 1 ]
-[n S1828 . . LD1 ]
-"29339
-[s S1829 :2 `uc 1 :1 `uc 1 ]
-[n S1829 . . LD2 ]
-"29343
-[s S1830 :3 `uc 1 :1 `uc 1 ]
-[n S1830 . . LD3 ]
-"29347
-[s S1831 :4 `uc 1 :1 `uc 1 ]
-[n S1831 . . LD4 ]
-"29351
-[s S1832 :5 `uc 1 :1 `uc 1 ]
-[n S1832 . . LD5 ]
-"29355
-[s S1833 :6 `uc 1 :1 `uc 1 ]
-[n S1833 . . LD6 ]
-"29359
-[s S1834 :7 `uc 1 :1 `uc 1 ]
-[n S1834 . . LD7 ]
-"29321
-[u S1825 `S1826 1 `S1827 1 `S1828 1 `S1829 1 `S1830 1 `S1831 1 `S1832 1 `S1833 1 `S1834 1 ]
-[n S1825 . . . . . . . . . . ]
-"29364
-[v _LATDbits `VS1825 ~T0 @X0 0 e@3980 ]
-"29058
-[s S1806 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1806 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
-"29068
-[s S1807 :1 `uc 1 ]
-[n S1807 . LB0 ]
-"29071
-[s S1808 :1 `uc 1 :1 `uc 1 ]
-[n S1808 . . LB1 ]
-"29075
-[s S1809 :2 `uc 1 :1 `uc 1 ]
-[n S1809 . . LB2 ]
-"29079
-[s S1810 :3 `uc 1 :1 `uc 1 ]
-[n S1810 . . LB3 ]
-"29083
-[s S1811 :4 `uc 1 :1 `uc 1 ]
-[n S1811 . . LB4 ]
-"29087
-[s S1812 :5 `uc 1 :1 `uc 1 ]
-[n S1812 . . LB5 ]
-"29091
-[s S1813 :6 `uc 1 :1 `uc 1 ]
-[n S1813 . . LB6 ]
-"29095
-[s S1814 :7 `uc 1 :1 `uc 1 ]
-[n S1814 . . LB7 ]
-"29057
-[u S1805 `S1806 1 `S1807 1 `S1808 1 `S1809 1 `S1810 1 `S1811 1 `S1812 1 `S1813 1 `S1814 1 ]
-[n S1805 . . . . . . . . . . ]
-"29100
-[v _LATBbits `VS1805 ~T0 @X0 0 e@3978 ]
-[; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
-[; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+"31977 /opt/microchip/xc8/v1.36/include/pic18f4685.h
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"31669
+[s S1929 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1929 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"31679
+[s S1930 :2 `uc 1 :1 `uc 1 ]
+[n S1930 . . BRGH1 ]
+"31683
+[s S1931 :7 `uc 1 :1 `uc 1 ]
+[n S1931 . . CSRC1 ]
+"31687
+[s S1932 :3 `uc 1 :1 `uc 1 ]
+[n S1932 . . SENDB1 ]
+"31691
+[s S1933 :4 `uc 1 :1 `uc 1 ]
+[n S1933 . . SYNC1 ]
+"31695
+[s S1934 :1 `uc 1 :1 `uc 1 ]
+[n S1934 . . TRMT1 ]
+"31699
+[s S1935 :6 `uc 1 :1 `uc 1 ]
+[n S1935 . . TX91 ]
+"31703
+[s S1936 :1 `uc 1 ]
+[n S1936 . TX9D1 ]
+"31706
+[s S1937 :5 `uc 1 :1 `uc 1 ]
+[n S1937 . . TXEN1 ]
+"31710
+[s S1938 :6 `uc 1 :1 `uc 1 ]
+[n S1938 . . TX8_9 ]
+"31714
+[s S1939 :1 `uc 1 ]
+[n S1939 . TXD8 ]
+"31668
+[u S1928 `S1929 1 `S1930 1 `S1931 1 `S1932 1 `S1933 1 `S1934 1 `S1935 1 `S1936 1 `S1937 1 `S1938 1 `S1939 1 ]
+[n S1928 . . . . . . . . . . . . ]
+"31718
+[v _TXSTAbits `VS1928 ~T0 @X0 0 e@4012 ]
+"31460
+[s S1915 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1915 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"31470
+[s S1916 :3 `uc 1 :1 `uc 1 ]
+[n S1916 . . ADEN ]
+"31474
+[s S1917 :5 `uc 1 :1 `uc 1 ]
+[n S1917 . . SRENA ]
+"31478
+[s S1918 :6 `uc 1 :1 `uc 1 ]
+[n S1918 . . RC8_9 ]
+"31482
+[s S1919 :6 `uc 1 :1 `uc 1 ]
+[n S1919 . . RC9 ]
+"31486
+[s S1920 :1 `uc 1 ]
+[n S1920 . RCD8 ]
+"31459
+[u S1914 `S1915 1 `S1916 1 `S1917 1 `S1918 1 `S1919 1 `S1920 1 ]
+[n S1914 . . . . . . . ]
+"31490
+[v _RCSTAbits `VS1914 ~T0 @X0 0 e@4011 ]
+"29958
+[s S1853 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1853 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"29968
+[s S1854 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1854 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"29957
+[u S1852 `S1853 1 `S1854 1 ]
+[n S1852 . . . ]
+"29979
+[v _TRISCbits `VS1852 ~T0 @X0 0 e@3988 ]
+"37676
+[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"30696
+[s S1878 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1878 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
+"30706
+[s S1879 :5 `uc 1 :1 `uc 1 ]
+[n S1879 . . RC1IF ]
+"30710
+[s S1880 :4 `uc 1 :1 `uc 1 ]
+[n S1880 . . TX1IF ]
+"30695
+[u S1877 `S1878 1 `S1879 1 `S1880 1 ]
+[n S1877 . . . . ]
+"30715
+[v _PIR1bits `VS1877 ~T0 @X0 0 e@3998 ]
+"31966
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
+"39666
+[v _TRMT `Vb ~T0 @X0 0 e@32097 ]
+"31955
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;pic18f4685.h: 49: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "51 /opt/microchip/xc8/v1.36/include/pic18f4685.h
 [; ;pic18f4685.h: 51: asm("RXF6SIDH equ 0D60h");
@@ -14603,587 +14629,218 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18f4685.h: 40474: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;pic18f4685.h: 40476: extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 [; ;pic18f4685.h: 40478: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
-[; ;pic18.h: 18: __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-[; ;pic18.h: 19: __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
-[; ;pic18.h: 43: extern void __nop(void);
-[; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
-[; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;math.h: 30: extern double fabs(double);
-[; ;math.h: 31: extern double floor(double);
-[; ;math.h: 32: extern double ceil(double);
-[; ;math.h: 33: extern double modf(double, double *);
-[; ;math.h: 34: extern double sqrt(double);
-[; ;math.h: 35: extern double atof(const char *);
-[; ;math.h: 36: extern double sin(double) ;
-[; ;math.h: 37: extern double cos(double) ;
-[; ;math.h: 38: extern double tan(double) ;
-[; ;math.h: 39: extern double asin(double) ;
-[; ;math.h: 40: extern double acos(double) ;
-[; ;math.h: 41: extern double atan(double);
-[; ;math.h: 42: extern double atan2(double, double) ;
-[; ;math.h: 43: extern double log(double);
-[; ;math.h: 44: extern double log10(double);
-[; ;math.h: 45: extern double pow(double, double) ;
-[; ;math.h: 46: extern double exp(double) ;
-[; ;math.h: 47: extern double sinh(double) ;
-[; ;math.h: 48: extern double cosh(double) ;
-[; ;math.h: 49: extern double tanh(double);
-[; ;math.h: 50: extern double eval_poly(double, const double *, int);
-[; ;math.h: 51: extern double frexp(double, int *);
-[; ;math.h: 52: extern double ldexp(double, int);
-[; ;math.h: 53: extern double fmod(double, double);
-[; ;math.h: 54: extern double trunc(double);
-[; ;math.h: 55: extern double round(double);
-[; ;movements.c: 24: typedef int bool;
-"28 movements.c
-[v _retractPos `ui ~T0 @X0 1 e ]
-[i _retractPos
--> -> 200 `i `ui
-]
-[; ;movements.c: 28: unsigned int retractPos = 200;
-"29
-[v _extendPos `ui ~T0 @X0 1 e ]
-[i _extendPos
--> -> 800 `i `ui
-]
-[; ;movements.c: 29: unsigned int extendPos = 800;
-"31
-[v _movement `(v ~T0 @X0 1 ef4`ui`ui`i`*i ]
-"32
+[; ;uart.h: 4: void uart_init(const long int baudrate);
+[; ;uart.h: 5: char uart_data_ready();
+[; ;uart.h: 6: char uart_read();
+[; ;uart.h: 7: void uart_write(char data);
+[; ;uart.h: 8: void uart_write_text(char *text);
+[; ;uart.h: 9: void uart_write_array(char *text, unsigned int len);
+[; ;uart.h: 10: void uart_read_text(char *Output, unsigned int length);
+"14 uart.c
+[v _uart_init `(v ~T0 @X0 1 ef1`Cl ]
+"15
 {
-[; ;movements.c: 31: void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin)
-[; ;movements.c: 32: {
-[e :U _movement ]
-"31
-[v _current_pos `ui ~T0 @X0 1 r1 ]
-[v _set_point `ui ~T0 @X0 1 r2 ]
-[v _actuator `i ~T0 @X0 1 r3 ]
-[v _margin `*i ~T0 @X0 1 r4 ]
-"32
+[; ;uart.c: 14: void uart_init(const long int baudrate)
+[; ;uart.c: 15: {
+[e :U _uart_init ]
+"14
+[v _baudrate `Cl ~T0 @X0 1 r1 ]
+"15
 [f ]
-"33
-[v _move0 `i ~T0 @X0 1 a ]
-"34
-[v _move1 `i ~T0 @X0 1 a ]
-[; ;movements.c: 33: int move0;
-[; ;movements.c: 34: int move1;
-[; ;movements.c: 36: if(*margin == 0)
-"36
-[e $ ! == *U _margin -> 0 `i 2102  ]
-[; ;movements.c: 37: {
-"37
-{
-[; ;movements.c: 38: if (current_pos < set_point)
-"38
-[e $ ! < _current_pos _set_point 2103  ]
-[; ;movements.c: 39: {
-"39
-{
-[; ;movements.c: 40: move0 = 0;
-"40
-[e = _move0 -> 0 `i ]
-[; ;movements.c: 41: move1 = 1;
-"41
-[e = _move1 -> 1 `i ]
-"42
-}
-[; ;movements.c: 42: } else if (current_pos > set_point)
-[e $U 2104  ]
-[e :U 2103 ]
-[e $ ! > _current_pos _set_point 2105  ]
-[; ;movements.c: 43: {
-"43
-{
-[; ;movements.c: 44: move0 = 1;
-"44
-[e = _move0 -> 1 `i ]
-[; ;movements.c: 45: move1 = 0;
-"45
-[e = _move1 -> 0 `i ]
-"46
-}
-[; ;movements.c: 46: } else
-[e $U 2106  ]
-[e :U 2105 ]
-[; ;movements.c: 47: {
-"47
-{
-[; ;movements.c: 48: move0 = 0;
-"48
-[e = _move0 -> 0 `i ]
-[; ;movements.c: 49: move1 = 0;
-"49
-[e = _move1 -> 0 `i ]
-[; ;movements.c: 50: *margin = 1;
-"50
-[e = *U _margin -> 1 `i ]
-"51
-}
-[e :U 2106 ]
-[e :U 2104 ]
-"52
-}
-[; ;movements.c: 51: }
-[; ;movements.c: 52: } else
-[e $U 2107  ]
-[e :U 2102 ]
-[; ;movements.c: 53: {
-"53
-{
-[; ;movements.c: 54: move0 = 0;
-"54
-[e = _move0 -> 0 `i ]
-[; ;movements.c: 55: move1 = 0;
-"55
-[e = _move1 -> 0 `i ]
-"56
-}
-[e :U 2107 ]
-[; ;movements.c: 56: }
-[; ;movements.c: 58: if(actuator == 0)
-"58
-[e $ ! == _actuator -> 0 `i 2108  ]
-[; ;movements.c: 59: {
-"59
-{
-[; ;movements.c: 60: LATCbits.LATC0 = move0;
-"60
-[e = . . _LATCbits 0 0 -> _move0 `uc ]
-[; ;movements.c: 61: LATCbits.LATC1 = move1;
-"61
-[e = . . _LATCbits 0 1 -> _move1 `uc ]
-"62
-}
-[; ;movements.c: 62: } else if (actuator == 1)
-[e $U 2109  ]
-[e :U 2108 ]
-[e $ ! == _actuator -> 1 `i 2110  ]
-[; ;movements.c: 63: {
-"63
-{
-[; ;movements.c: 64: LATCbits.LATC2 = move0;
-"64
-[e = . . _LATCbits 0 2 -> _move0 `uc ]
-[; ;movements.c: 65: LATCbits.LATC3 = move1;
-"65
-[e = . . _LATCbits 0 3 -> _move1 `uc ]
-"66
-}
-[; ;movements.c: 66: } else if (actuator == 2)
-[e $U 2111  ]
-[e :U 2110 ]
-[e $ ! == _actuator -> 2 `i 2112  ]
-[; ;movements.c: 67: {
-"67
-{
-[; ;movements.c: 68: LATDbits.LATD0 = move0;
-"68
-[e = . . _LATDbits 0 0 -> _move0 `uc ]
-[; ;movements.c: 69: LATDbits.LATD1 = move1;
-"69
-[e = . . _LATDbits 0 1 -> _move1 `uc ]
-"70
-}
-[; ;movements.c: 70: } else if (actuator == 3)
-[e $U 2113  ]
-[e :U 2112 ]
-[e $ ! == _actuator -> 3 `i 2114  ]
-[; ;movements.c: 71: {
-"71
-{
-[; ;movements.c: 72: LATDbits.LATD2 = move0;
-"72
-[e = . . _LATDbits 0 2 -> _move0 `uc ]
-[; ;movements.c: 73: LATDbits.LATD3 = move1;
-"73
-[e = . . _LATDbits 0 3 -> _move1 `uc ]
-"74
-}
-[; ;movements.c: 74: } else if (actuator == 4)
-[e $U 2115  ]
-[e :U 2114 ]
-[e $ ! == _actuator -> 4 `i 2116  ]
-[; ;movements.c: 75: {
-"75
-{
-[; ;movements.c: 76: LATCbits.LATC4 = move0;
-"76
-[e = . . _LATCbits 0 4 -> _move0 `uc ]
-[; ;movements.c: 77: LATCbits.LATC5 = move1;
-"77
-[e = . . _LATCbits 0 5 -> _move1 `uc ]
-"78
-}
-[; ;movements.c: 78: } else if (actuator == 5)
-[e $U 2117  ]
-[e :U 2116 ]
-[e $ ! == _actuator -> 5 `i 2118  ]
-[; ;movements.c: 79: {
-"79
-{
-[; ;movements.c: 80: LATBbits.LATB0 = move0;
-"80
-[e = . . _LATBbits 0 0 -> _move0 `uc ]
-[; ;movements.c: 81: LATBbits.LATB1 = move1;
-"81
-[e = . . _LATBbits 0 1 -> _move1 `uc ]
-"82
-}
-[; ;movements.c: 82: } else if (actuator == 6)
-[e $U 2119  ]
-[e :U 2118 ]
-[e $ ! == _actuator -> 6 `i 2120  ]
-[; ;movements.c: 83: {
-"83
-{
-[; ;movements.c: 84: LATDbits.LATD4 = move0;
-"84
-[e = . . _LATDbits 0 4 -> _move0 `uc ]
-[; ;movements.c: 85: LATDbits.LATD5 = move1;
-"85
-[e = . . _LATDbits 0 5 -> _move1 `uc ]
-"86
-}
-[; ;movements.c: 86: } else if (actuator == 7)
-[e $U 2121  ]
-[e :U 2120 ]
-[e $ ! == _actuator -> 7 `i 2122  ]
-[; ;movements.c: 87: {
-"87
-{
-[; ;movements.c: 88: LATDbits.LATD6 = move0;
-"88
-[e = . . _LATDbits 0 6 -> _move0 `uc ]
-[; ;movements.c: 89: LATDbits.LATD7 = move1;
-"89
-[e = . . _LATDbits 0 7 -> _move1 `uc ]
-"90
-}
-[e :U 2122 ]
-"92
-[e :U 2121 ]
-[e :U 2119 ]
-[e :U 2117 ]
-[e :U 2115 ]
-[e :U 2113 ]
-[e :U 2111 ]
-[e :U 2109 ]
-[; ;movements.c: 90: }
-[; ;movements.c: 92: }
+"16
+[v _x `ui ~T0 @X0 1 a ]
+[; ;uart.c: 16: unsigned int x;
+[; ;uart.c: 17: x = (32000000 - baudrate * 64)/(baudrate * 64);
+"17
+[e = _x -> / - -> 32000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
+[; ;uart.c: 19: SPBRG = x;
+"19
+[e = _SPBRG -> _x `uc ]
+[; ;uart.c: 20: TXSTAbits.SYNC = 0;
+"20
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 21: RCSTAbits.SPEN = 1;
+"21
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;uart.c: 22: TRISCbits.RC7 = 1;
+"22
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;uart.c: 23: TRISCbits.RC6 = 0;
+"23
+[e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
+[; ;uart.c: 24: RCSTAbits.CREN = 1;
+"24
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 25: TXSTAbits.TXEN = 1;
+"25
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 26: }
+"26
 [e :UE 2101 ]
 }
-"95
-[v _testEveryOther `(v ~T0 @X0 1 ef ]
-"96
+"29
+[v _uart_data_ready `(uc ~T0 @X0 1 ef ]
+"30
 {
-[; ;movements.c: 95: void testEveryOther()
-[; ;movements.c: 96: {
-[e :U _testEveryOther ]
+[; ;uart.c: 29: char uart_data_ready()
+[; ;uart.c: 30: {
+[e :U _uart_data_ready ]
 [f ]
-[; ;movements.c: 97: LATCbits.LATC0 = 1;
-"97
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 98: LATCbits.LATC1 = 0;
-"98
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 99: LATCbits.LATC2 = 1;
-"99
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 100: LATCbits.LATC3 = 0;
-"100
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 101: LATDbits.LATD0 = 1;
-"101
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 102: LATDbits.LATD1 = 0;
-"102
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 103: LATDbits.LATD2 = 1;
-"103
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 104: LATDbits.LATD3 = 0;
-"104
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 105: LATCbits.LATC4 = 1;
-"105
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 106: LATCbits.LATC5 = 0;
-"106
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 107: LATCbits.LATC6 = 1;
-"107
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 108: LATCbits.LATC7 = 0;
-"108
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 109: LATDbits.LATD4 = 1;
-"109
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 110: LATDbits.LATD5 = 0;
-"110
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 111: LATDbits.LATD6 = 1;
-"111
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 112: LATDbits.LATD7 = 0;
-"112
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 113: }
-"113
-[e :UE 2123 ]
+[; ;uart.c: 31: return (RCIF || PIR1bits.RCIF);
+"31
+[e ) -> -> || _RCIF != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e $UE 2102  ]
+[; ;uart.c: 32: }
+"32
+[e :UE 2102 ]
 }
-"114
-[v _testALLON `(v ~T0 @X0 1 ef ]
-"115
+"35
+[v _uart_read `(uc ~T0 @X0 1 ef ]
+"36
 {
-[; ;movements.c: 114: void testALLON()
-[; ;movements.c: 115: {
-[e :U _testALLON ]
+[; ;uart.c: 35: char uart_read()
+[; ;uart.c: 36: {
+[e :U _uart_read ]
 [f ]
-[; ;movements.c: 116: LATCbits.LATC0 = 1;
-"116
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 117: LATCbits.LATC1 = 1;
-"117
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
-[; ;movements.c: 118: LATCbits.LATC2 = 1;
-"118
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 119: LATCbits.LATC3 = 1;
-"119
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;movements.c: 120: LATDbits.LATD0 = 1;
-"120
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-[; ;movements.c: 121: LATDbits.LATD1 = 1;
-"121
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-[; ;movements.c: 122: LATDbits.LATD2 = 1;
-"122
-[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-[; ;movements.c: 123: LATDbits.LATD3 = 1;
-"123
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-[; ;movements.c: 124: LATCbits.LATC4 = 1;
-"124
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 125: LATCbits.LATC5 = 1;
-"125
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;movements.c: 126: LATCbits.LATC6 = 1;
-"126
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 127: LATCbits.LATC7 = 1;
-"127
-[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
-[; ;movements.c: 128: LATDbits.LATD4 = 1;
-"128
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-[; ;movements.c: 129: LATDbits.LATD5 = 1;
-"129
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
-[; ;movements.c: 130: LATDbits.LATD6 = 1;
-"130
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[; ;movements.c: 131: LATDbits.LATD7 = 1;
-"131
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-[; ;movements.c: 132: }
-"132
-[e :UE 2124 ]
+[; ;uart.c: 37: while(!(RCIF || PIR1bits.RCIF));
+"37
+[e $U 2104  ]
+[e :U 2105 ]
+[e :U 2104 ]
+[e $ ! || _RCIF != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 2105  ]
+[e :U 2106 ]
+[; ;uart.c: 38: return RCREG;
+"38
+[e ) _RCREG ]
+[e $UE 2103  ]
+[; ;uart.c: 39: }
+"39
+[e :UE 2103 ]
 }
-"133
-[v _testALLOFF `(v ~T0 @X0 1 ef ]
-"134
+"42
+[v _uart_write `(v ~T0 @X0 1 ef1`uc ]
+"43
 {
-[; ;movements.c: 133: void testALLOFF()
-[; ;movements.c: 134: {
-[e :U _testALLOFF ]
+[; ;uart.c: 42: void uart_write(char data)
+[; ;uart.c: 43: {
+[e :U _uart_write ]
+"42
+[v _data `uc ~T0 @X0 1 r1 ]
+"43
 [f ]
-[; ;movements.c: 135: LATCbits.LATC0 = 0;
-"135
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 136: LATCbits.LATC1 = 0;
-"136
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 137: LATCbits.LATC2 = 0;
-"137
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 138: LATCbits.LATC3 = 0;
-"138
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 139: LATDbits.LATD0 = 0;
-"139
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-[; ;movements.c: 140: LATDbits.LATD1 = 0;
-"140
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-[; ;movements.c: 141: LATDbits.LATD2 = 0;
-"141
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-[; ;movements.c: 142: LATDbits.LATD3 = 0;
-"142
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-[; ;movements.c: 143: LATCbits.LATC4 = 0;
-"143
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 144: LATCbits.LATC5 = 0;
-"144
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 145: LATCbits.LATC6 = 0;
-"145
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 146: LATCbits.LATC7 = 0;
-"146
-[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 147: LATDbits.LATD4 = 0;
-"147
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-[; ;movements.c: 148: LATDbits.LATD5 = 0;
-"148
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
-[; ;movements.c: 149: LATDbits.LATD6 = 0;
-"149
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-[; ;movements.c: 150: LATDbits.LATD7 = 0;
-"150
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-[; ;movements.c: 151: }
-"151
-[e :UE 2125 ]
+[; ;uart.c: 44: while(!TRMT);
+"44
+[e $U 2108  ]
+[e :U 2109 ]
+[e :U 2108 ]
+[e $ ! _TRMT 2109  ]
+[e :U 2110 ]
+[; ;uart.c: 45: TXREG = data;
+"45
+[e = _TXREG _data ]
+[; ;uart.c: 46: }
+"46
+[e :UE 2107 ]
 }
-"154
-[v _speedCheck `(v ~T0 @X0 1 ef5`ui`ui`ui`*i`*i ]
-"156
+"49
+[v _uart_write_text `(v ~T0 @X0 1 ef1`*uc ]
+"50
 {
-[; ;movements.c: 154: void speedCheck(unsigned int actuatorSlow, unsigned int actuatorFast,
-[; ;movements.c: 155: unsigned int set_point, int *marginSlow, int *marginFast)
-[; ;movements.c: 156: {
-[e :U _speedCheck ]
-"154
-[v _actuatorSlow `ui ~T0 @X0 1 r1 ]
-[v _actuatorFast `ui ~T0 @X0 1 r2 ]
-"155
-[v _set_point `ui ~T0 @X0 1 r3 ]
-[v _marginSlow `*i ~T0 @X0 1 r4 ]
-[v _marginFast `*i ~T0 @X0 1 r5 ]
-"156
+[; ;uart.c: 49: void uart_write_text(char *text)
+[; ;uart.c: 50: {
+[e :U _uart_write_text ]
+"49
+[v _text `*uc ~T0 @X0 1 r1 ]
+"50
 [f ]
-[; ;movements.c: 157: if(set_point == extendPos)
-"157
-[e $ ! == _set_point _extendPos 2127  ]
-[; ;movements.c: 158: {
-"158
+"51
+[v _i `i ~T0 @X0 1 a ]
+[; ;uart.c: 51: int i;
+[; ;uart.c: 52: for(i = 0; text[i] != '\0'; i++)
+"52
 {
-[; ;movements.c: 159: if((actuatorFast - actuatorSlow) == 10)
-"159
-[e $ ! == - _actuatorFast _actuatorSlow -> -> 10 `i `ui 2128  ]
-[; ;movements.c: 160: {
-"160
+[e = _i -> 0 `i ]
+[e $U 2115  ]
+"53
+[e :U 2112 ]
+[; ;uart.c: 53: uart_write(text[i]);
+[e ( _uart_write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
+"52
+[e ++ _i -> 1 `i ]
+[e :U 2115 ]
+[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 2112  ]
+[e :U 2113 ]
+"53
+}
+[; ;uart.c: 54: }
+"54
+[e :UE 2111 ]
+}
+"57
+[v _uart_write_array `(v ~T0 @X0 1 ef2`*uc`ui ]
+"58
 {
-[; ;movements.c: 161: *marginFast = 1;
-"161
-[e = *U _marginFast -> 1 `i ]
-[; ;movements.c: 162: *marginSlow = 0;
-"162
-[e = *U _marginSlow -> 0 `i ]
-"163
-}
-[e :U 2128 ]
-[; ;movements.c: 163: }
-[; ;movements.c: 164: if ((actuatorSlow - actuatorFast) == 10)
-"164
-[e $ ! == - _actuatorSlow _actuatorFast -> -> 10 `i `ui 2129  ]
-[; ;movements.c: 165: {
-"165
+[; ;uart.c: 57: void uart_write_array(char *text, unsigned int len)
+[; ;uart.c: 58: {
+[e :U _uart_write_array ]
+"57
+[v _text `*uc ~T0 @X0 1 r1 ]
+[v _len `ui ~T0 @X0 1 r2 ]
+"58
+[f ]
+"59
+[v _i `i ~T0 @X0 1 a ]
+[; ;uart.c: 59: int i;
+[; ;uart.c: 60: for(i = 0; i < len; i++)
+"60
 {
-[; ;movements.c: 166: *marginFast = 0;
-"166
-[e = *U _marginFast -> 0 `i ]
-[; ;movements.c: 167: *marginSlow = 1;
-"167
-[e = *U _marginSlow -> 1 `i ]
-"168
+[e = _i -> 0 `i ]
+[e $U 2120  ]
+"61
+[e :U 2117 ]
+[; ;uart.c: 61: uart_write(text[i]);
+[e ( _uart_write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
+"60
+[e ++ _i -> 1 `i ]
+[e :U 2120 ]
+[e $ < -> _i `ui _len 2117  ]
+[e :U 2118 ]
+"61
 }
-[e :U 2129 ]
-"169
+[; ;uart.c: 62: }
+"62
+[e :UE 2116 ]
 }
-[; ;movements.c: 168: }
-[; ;movements.c: 169: } else if(set_point == retractPos)
-[e $U 2130  ]
-[e :U 2127 ]
-[e $ ! == _set_point _retractPos 2131  ]
-[; ;movements.c: 170: {
-"170
+"65
+[v _uart_read_text `(v ~T0 @X0 1 ef2`*uc`ui ]
+"66
 {
-[; ;movements.c: 171: if((actuatorFast - actuatorSlow) == -10)
-"171
-[e $ ! == - _actuatorFast _actuatorSlow -> -U -> 10 `i `ui 2132  ]
-[; ;movements.c: 172: {
-"172
+[; ;uart.c: 65: void uart_read_text(char *Output, unsigned int length)
+[; ;uart.c: 66: {
+[e :U _uart_read_text ]
+"65
+[v _Output `*uc ~T0 @X0 1 r1 ]
+[v _length `ui ~T0 @X0 1 r2 ]
+"66
+[f ]
+[; ;uart.c: 67: for(int i = 0; i < length; i++)
+"67
 {
-[; ;movements.c: 173: *marginFast = 1;
-"173
-[e = *U _marginFast -> 1 `i ]
-[; ;movements.c: 174: *marginSlow = 0;
-"174
-[e = *U _marginSlow -> 0 `i ]
-"175
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 2125  ]
+"68
+[e :U 2122 ]
+[; ;uart.c: 68: Output[i] = uart_read();
+[e = *U + _Output * -> _i `x -> -> # *U _Output `i `x ( _uart_read ..  ]
+"67
+[e ++ _i -> 1 `i ]
+[e :U 2125 ]
+[e $ < -> _i `ui _length 2122  ]
+[e :U 2123 ]
+"68
 }
-[e :U 2132 ]
-[; ;movements.c: 175: }
-[; ;movements.c: 176: if ((actuatorSlow - actuatorFast) == -10)
-"176
-[e $ ! == - _actuatorSlow _actuatorFast -> -U -> 10 `i `ui 2133  ]
-[; ;movements.c: 177: {
-"177
-{
-[; ;movements.c: 178: *marginFast = 0;
-"178
-[e = *U _marginFast -> 0 `i ]
-[; ;movements.c: 179: *marginSlow = 1;
-"179
-[e = *U _marginSlow -> 1 `i ]
-"180
-}
-[e :U 2133 ]
-"181
-}
-[e :U 2131 ]
-"183
-[e :U 2130 ]
-[; ;movements.c: 180: }
-[; ;movements.c: 181: }
-[; ;movements.c: 183: }
-[e :UE 2126 ]
+[; ;uart.c: 69: }
+"69
+[e :UE 2121 ]
 }

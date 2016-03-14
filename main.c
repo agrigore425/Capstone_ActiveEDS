@@ -24,6 +24,7 @@
 #include "config.h"
 #include "can.h"
 #include "movements.h"
+#include "uart.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -37,6 +38,9 @@ typedef int bool;
 
 bool FORW = false;
 bool BACK = false;
+bool EXTEND = false;
+bool RETRACT = false;
+
 int margin0 = 0;
 int margin1 = 0;
 int margin2 = 0;
@@ -55,9 +59,9 @@ void main(void)
     /* Configure the oscillator for the device */
     ConfigureOscillator();
     ecan_init();
+    uart_init(9600);
     //enable_interrupts();
-    
-    
+        
     setAnalogIn();
     setActuatorCntrl();
     unsigned int actuator0 = 0;
@@ -69,16 +73,79 @@ void main(void)
     unsigned int actuator6 = 0;
     unsigned int actuator7 = 0;
     
+    LATAbits.LATA7 = 1; 
     
     unsigned int retractPos = 200;
-    unsigned int extendPos = 800;
+    unsigned int extendPos = 500;
     
+    
+
     while(1)
     {
+
+        /*
+        CAN MESSAGE SET UP
         if(RXB0CONbits.RXB0FUL)
         {
             Message newMessage;
             ecan_receive_rxb0(&newMessage);
+
+            margin0 = 0;
+            margin1 = 0;
+            margin2 = 0;
+            margin3 = 0;
+            margin4 = 0;
+            margin5 = 0;
+            margin6 = 0;
+            margin7 = 0;
+
+            LATAbits.LATA7 ^= 1; 
+
+        
+            //Message parsing:
+            //EXTEND = 0, FORW = 1, BACK = 2, RETRACT = 3
+            //Extend
+            if (newMessage.data[0] == 0x00)
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = true;
+                RETRACT = false;
+            }
+            //Forward
+            if (newMessage.data[0] == 0x01)
+            {
+                FORW = true;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+            }
+            //Backward
+            if (newMessage.data[0] == 0x02)
+            {
+                FORW = false;
+                BACK = true;
+                EXTEND = false;
+                RETRACT = false;
+            }
+            // Retract
+            if (newMessage.data[0] == 0x03)
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = true;
+            }
+            
+
+            ecan_rxb0_clear();          // Clear flag
+        }
+        */
+        
+        
+        if(uart_data_ready())
+        {
+            char message = uart_read();
             
             margin0 = 0;
             margin1 = 0;
@@ -91,80 +158,85 @@ void main(void)
             
             LATAbits.LATA7 ^= 1; 
             
-
-
-
-            //Message parsing:
-            //IDLE = 0, FORW = 1, BACK = 2
-
-            if (newMessage.data[0] == 0x00)
+            if (message == 'e')
             {
                 FORW = false;
                 BACK = false;
+                EXTEND = true;
+                RETRACT = false;
+                uart_write_text("Command Sent (Array Extended)\r\n");
             }
-            if (newMessage.data[0] == 0x01)
+            else if (message == 'r')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = true;
+                uart_write_text("Command Sent (Array Retracted)\r\n");
+            }
+            else if (message == 'f')
             {
                 FORW = true;
                 BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                uart_write_text("Command Sent (Array Forward)\r\n");
             }
-            if (newMessage.data[0] == 0x02)
+            else if (message == 'b')
             {
                 FORW = false;
                 BACK = true;
+                EXTEND = false;
+                RETRACT = false;
+                uart_write_text("Command Sent (Array Backward)\r\n");
             }
-
-            ecan_rxb0_clear();          // Clear flag
         }
-        
-        
-        
         //READ ADCs---------------------------------------------------
         //CHANNEL 0 - Actuator 0/7
-        //if(margin0 == 0){
+        if(margin0 == 0){
             //Start ADC reading Channel 0
             selectAN0();
             actuator0 = readADC();
-        //}
-        //if(margin1 == 0){
+        }
+        if(margin1 == 0){
             //CHANNEL 1 - Actuator 1/7
             //Start ADC reading Channel 1
             selectAN1();
             actuator1 = readADC();
-        //}
-        //if(margin2 == 0){
+        }
+        if(margin2 == 0){
             //CHANNEL 2 - Actuator 2/7
             //Start ADC reading Channel 2
             selectAN2();
             actuator2 = readADC();
-        //}
-        //if(margin3 == 0){
+        }
+        if(margin3 == 0){
             //CHANNEL 3 - Actuator 3/7
             //Start ADC reading Channel 3
             selectAN3();
             actuator3 = readADC();
-        //}
+        }
         
-        //if(margin4 == 0){
+        if(margin4 == 0){
             //CHANNEL 4 - Actuator 4/7
             //Start ADC reading Channel 4
             selectAN4();
             actuator4 = readADC();
-        //}
-        //if(margin5 == 0){
+        }
+        if(margin5 == 0){
             //CHANNEL 5 - Actuator 5/7
             //Start ADC reading Channel 5
             selectAN5();
             actuator5 = readADC();
-        //}
+        }
         
-        //if(margin6 == 0){
+        if(margin6 == 0){
             //CHANNEL 6 - Actuator 6/7
             //Start ADC reading Channel 6
             selectAN6();
             actuator6 = readADC();
-        //}
-        if(margin7 == 0)
-        {
+        }
+        if(margin7 == 0){
             //CHANNEL 7 - Actuator 7/7
             //Start ADC reading Channel 7
             selectAN7();
@@ -172,21 +244,20 @@ void main(void)
         }
         
         //CHANGE ACTUATOR POSITION BASED ON MAIN MC COMMAND------------
-        if(FORW == true && BACK == false)
+        if(FORW == true && BACK == false && EXTEND == false && RETRACT == false)
         {
             //0,2,5,7 retract
             //1,3,4,6 extend/stay long
             
-            //testALLON();
+            testALLON();
             
             // Speed Check Example (actuatorSlow, actuatorFast, set point, &marginSlow, &marginFast);
-            speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
-            speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
+            //speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
+            //speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
             //speedCheck(actuator4, actuator1, extendPos, &margin4, &margin1);
             //speedCheck(actuator0, actuator2, retractPos, &margin0, &margin2);
             //speedCheck(actuator3, actuator6, extendPos, &margin3, &margin6);
-
-
+            /*
             movement(actuator0, retractPos, 0, &margin0);
             movement(actuator1, extendPos, 1, &margin1);
             movement(actuator2, retractPos, 2, &margin2);
@@ -194,26 +265,17 @@ void main(void)
             movement(actuator4, extendPos, 4, &margin4);
             movement(actuator5, retractPos, 5, &margin5);
             movement(actuator6, extendPos, 6, &margin6);
-            //movement(actuator7, retractPos, 7, &margin7);
-            
-            
-            
-            /*
-            forward_movements(actuator0, actuator1, actuator2, actuator3,
-                              actuator4, actuator5, actuator6, actuator7);
+            movement(actuator7, retractPos, 7, &margin7); 
             */
-            //speedControlForw4_6(actuator4, actuator6);
-
-        } else if(BACK == true && FORW == false) {
+ 
+        } else if(BACK == true && FORW == false && EXTEND == false && RETRACT == false) {
             //0,2,5,7 extend/stay long
             //1,3,4,6 retract
-            //testALLOFF();
-            
-            //speedCheck4and6(actuator4, actuator6, retractPos, &margin4, &margin6);
-            
-            speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
-            speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
-            
+            testALLOFF();
+                        
+            //speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
+            //speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
+            /*
             movement(actuator0, extendPos, 0, &margin0);
             movement(actuator1, retractPos, 1, &margin1);
             movement(actuator2, extendPos, 2, &margin2);
@@ -221,32 +283,37 @@ void main(void)
             movement(actuator4, retractPos, 4, &margin4);
             movement(actuator5, extendPos, 5, &margin5);
             movement(actuator6, retractPos, 6, &margin6);
-            //movement(actuator7, extendPos, 7, &margin7);
-            
-            /*
-            backward_movements(actuator0, actuator1, actuator2, actuator3,
-                              actuator4, actuator5, actuator6, actuator7);
+            movement(actuator7, extendPos, 7, &margin7);
             */
-        } else {
+            
+        } else if (FORW == false && BACK == false && EXTEND == true && RETRACT == false){
             
             //speedCheck4and6(actuator4, actuator6, extendPos, &margin4, &margin6);
-            movement(actuator0, extendPos, 0, &margin0);
+            testEveryOther();
+
+            /*movement(actuator0, extendPos, 0, &margin0);
             movement(actuator1, extendPos, 1, &margin1);
             movement(actuator2, extendPos, 2, &margin2);
             movement(actuator3, extendPos, 3, &margin3);
             movement(actuator4, extendPos, 4, &margin4);
             movement(actuator5, extendPos, 5, &margin5);
             movement(actuator6, extendPos, 6, &margin6);
-            //movement(actuator7, extendPos, 7, &margin7);
-           /*
-            idle_movements(actuator0, actuator1, actuator2, actuator3,
-                              actuator4, actuator5, actuator6, actuator7);*/
-            
+            movement(actuator7, extendPos, 7, &margin7);
+            */
+           
+        } else {
+            testEveryOther();
+            /*movement(actuator0, retractPos, 0, &margin0);
+            movement(actuator1, retractPos, 1, &margin1);
+            movement(actuator2, retractPos, 2, &margin2);
+            movement(actuator3, retractPos, 3, &margin3);
+            movement(actuator4, retractPos, 4, &margin4);
+            movement(actuator5, retractPos, 5, &margin5);
+            movement(actuator6, retractPos, 6, &margin6);
+            movement(actuator7, retractPos, 7, &margin7);
+            */
         }
-        
-        
     }
-
 }
 
 

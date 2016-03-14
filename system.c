@@ -52,9 +52,7 @@ void setAnalogIn()
     TRISEbits.TRISE0 = 1;   //AN5
     TRISEbits.TRISE1 = 1;   //AN6
     TRISEbits.TRISE2 = 1;   //AN7
-    TRISBbits.TRISB1 = 1;   //AN8
-    TRISBbits.TRISB4 = 1;   //AN9
-    TRISBbits.TRISB0 = 1;   //AN10
+    
     
     //Enable ADC
     ADCON0bits.ADON = 1; 
@@ -78,8 +76,11 @@ void setActuatorCntrl()
     TRISCbits.TRISC3 = 0;   //A1_1
     TRISCbits.TRISC4 = 0;   //A4_0
     TRISCbits.TRISC5 = 0;   //A4_1
-    TRISCbits.TRISC6 = 0;   //A5_0
-    TRISCbits.TRISC7 = 0;   //A5_1
+    //TRISCbits.TRISC6 = 0;   //A5_0 --- UART TX
+    //TRISCbits.TRISC7 = 0;   //A5_1 --- UART RX
+    
+    TRISBbits.TRISB0 = 0;   //Temp A5_0
+    TRISBbits.TRISB1 = 0;   //Temp A5_1
     
     //Debug LED for interrupts
     TRISAbits.TRISA7 = 0;   //A2_0

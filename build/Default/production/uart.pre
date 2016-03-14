@@ -1,15 +1,98 @@
 
-# 1 "system.c"
+# 1 "uart.c"
 
-# 26 "/opt/microchip/xc8/v1.36/include/htc.h"
-extern const char __xc8_OPTIM_SPEED;
+# 13 "/opt/microchip/xc8/v1.36/include/stdint.h"
+typedef signed char int8_t;
 
-extern double __fpnormalize(double);
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
 
 
-# 13 "/opt/microchip/xc8/v1.36/include/xc8debug.h"
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "/opt/microchip/xc8/v1.36/include/stdbool.h"
+typedef unsigned char bool;
 
 # 49 "/opt/microchip/xc8/v1.36/include/pic18f4685.h"
 extern volatile unsigned char RXF6SIDH @ 0xD60;
@@ -18361,188 +18444,69 @@ extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 18 "/opt/microchip/xc8/v1.36/include/pic18.h"
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+# 4 "uart.h"
+void uart_init(const long int baudrate);
+char uart_data_ready();
+char uart_read();
+void uart_write(char data);
+void uart_write_text(char *text);
+void uart_write_array(char *text, unsigned int len);
+void uart_read_text(char *Output, unsigned int length);
 
-
-# 42
-#pragma intrinsic(__nop)
-extern void __nop(void);
-
-
-# 155
-#pragma intrinsic(_delay)
-extern __nonreentrant void _delay(unsigned long);
-#pragma intrinsic(_delaywdt)
-extern __nonreentrant void _delaywdt(unsigned long);
-#pragma intrinsic(_delay3)
-extern __nonreentrant void _delay3(unsigned char);
-
-# 13 "/opt/microchip/xc8/v1.36/include/stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 12 "/opt/microchip/xc8/v1.36/include/stdbool.h"
-typedef unsigned char bool;
-
-# 14 "system.h"
-void setAnalogIn();
-void setActuatorCntrl();
-
-# 22
-void ConfigureOscillator(void);
-
-# 24 "system.c"
-void setAnalogIn()
+# 14 "uart.c"
+void uart_init(const long int baudrate)
 {
+unsigned int x;
+x = (32000000 - baudrate * 64)/(baudrate * 64);
 
-ADCON1bits.PCFG = 0;
-ADCON2bits.ADFM = 1;
-
-
-
-ADCON1bits.VCFG0 = 0;
-ADCON1bits.VCFG1 = 0;
-
-
-ADCON2bits.ACQT2 = 0;
-ADCON2bits.ACQT1 = 1;
-ADCON2bits.ACQT0 = 0;
-
-
-ADCON2bits.ADCS2 = 0;
-ADCON2bits.ADCS1 = 1;
-ADCON2bits.ADCS0 = 0;
-
-
-
-TRISAbits.TRISA0 = 1;
-TRISAbits.TRISA1 = 1;
-TRISAbits.TRISA2 = 1;
-TRISAbits.TRISA3 = 1;
-TRISAbits.TRISA5 = 1;
-TRISEbits.TRISE0 = 1;
-TRISEbits.TRISE1 = 1;
-TRISEbits.TRISE2 = 1;
-
-
-
-ADCON0bits.ADON = 1;
+SPBRG = x;
+TXSTAbits.SYNC = 0;
+RCSTAbits.SPEN = 1;
+TRISCbits.RC7 = 1;
+TRISCbits.RC6 = 0;
+RCSTAbits.CREN = 1;
+TXSTAbits.TXEN = 1;
 }
 
-void setActuatorCntrl()
+
+char uart_data_ready()
 {
-
-TRISDbits.TRISD0 = 0;
-TRISDbits.TRISD1 = 0;
-TRISDbits.TRISD2 = 0;
-TRISDbits.TRISD3 = 0;
-TRISDbits.TRISD4 = 0;
-TRISDbits.TRISD5 = 0;
-TRISDbits.TRISD6 = 0;
-TRISDbits.TRISD7 = 0;
-
-TRISCbits.TRISC0 = 0;
-TRISCbits.TRISC1 = 0;
-TRISCbits.TRISC2 = 0;
-TRISCbits.TRISC3 = 0;
-TRISCbits.TRISC4 = 0;
-TRISCbits.TRISC5 = 0;
+return (RCIF || PIR1bits.RCIF);
+}
 
 
+char uart_read()
+{
+while(!(RCIF || PIR1bits.RCIF));
+return RCREG;
+}
 
-TRISBbits.TRISB0 = 0;
-TRISBbits.TRISB1 = 0;
+
+void uart_write(char data)
+{
+while(!TRMT);
+TXREG = data;
+}
 
 
-TRISAbits.TRISA7 = 0;
+void uart_write_text(char *text)
+{
+int i;
+for(i = 0; text[i] != '\0'; i++)
+uart_write(text[i]);
+}
 
 
+void uart_write_array(char *text, unsigned int len)
+{
+int i;
+for(i = 0; i < len; i++)
+uart_write(text[i]);
+}
+
+
+void uart_read_text(char *Output, unsigned int length)
+{
+for(int i = 0; i < length; i++)
+Output[i] = uart_read();
 }

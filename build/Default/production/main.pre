@@ -18518,26 +18518,7 @@ void ecan_rxb0_clear();
 void ecan_rxb1_clear();
 
 # 21 "movements.h"
-void forward_movements(unsigned int actuator0, unsigned int actuator1,
-unsigned int actuator2, unsigned int actuator3,
-unsigned int actuator4, unsigned int actuator5,
-unsigned int actuator6, unsigned int actuator7);
-
-void backward_movements(unsigned int actuator0, unsigned int actuator1,
-unsigned int actuator2, unsigned int actuator3,
-unsigned int actuator4, unsigned int actuator5,
-unsigned int actuator6, unsigned int actuator7);
-
-void idle_movements(unsigned int actuator0, unsigned int actuator1,
-unsigned int actuator2, unsigned int actuator3,
-unsigned int actuator4, unsigned int actuator5,
-unsigned int actuator6, unsigned int actuator7);
-
-
-
 void movement(unsigned int current_pos, unsigned int set_point, int actuator, int *margin);
-
-
 void speedCheck(unsigned int actuator4, unsigned int actuator6, unsigned int set_point,
 int *margin4, int *margin6);
 
@@ -18545,7 +18526,16 @@ void testEveryOther();
 void testALLON();
 void testALLOFF();
 
-# 33 "main.c"
+# 4 "uart.h"
+void uart_init(const long int baudrate);
+char uart_data_ready();
+char uart_read();
+void uart_write(char data);
+void uart_write_text(char *text);
+void uart_write_array(char *text, unsigned int len);
+void uart_read_text(char *Output, unsigned int length);
+
+# 34 "main.c"
 typedef int bool;
 
 
@@ -18553,6 +18543,9 @@ typedef int bool;
 
 bool FORW = 0;
 bool BACK = 0;
+bool EXTEND = 0;
+bool RETRACT = 0;
+
 int margin0 = 0;
 int margin1 = 0;
 int margin2 = 0;
@@ -18562,13 +18555,13 @@ int margin5 = 0;
 int margin6 = 0;
 int margin7 = 0;
 
-# 53
+# 57
 void main(void)
 {
 
 ConfigureOscillator();
 ecan_init();
-
+uart_init(9600);
 
 
 setAnalogIn();
@@ -18582,16 +18575,20 @@ unsigned int actuator5 = 0;
 unsigned int actuator6 = 0;
 unsigned int actuator7 = 0;
 
+LATAbits.LATA7 = 1;
 
 unsigned int retractPos = 200;
-unsigned int extendPos = 800;
+unsigned int extendPos = 500;
+
+
 
 while(1)
 {
-if(RXB0CONbits.RXB0FUL)
+
+# 146
+if(uart_data_ready())
 {
-Message newMessage;
-ecan_receive_rxb0(&newMessage);
+char message = uart_read();
 
 margin0 = 0;
 margin1 = 0;
@@ -18604,64 +18601,85 @@ margin7 = 0;
 
 LATAbits.LATA7 ^= 1;
 
-# 100
-if (newMessage.data[0] == 0x00)
+if (message == 'e')
 {
 FORW = 0;
 BACK = 0;
+EXTEND = 1;
+RETRACT = 0;
+uart_write_text("Command Sent (Array Extended)\r\n");
 }
-if (newMessage.data[0] == 0x01)
+else if (message == 'r')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 1;
+uart_write_text("Command Sent (Array Retracted)\r\n");
+}
+else if (message == 'f')
 {
 FORW = 1;
 BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+uart_write_text("Command Sent (Array Forward)\r\n");
 }
-if (newMessage.data[0] == 0x02)
+else if (message == 'b')
 {
 FORW = 0;
 BACK = 1;
+EXTEND = 0;
+RETRACT = 0;
+uart_write_text("Command Sent (Array Backward)\r\n");
+}
 }
 
-ecan_rxb0_clear();
-}
 
-# 125
+if(margin0 == 0){
+
 selectAN0();
 actuator0 = readADC();
-
-
+}
+if(margin1 == 0){
 
 
 selectAN1();
 actuator1 = readADC();
-
-
+}
+if(margin2 == 0){
 
 
 selectAN2();
 actuator2 = readADC();
-
-
+}
+if(margin3 == 0){
 
 
 selectAN3();
 actuator3 = readADC();
+}
 
-# 150
+if(margin4 == 0){
+
+
 selectAN4();
 actuator4 = readADC();
-
-
+}
+if(margin5 == 0){
 
 
 selectAN5();
 actuator5 = readADC();
+}
 
-# 163
+if(margin6 == 0){
+
+
 selectAN6();
 actuator6 = readADC();
-
-if(margin7 == 0)
-{
+}
+if(margin7 == 0){
 
 
 selectAN7();
@@ -18669,51 +18687,31 @@ actuator7 = readADC();
 }
 
 
-if(FORW == 1 && BACK == 0)
+if(FORW == 1 && BACK == 0 && EXTEND == 0 && RETRACT == 0)
 {
 
-# 182
-speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
-speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
 
-# 189
-movement(actuator0, retractPos, 0, &margin0);
-movement(actuator1, extendPos, 1, &margin1);
-movement(actuator2, retractPos, 2, &margin2);
-movement(actuator3, extendPos, 3, &margin3);
-movement(actuator4, extendPos, 4, &margin4);
-movement(actuator5, retractPos, 5, &margin5);
-movement(actuator6, extendPos, 6, &margin6);
 
-# 206
-} else if(BACK == 1 && FORW == 0) {
+testALLON();
 
-# 213
-movement(actuator0, extendPos, 0, &margin0);
-movement(actuator1, retractPos, 1, &margin1);
-movement(actuator2, extendPos, 2, &margin2);
-movement(actuator3, retractPos, 3, &margin3);
-movement(actuator4, retractPos, 4, &margin4);
-movement(actuator5, extendPos, 5, &margin5);
-movement(actuator6, retractPos, 6, &margin6);
+# 271
+} else if(BACK == 1 && FORW == 0 && EXTEND == 0 && RETRACT == 0) {
 
-# 226
+
+testALLOFF();
+
+# 289
+} else if (FORW == 0 && BACK == 0 && EXTEND == 1 && RETRACT == 0){
+
+
+testEveryOther();
+
+# 304
 } else {
+testEveryOther();
 
-
-movement(actuator0, extendPos, 0, &margin0);
-movement(actuator1, extendPos, 1, &margin1);
-movement(actuator2, extendPos, 2, &margin2);
-movement(actuator3, extendPos, 3, &margin3);
-movement(actuator4, extendPos, 4, &margin4);
-movement(actuator5, extendPos, 5, &margin5);
-movement(actuator6, extendPos, 6, &margin6);
-
-# 241
+# 315
 }
-
-
 }
-
 }
 

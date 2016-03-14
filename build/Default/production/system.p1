@@ -52,17 +52,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1864 . . . ]
 "30416
 [v _TRISEbits `VS1864 ~T0 @X0 0 e@3990 ]
-"29737
-[s S1847 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1847 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"29747
-[s S1848 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1848 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"29736
-[u S1846 `S1847 1 `S1848 1 ]
-[n S1846 . . . ]
-"29758
-[v _TRISBbits `VS1846 ~T0 @X0 0 e@3987 ]
 "32952
 [s S2000 :1 `uc 1 :1 `uc 1 ]
 [n S2000 . . GO_NOT_DONE ]
@@ -114,6 +103,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1852 . . . ]
 "29979
 [v _TRISCbits `VS1852 ~T0 @X0 0 e@3988 ]
+"29737
+[s S1847 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1847 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"29747
+[s S1848 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1848 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"29736
+[u S1846 `S1847 1 `S1848 1 ]
+[n S1846 . . . ]
+"29758
+[v _TRISBbits `VS1846 ~T0 @X0 0 e@3987 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -14722,82 +14722,73 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.c: 54: TRISEbits.TRISE2 = 1;
 "54
 [e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
-[; ;system.c: 55: TRISBbits.TRISB1 = 1;
-"55
-[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-[; ;system.c: 56: TRISBbits.TRISB4 = 1;
-"56
-[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
-[; ;system.c: 57: TRISBbits.TRISB0 = 1;
-"57
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-[; ;system.c: 60: ADCON0bits.ADON = 1;
-"60
+[; ;system.c: 58: ADCON0bits.ADON = 1;
+"58
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;system.c: 61: }
-"61
+[; ;system.c: 59: }
+"59
 [e :UE 2101 ]
 }
-"63
+"61
 [v _setActuatorCntrl `(v ~T0 @X0 1 ef ]
-"64
+"62
 {
-[; ;system.c: 63: void setActuatorCntrl()
-[; ;system.c: 64: {
+[; ;system.c: 61: void setActuatorCntrl()
+[; ;system.c: 62: {
 [e :U _setActuatorCntrl ]
 [f ]
-[; ;system.c: 66: TRISDbits.TRISD0 = 0;
-"66
+[; ;system.c: 64: TRISDbits.TRISD0 = 0;
+"64
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-[; ;system.c: 67: TRISDbits.TRISD1 = 0;
-"67
+[; ;system.c: 65: TRISDbits.TRISD1 = 0;
+"65
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
-[; ;system.c: 68: TRISDbits.TRISD2 = 0;
-"68
+[; ;system.c: 66: TRISDbits.TRISD2 = 0;
+"66
 [e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
-[; ;system.c: 69: TRISDbits.TRISD3 = 0;
-"69
+[; ;system.c: 67: TRISDbits.TRISD3 = 0;
+"67
 [e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
-[; ;system.c: 70: TRISDbits.TRISD4 = 0;
-"70
+[; ;system.c: 68: TRISDbits.TRISD4 = 0;
+"68
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-[; ;system.c: 71: TRISDbits.TRISD5 = 0;
-"71
+[; ;system.c: 69: TRISDbits.TRISD5 = 0;
+"69
 [e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
-[; ;system.c: 72: TRISDbits.TRISD6 = 0;
-"72
+[; ;system.c: 70: TRISDbits.TRISD6 = 0;
+"70
 [e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
-[; ;system.c: 73: TRISDbits.TRISD7 = 0;
-"73
+[; ;system.c: 71: TRISDbits.TRISD7 = 0;
+"71
 [e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
-[; ;system.c: 75: TRISCbits.TRISC0 = 0;
-"75
+[; ;system.c: 73: TRISCbits.TRISC0 = 0;
+"73
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-[; ;system.c: 76: TRISCbits.TRISC1 = 0;
-"76
+[; ;system.c: 74: TRISCbits.TRISC1 = 0;
+"74
 [e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-[; ;system.c: 77: TRISCbits.TRISC2 = 0;
-"77
+[; ;system.c: 75: TRISCbits.TRISC2 = 0;
+"75
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;system.c: 78: TRISCbits.TRISC3 = 0;
-"78
+[; ;system.c: 76: TRISCbits.TRISC3 = 0;
+"76
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;system.c: 79: TRISCbits.TRISC4 = 0;
-"79
+[; ;system.c: 77: TRISCbits.TRISC4 = 0;
+"77
 [e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;system.c: 80: TRISCbits.TRISC5 = 0;
-"80
+[; ;system.c: 78: TRISCbits.TRISC5 = 0;
+"78
 [e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;system.c: 81: TRISCbits.TRISC6 = 0;
-"81
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;system.c: 82: TRISCbits.TRISC7 = 0;
+[; ;system.c: 82: TRISBbits.TRISB0 = 0;
 "82
-[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-[; ;system.c: 85: TRISAbits.TRISA7 = 0;
-"85
+[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
+[; ;system.c: 83: TRISBbits.TRISB1 = 0;
+"83
+[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
+[; ;system.c: 86: TRISAbits.TRISA7 = 0;
+"86
 [e = . . _TRISAbits 0 7 -> -> 0 `i `uc ]
-[; ;system.c: 88: }
-"88
+[; ;system.c: 89: }
+"89
 [e :UE 2102 ]
 }
