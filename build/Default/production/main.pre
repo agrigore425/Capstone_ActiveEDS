@@ -18545,6 +18545,7 @@ bool FORW = 0;
 bool BACK = 0;
 bool EXTEND = 0;
 bool RETRACT = 0;
+bool CUSTOM = 0;
 
 int margin0 = 0;
 int margin1 = 0;
@@ -18555,7 +18556,7 @@ int margin5 = 0;
 int margin6 = 0;
 int margin7 = 0;
 
-# 57
+# 58
 void main(void)
 {
 
@@ -18577,15 +18578,17 @@ unsigned int actuator7 = 0;
 
 LATAbits.LATA7 = 1;
 
-unsigned int retractPos = 200;
-unsigned int extendPos = 500;
+unsigned int retractPos = 0;
+unsigned int extendPos = 400;
+
+unsigned int newPos = 0;
 
 
 
 while(1)
 {
 
-# 146
+# 149
 if(uart_data_ready())
 {
 char message = uart_read();
@@ -18607,6 +18610,7 @@ FORW = 0;
 BACK = 0;
 EXTEND = 1;
 RETRACT = 0;
+CUSTOM = 0;
 uart_write_text("Command Sent (Array Extended)\r\n");
 }
 else if (message == 'r')
@@ -18615,6 +18619,7 @@ FORW = 0;
 BACK = 0;
 EXTEND = 0;
 RETRACT = 1;
+CUSTOM = 0;
 uart_write_text("Command Sent (Array Retracted)\r\n");
 }
 else if (message == 'f')
@@ -18623,6 +18628,7 @@ FORW = 1;
 BACK = 0;
 EXTEND = 0;
 RETRACT = 0;
+CUSTOM = 0;
 uart_write_text("Command Sent (Array Forward)\r\n");
 }
 else if (message == 'b')
@@ -18631,9 +18637,122 @@ FORW = 0;
 BACK = 1;
 EXTEND = 0;
 RETRACT = 0;
+CUSTOM = 0;
 uart_write_text("Command Sent (Array Backward)\r\n");
 }
+else if (message == '0')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 0;
+uart_write_text("Command Sent (Array Custom)\r\n");
 }
+else if (message == '1')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 50;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '2')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 100;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '3')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 150;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '4')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 200;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '5')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 250;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '6')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 300;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '7')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 350;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '8')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 400;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+else if (message == '9')
+{
+FORW = 0;
+BACK = 0;
+EXTEND = 0;
+RETRACT = 0;
+CUSTOM = 1;
+
+newPos = 450;
+uart_write_text("Command Sent (Array Custom)\r\n");
+}
+}
+
+
 
 
 if(margin0 == 0){
@@ -18690,27 +18809,71 @@ actuator7 = readADC();
 if(FORW == 1 && BACK == 0 && EXTEND == 0 && RETRACT == 0)
 {
 
+# 380
+movement(actuator0, retractPos, 0, &margin0);
+movement(actuator1, extendPos, 1, &margin1);
+movement(actuator2, retractPos, 2, &margin2);
+movement(actuator3, extendPos, 3, &margin3);
+movement(actuator4, extendPos, 4, &margin4);
+movement(actuator5, retractPos, 5, &margin5);
+movement(actuator6, extendPos, 6, &margin6);
+movement(actuator7, retractPos, 7, &margin7);
 
 
-testALLON();
-
-# 271
 } else if(BACK == 1 && FORW == 0 && EXTEND == 0 && RETRACT == 0) {
 
+# 398
+movement(actuator0, extendPos, 0, &margin0);
+movement(actuator1, retractPos, 1, &margin1);
+movement(actuator2, extendPos, 2, &margin2);
+movement(actuator3, retractPos, 3, &margin3);
+movement(actuator4, retractPos, 4, &margin4);
+movement(actuator5, extendPos, 5, &margin5);
+movement(actuator6, retractPos, 6, &margin6);
+movement(actuator7, extendPos, 7, &margin7);
 
-testALLOFF();
 
-# 289
 } else if (FORW == 0 && BACK == 0 && EXTEND == 1 && RETRACT == 0){
 
 
-testEveryOther();
 
-# 304
+
+movement(actuator0, extendPos, 0, &margin0);
+movement(actuator1, extendPos, 1, &margin1);
+movement(actuator2, extendPos, 2, &margin2);
+movement(actuator3, extendPos, 3, &margin3);
+movement(actuator4, extendPos, 4, &margin4);
+movement(actuator5, extendPos, 5, &margin5);
+movement(actuator6, extendPos, 6, &margin6);
+movement(actuator7, extendPos, 7, &margin7);
+
+} else if (FORW == 0 && BACK == 0 && EXTEND == 0 && RETRACT == 0 && CUSTOM == 1){
+
+
+
+
+movement(actuator0, newPos, 0, &margin0);
+movement(actuator1, newPos, 1, &margin1);
+movement(actuator2, newPos, 2, &margin2);
+movement(actuator3, newPos, 3, &margin3);
+movement(actuator4, newPos, 4, &margin4);
+movement(actuator5, newPos, 5, &margin5);
+movement(actuator6, newPos, 6, &margin6);
+movement(actuator7, newPos, 7, &margin7);
+
+
 } else {
-testEveryOther();
 
-# 315
+
+movement(actuator0, retractPos, 0, &margin0);
+movement(actuator1, retractPos, 1, &margin1);
+movement(actuator2, retractPos, 2, &margin2);
+movement(actuator3, retractPos, 3, &margin3);
+movement(actuator4, retractPos, 4, &margin4);
+movement(actuator5, retractPos, 5, &margin5);
+movement(actuator6, retractPos, 6, &margin6);
+movement(actuator7, retractPos, 7, &margin7);
+
 }
 }
 }

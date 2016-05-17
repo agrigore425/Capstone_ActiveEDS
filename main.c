@@ -40,6 +40,7 @@ bool FORW = false;
 bool BACK = false;
 bool EXTEND = false;
 bool RETRACT = false;
+bool CUSTOM = false;
 
 int margin0 = 0;
 int margin1 = 0;
@@ -75,16 +76,18 @@ void main(void)
     
     LATAbits.LATA7 = 1; 
     
-    unsigned int retractPos = 200;
-    unsigned int extendPos = 500;
+    unsigned int retractPos = 0;
+    unsigned int extendPos = 400;
     
+    unsigned int newPos = 0;
+    //char positions[10] = {0, 50, 100, 150, 200, 250, 300, 350, 400, 450};
     
 
     while(1)
     {
 
         /*
-        CAN MESSAGE SET UP
+        //CAN MESSAGE SET UP
         if(RXB0CONbits.RXB0FUL)
         {
             Message newMessage;
@@ -164,6 +167,7 @@ void main(void)
                 BACK = false;
                 EXTEND = true;
                 RETRACT = false;
+                CUSTOM = false;
                 uart_write_text("Command Sent (Array Extended)\r\n");
             }
             else if (message == 'r')
@@ -172,6 +176,7 @@ void main(void)
                 BACK = false;
                 EXTEND = false;
                 RETRACT = true;
+                CUSTOM = false;
                 uart_write_text("Command Sent (Array Retracted)\r\n");
             }
             else if (message == 'f')
@@ -180,6 +185,7 @@ void main(void)
                 BACK = false;
                 EXTEND = false;
                 RETRACT = false;
+                CUSTOM = false;
                 uart_write_text("Command Sent (Array Forward)\r\n");
             }
             else if (message == 'b')
@@ -188,9 +194,122 @@ void main(void)
                 BACK = true;
                 EXTEND = false;
                 RETRACT = false;
+                CUSTOM = false;
                 uart_write_text("Command Sent (Array Backward)\r\n");
             }
+            else if (message == '0')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[0];
+                newPos = 0;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '1')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[1];
+                newPos = 50;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '2')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[2];
+                newPos = 100;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '3')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[3];
+                newPos = 150;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '4')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[4];
+                newPos = 200;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '5')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[5];
+                newPos = 250;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '6')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[6];
+                newPos = 300;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '7')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[7];
+                newPos = 350;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '8')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[8];
+                newPos = 400;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
+            else if (message == '9')
+            {
+                FORW = false;
+                BACK = false;
+                EXTEND = false;
+                RETRACT = false;
+                CUSTOM = true;
+                //newPos = positions[9];
+                newPos = 450;
+                uart_write_text("Command Sent (Array Custom)\r\n");
+            }
         }
+        
+        
         //READ ADCs---------------------------------------------------
         //CHANNEL 0 - Actuator 0/7
         if(margin0 == 0){
@@ -249,7 +368,7 @@ void main(void)
             //0,2,5,7 retract
             //1,3,4,6 extend/stay long
             
-            testALLON();
+            //testALLON();
             
             // Speed Check Example (actuatorSlow, actuatorFast, set point, &marginSlow, &marginFast);
             //speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
@@ -257,7 +376,7 @@ void main(void)
             //speedCheck(actuator4, actuator1, extendPos, &margin4, &margin1);
             //speedCheck(actuator0, actuator2, retractPos, &margin0, &margin2);
             //speedCheck(actuator3, actuator6, extendPos, &margin3, &margin6);
-            /*
+            
             movement(actuator0, retractPos, 0, &margin0);
             movement(actuator1, extendPos, 1, &margin1);
             movement(actuator2, retractPos, 2, &margin2);
@@ -266,16 +385,16 @@ void main(void)
             movement(actuator5, retractPos, 5, &margin5);
             movement(actuator6, extendPos, 6, &margin6);
             movement(actuator7, retractPos, 7, &margin7); 
-            */
+            
  
         } else if(BACK == true && FORW == false && EXTEND == false && RETRACT == false) {
             //0,2,5,7 extend/stay long
             //1,3,4,6 retract
-            testALLOFF();
+            //testALLOFF();
                         
             //speedCheck(actuator3, actuator1, extendPos, &margin3, &margin1);
             //speedCheck(actuator4, actuator6, extendPos, &margin4, &margin6);
-            /*
+            
             movement(actuator0, extendPos, 0, &margin0);
             movement(actuator1, retractPos, 1, &margin1);
             movement(actuator2, extendPos, 2, &margin2);
@@ -284,14 +403,14 @@ void main(void)
             movement(actuator5, extendPos, 5, &margin5);
             movement(actuator6, retractPos, 6, &margin6);
             movement(actuator7, extendPos, 7, &margin7);
-            */
+            
             
         } else if (FORW == false && BACK == false && EXTEND == true && RETRACT == false){
             
             //speedCheck4and6(actuator4, actuator6, extendPos, &margin4, &margin6);
-            testEveryOther();
+            //testEveryOther();
 
-            /*movement(actuator0, extendPos, 0, &margin0);
+            movement(actuator0, extendPos, 0, &margin0);
             movement(actuator1, extendPos, 1, &margin1);
             movement(actuator2, extendPos, 2, &margin2);
             movement(actuator3, extendPos, 3, &margin3);
@@ -299,11 +418,26 @@ void main(void)
             movement(actuator5, extendPos, 5, &margin5);
             movement(actuator6, extendPos, 6, &margin6);
             movement(actuator7, extendPos, 7, &margin7);
-            */
-           
+            
+        } else if (FORW == false && BACK == false && EXTEND == false && RETRACT == false && CUSTOM == true){
+            
+            //speedCheck4and6(actuator4, actuator6, extendPos, &margin4, &margin6);
+            //testEveryOther();
+
+            movement(actuator0, newPos, 0, &margin0);
+            movement(actuator1, newPos, 1, &margin1);
+            movement(actuator2, newPos, 2, &margin2);
+            movement(actuator3, newPos, 3, &margin3);
+            movement(actuator4, newPos, 4, &margin4);
+            movement(actuator5, newPos, 5, &margin5);
+            movement(actuator6, newPos, 6, &margin6);
+            movement(actuator7, newPos, 7, &margin7);
+            
+              
         } else {
-            testEveryOther();
-            /*movement(actuator0, retractPos, 0, &margin0);
+            //testEveryOther();
+            
+            movement(actuator0, retractPos, 0, &margin0);
             movement(actuator1, retractPos, 1, &margin1);
             movement(actuator2, retractPos, 2, &margin2);
             movement(actuator3, retractPos, 3, &margin3);
@@ -311,7 +445,7 @@ void main(void)
             movement(actuator5, retractPos, 5, &margin5);
             movement(actuator6, retractPos, 6, &margin6);
             movement(actuator7, retractPos, 7, &margin7);
-            */
+            
         }
     }
 }

@@ -66,12 +66,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _selectAN6 `(v ~T0 @X0 0 ef ]
 "21
 [v _selectAN7 `(v ~T0 @X0 0 ef ]
-"26 movements.h
-[v _testALLON `(v ~T0 @X0 0 ef ]
-"27
-[v _testALLOFF `(v ~T0 @X0 0 ef ]
-"25
-[v _testEveryOther `(v ~T0 @X0 0 ef ]
+"21 movements.h
+[v _movement `(v ~T0 @X0 0 ef4`ui`ui`i`*i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -14682,440 +14678,918 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;main.c: 42: bool RETRACT = 0;
-"44
+"43
+[v _CUSTOM `uc ~T0 @X0 1 e ]
+[i _CUSTOM
+-> -> 0 `i `uc
+]
+[; ;main.c: 43: bool CUSTOM = 0;
+"45
 [v _margin0 `i ~T0 @X0 1 e ]
 [i _margin0
 -> 0 `i
 ]
-[; ;main.c: 44: int margin0 = 0;
-"45
+[; ;main.c: 45: int margin0 = 0;
+"46
 [v _margin1 `i ~T0 @X0 1 e ]
 [i _margin1
 -> 0 `i
 ]
-[; ;main.c: 45: int margin1 = 0;
-"46
+[; ;main.c: 46: int margin1 = 0;
+"47
 [v _margin2 `i ~T0 @X0 1 e ]
 [i _margin2
 -> 0 `i
 ]
-[; ;main.c: 46: int margin2 = 0;
-"47
+[; ;main.c: 47: int margin2 = 0;
+"48
 [v _margin3 `i ~T0 @X0 1 e ]
 [i _margin3
 -> 0 `i
 ]
-[; ;main.c: 47: int margin3 = 0;
-"48
+[; ;main.c: 48: int margin3 = 0;
+"49
 [v _margin4 `i ~T0 @X0 1 e ]
 [i _margin4
 -> 0 `i
 ]
-[; ;main.c: 48: int margin4 = 0;
-"49
+[; ;main.c: 49: int margin4 = 0;
+"50
 [v _margin5 `i ~T0 @X0 1 e ]
 [i _margin5
 -> 0 `i
 ]
-[; ;main.c: 49: int margin5 = 0;
-"50
+[; ;main.c: 50: int margin5 = 0;
+"51
 [v _margin6 `i ~T0 @X0 1 e ]
 [i _margin6
 -> 0 `i
 ]
-[; ;main.c: 50: int margin6 = 0;
-"51
+[; ;main.c: 51: int margin6 = 0;
+"52
 [v _margin7 `i ~T0 @X0 1 e ]
 [i _margin7
 -> 0 `i
 ]
-[; ;main.c: 51: int margin7 = 0;
-"57
-[v _main `(v ~T0 @X0 1 ef ]
+[; ;main.c: 52: int margin7 = 0;
 "58
+[v _main `(v ~T0 @X0 1 ef ]
+"59
 {
-[; ;main.c: 57: void main(void)
-[; ;main.c: 58: {
+[; ;main.c: 58: void main(void)
+[; ;main.c: 59: {
 [e :U _main ]
 [f ]
-[; ;main.c: 60: ConfigureOscillator();
-"60
-[e ( _ConfigureOscillator ..  ]
-[; ;main.c: 61: ecan_init();
+[; ;main.c: 61: ConfigureOscillator();
 "61
-[e ( _ecan_init ..  ]
-[; ;main.c: 62: uart_init(9600);
+[e ( _ConfigureOscillator ..  ]
+[; ;main.c: 62: ecan_init();
 "62
+[e ( _ecan_init ..  ]
+[; ;main.c: 63: uart_init(9600);
+"63
 [e ( _uart_init (1 -> -> 9600 `i `l ]
-[; ;main.c: 65: setAnalogIn();
-"65
-[e ( _setAnalogIn ..  ]
-[; ;main.c: 66: setActuatorCntrl();
+[; ;main.c: 66: setAnalogIn();
 "66
-[e ( _setActuatorCntrl ..  ]
+[e ( _setAnalogIn ..  ]
+[; ;main.c: 67: setActuatorCntrl();
 "67
-[v _actuator0 `ui ~T0 @X0 1 a ]
-[; ;main.c: 67: unsigned int actuator0 = 0;
-[e = _actuator0 -> -> 0 `i `ui ]
+[e ( _setActuatorCntrl ..  ]
 "68
-[v _actuator1 `ui ~T0 @X0 1 a ]
-[; ;main.c: 68: unsigned int actuator1 = 0;
-[e = _actuator1 -> -> 0 `i `ui ]
+[v _actuator0 `ui ~T0 @X0 1 a ]
+[; ;main.c: 68: unsigned int actuator0 = 0;
+[e = _actuator0 -> -> 0 `i `ui ]
 "69
-[v _actuator2 `ui ~T0 @X0 1 a ]
-[; ;main.c: 69: unsigned int actuator2 = 0;
-[e = _actuator2 -> -> 0 `i `ui ]
+[v _actuator1 `ui ~T0 @X0 1 a ]
+[; ;main.c: 69: unsigned int actuator1 = 0;
+[e = _actuator1 -> -> 0 `i `ui ]
 "70
-[v _actuator3 `ui ~T0 @X0 1 a ]
-[; ;main.c: 70: unsigned int actuator3 = 0;
-[e = _actuator3 -> -> 0 `i `ui ]
+[v _actuator2 `ui ~T0 @X0 1 a ]
+[; ;main.c: 70: unsigned int actuator2 = 0;
+[e = _actuator2 -> -> 0 `i `ui ]
 "71
-[v _actuator4 `ui ~T0 @X0 1 a ]
-[; ;main.c: 71: unsigned int actuator4 = 0;
-[e = _actuator4 -> -> 0 `i `ui ]
+[v _actuator3 `ui ~T0 @X0 1 a ]
+[; ;main.c: 71: unsigned int actuator3 = 0;
+[e = _actuator3 -> -> 0 `i `ui ]
 "72
-[v _actuator5 `ui ~T0 @X0 1 a ]
-[; ;main.c: 72: unsigned int actuator5 = 0;
-[e = _actuator5 -> -> 0 `i `ui ]
+[v _actuator4 `ui ~T0 @X0 1 a ]
+[; ;main.c: 72: unsigned int actuator4 = 0;
+[e = _actuator4 -> -> 0 `i `ui ]
 "73
-[v _actuator6 `ui ~T0 @X0 1 a ]
-[; ;main.c: 73: unsigned int actuator6 = 0;
-[e = _actuator6 -> -> 0 `i `ui ]
+[v _actuator5 `ui ~T0 @X0 1 a ]
+[; ;main.c: 73: unsigned int actuator5 = 0;
+[e = _actuator5 -> -> 0 `i `ui ]
 "74
+[v _actuator6 `ui ~T0 @X0 1 a ]
+[; ;main.c: 74: unsigned int actuator6 = 0;
+[e = _actuator6 -> -> 0 `i `ui ]
+"75
 [v _actuator7 `ui ~T0 @X0 1 a ]
-[; ;main.c: 74: unsigned int actuator7 = 0;
+[; ;main.c: 75: unsigned int actuator7 = 0;
 [e = _actuator7 -> -> 0 `i `ui ]
-[; ;main.c: 76: LATAbits.LATA7 = 1;
-"76
+[; ;main.c: 77: LATAbits.LATA7 = 1;
+"77
 [e = . . _LATAbits 0 7 -> -> 1 `i `uc ]
-"78
-[v _retractPos `ui ~T0 @X0 1 a ]
-[; ;main.c: 78: unsigned int retractPos = 200;
-[e = _retractPos -> -> 200 `i `ui ]
 "79
+[v _retractPos `ui ~T0 @X0 1 a ]
+[; ;main.c: 79: unsigned int retractPos = 0;
+[e = _retractPos -> -> 0 `i `ui ]
+"80
 [v _extendPos `ui ~T0 @X0 1 a ]
-[; ;main.c: 79: unsigned int extendPos = 500;
-[e = _extendPos -> -> 500 `i `ui ]
-[; ;main.c: 83: while(1)
-"83
+[; ;main.c: 80: unsigned int extendPos = 400;
+[e = _extendPos -> -> 400 `i `ui ]
+"82
+[v _newPos `ui ~T0 @X0 1 a ]
+[; ;main.c: 82: unsigned int newPos = 0;
+[e = _newPos -> -> 0 `i `ui ]
+[; ;main.c: 86: while(1)
+"86
 [e :U 2104 ]
-[; ;main.c: 84: {
-"84
+[; ;main.c: 87: {
+"87
 {
-[; ;main.c: 146: if(uart_data_ready())
-"146
+[; ;main.c: 149: if(uart_data_ready())
+"149
 [e $ ! != -> ( _uart_data_ready ..  `i -> -> -> 0 `i `uc `i 2106  ]
-[; ;main.c: 147: {
-"147
-{
-"148
-[v _message `uc ~T0 @X0 1 a ]
-[; ;main.c: 148: char message = uart_read();
-[e = _message ( _uart_read ..  ]
-[; ;main.c: 150: margin0 = 0;
+[; ;main.c: 150: {
 "150
-[e = _margin0 -> 0 `i ]
-[; ;main.c: 151: margin1 = 0;
+{
 "151
-[e = _margin1 -> 0 `i ]
-[; ;main.c: 152: margin2 = 0;
-"152
-[e = _margin2 -> 0 `i ]
-[; ;main.c: 153: margin3 = 0;
+[v _message `uc ~T0 @X0 1 a ]
+[; ;main.c: 151: char message = uart_read();
+[e = _message ( _uart_read ..  ]
+[; ;main.c: 153: margin0 = 0;
 "153
-[e = _margin3 -> 0 `i ]
-[; ;main.c: 154: margin4 = 0;
+[e = _margin0 -> 0 `i ]
+[; ;main.c: 154: margin1 = 0;
 "154
-[e = _margin4 -> 0 `i ]
-[; ;main.c: 155: margin5 = 0;
+[e = _margin1 -> 0 `i ]
+[; ;main.c: 155: margin2 = 0;
 "155
-[e = _margin5 -> 0 `i ]
-[; ;main.c: 156: margin6 = 0;
+[e = _margin2 -> 0 `i ]
+[; ;main.c: 156: margin3 = 0;
 "156
-[e = _margin6 -> 0 `i ]
-[; ;main.c: 157: margin7 = 0;
+[e = _margin3 -> 0 `i ]
+[; ;main.c: 157: margin4 = 0;
 "157
-[e = _margin7 -> 0 `i ]
-[; ;main.c: 159: LATAbits.LATA7 ^= 1;
+[e = _margin4 -> 0 `i ]
+[; ;main.c: 158: margin5 = 0;
+"158
+[e = _margin5 -> 0 `i ]
+[; ;main.c: 159: margin6 = 0;
 "159
-[e =^ . . _LATAbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 161: if (message == 'e')
-"161
-[e $ ! == -> _message `ui -> 101 `ui 2107  ]
-[; ;main.c: 162: {
+[e = _margin6 -> 0 `i ]
+[; ;main.c: 160: margin7 = 0;
+"160
+[e = _margin7 -> 0 `i ]
+[; ;main.c: 162: LATAbits.LATA7 ^= 1;
 "162
-{
-[; ;main.c: 163: FORW = 0;
-"163
-[e = _FORW -> -> 0 `i `uc ]
-[; ;main.c: 164: BACK = 0;
+[e =^ . . _LATAbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 164: if (message == 'e')
 "164
-[e = _BACK -> -> 0 `i `uc ]
-[; ;main.c: 165: EXTEND = 1;
+[e $ ! == -> _message `ui -> 101 `ui 2107  ]
+[; ;main.c: 165: {
 "165
-[e = _EXTEND -> -> 1 `i `uc ]
-[; ;main.c: 166: RETRACT = 0;
+{
+[; ;main.c: 166: FORW = 0;
 "166
-[e = _RETRACT -> -> 0 `i `uc ]
-[; ;main.c: 167: uart_write_text("Command Sent (Array Extended)\r\n");
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 167: BACK = 0;
 "167
-[e ( _uart_write_text (1 -> :s 1C `*uc ]
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 168: EXTEND = 1;
 "168
-}
-[; ;main.c: 168: }
-[e $U 2108  ]
+[e = _EXTEND -> -> 1 `i `uc ]
+[; ;main.c: 169: RETRACT = 0;
 "169
-[e :U 2107 ]
-[; ;main.c: 169: else if (message == 'r')
-[e $ ! == -> _message `ui -> 114 `ui 2109  ]
-[; ;main.c: 170: {
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 170: CUSTOM = 0;
 "170
-{
-[; ;main.c: 171: FORW = 0;
+[e = _CUSTOM -> -> 0 `i `uc ]
+[; ;main.c: 171: uart_write_text("Command Sent (Array Extended)\r\n");
 "171
-[e = _FORW -> -> 0 `i `uc ]
-[; ;main.c: 172: BACK = 0;
+[e ( _uart_write_text (1 -> :s 1C `*uc ]
 "172
-[e = _BACK -> -> 0 `i `uc ]
-[; ;main.c: 173: EXTEND = 0;
+}
+[; ;main.c: 172: }
+[e $U 2108  ]
 "173
-[e = _EXTEND -> -> 0 `i `uc ]
-[; ;main.c: 174: RETRACT = 1;
+[e :U 2107 ]
+[; ;main.c: 173: else if (message == 'r')
+[e $ ! == -> _message `ui -> 114 `ui 2109  ]
+[; ;main.c: 174: {
 "174
-[e = _RETRACT -> -> 1 `i `uc ]
-[; ;main.c: 175: uart_write_text("Command Sent (Array Retracted)\r\n");
+{
+[; ;main.c: 175: FORW = 0;
 "175
-[e ( _uart_write_text (1 -> :s 2C `*uc ]
-"176
-}
-[; ;main.c: 176: }
-[e $U 2110  ]
-"177
-[e :U 2109 ]
-[; ;main.c: 177: else if (message == 'f')
-[e $ ! == -> _message `ui -> 102 `ui 2111  ]
-[; ;main.c: 178: {
-"178
-{
-[; ;main.c: 179: FORW = 1;
-"179
-[e = _FORW -> -> 1 `i `uc ]
-[; ;main.c: 180: BACK = 0;
-"180
-[e = _BACK -> -> 0 `i `uc ]
-[; ;main.c: 181: EXTEND = 0;
-"181
-[e = _EXTEND -> -> 0 `i `uc ]
-[; ;main.c: 182: RETRACT = 0;
-"182
-[e = _RETRACT -> -> 0 `i `uc ]
-[; ;main.c: 183: uart_write_text("Command Sent (Array Forward)\r\n");
-"183
-[e ( _uart_write_text (1 -> :s 3C `*uc ]
-"184
-}
-[; ;main.c: 184: }
-[e $U 2112  ]
-"185
-[e :U 2111 ]
-[; ;main.c: 185: else if (message == 'b')
-[e $ ! == -> _message `ui -> 98 `ui 2113  ]
-[; ;main.c: 186: {
-"186
-{
-[; ;main.c: 187: FORW = 0;
-"187
 [e = _FORW -> -> 0 `i `uc ]
-[; ;main.c: 188: BACK = 1;
-"188
-[e = _BACK -> -> 1 `i `uc ]
-[; ;main.c: 189: EXTEND = 0;
-"189
+[; ;main.c: 176: BACK = 0;
+"176
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 177: EXTEND = 0;
+"177
 [e = _EXTEND -> -> 0 `i `uc ]
-[; ;main.c: 190: RETRACT = 0;
-"190
-[e = _RETRACT -> -> 0 `i `uc ]
-[; ;main.c: 191: uart_write_text("Command Sent (Array Backward)\r\n");
-"191
-[e ( _uart_write_text (1 -> :s 4C `*uc ]
-"192
+[; ;main.c: 178: RETRACT = 1;
+"178
+[e = _RETRACT -> -> 1 `i `uc ]
+[; ;main.c: 179: CUSTOM = 0;
+"179
+[e = _CUSTOM -> -> 0 `i `uc ]
+[; ;main.c: 180: uart_write_text("Command Sent (Array Retracted)\r\n");
+"180
+[e ( _uart_write_text (1 -> :s 2C `*uc ]
+"181
 }
-[e :U 2113 ]
+[; ;main.c: 181: }
+[e $U 2110  ]
+"182
+[e :U 2109 ]
+[; ;main.c: 182: else if (message == 'f')
+[e $ ! == -> _message `ui -> 102 `ui 2111  ]
+[; ;main.c: 183: {
+"183
+{
+[; ;main.c: 184: FORW = 1;
+"184
+[e = _FORW -> -> 1 `i `uc ]
+[; ;main.c: 185: BACK = 0;
+"185
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 186: EXTEND = 0;
+"186
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 187: RETRACT = 0;
+"187
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 188: CUSTOM = 0;
+"188
+[e = _CUSTOM -> -> 0 `i `uc ]
+[; ;main.c: 189: uart_write_text("Command Sent (Array Forward)\r\n");
+"189
+[e ( _uart_write_text (1 -> :s 3C `*uc ]
+"190
+}
+[; ;main.c: 190: }
+[e $U 2112  ]
+"191
+[e :U 2111 ]
+[; ;main.c: 191: else if (message == 'b')
+[e $ ! == -> _message `ui -> 98 `ui 2113  ]
+[; ;main.c: 192: {
+"192
+{
+[; ;main.c: 193: FORW = 0;
 "193
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 194: BACK = 1;
+"194
+[e = _BACK -> -> 1 `i `uc ]
+[; ;main.c: 195: EXTEND = 0;
+"195
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 196: RETRACT = 0;
+"196
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 197: CUSTOM = 0;
+"197
+[e = _CUSTOM -> -> 0 `i `uc ]
+[; ;main.c: 198: uart_write_text("Command Sent (Array Backward)\r\n");
+"198
+[e ( _uart_write_text (1 -> :s 4C `*uc ]
+"199
+}
+[; ;main.c: 199: }
+[e $U 2114  ]
+"200
+[e :U 2113 ]
+[; ;main.c: 200: else if (message == '0')
+[e $ ! == -> _message `ui -> 48 `ui 2115  ]
+[; ;main.c: 201: {
+"201
+{
+[; ;main.c: 202: FORW = 0;
+"202
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 203: BACK = 0;
+"203
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 204: EXTEND = 0;
+"204
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 205: RETRACT = 0;
+"205
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 206: CUSTOM = 1;
+"206
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 208: newPos = 0;
+"208
+[e = _newPos -> -> 0 `i `ui ]
+[; ;main.c: 209: uart_write_text("Command Sent (Array Custom)\r\n");
+"209
+[e ( _uart_write_text (1 -> :s 5C `*uc ]
+"210
+}
+[; ;main.c: 210: }
+[e $U 2116  ]
+"211
+[e :U 2115 ]
+[; ;main.c: 211: else if (message == '1')
+[e $ ! == -> _message `ui -> 49 `ui 2117  ]
+[; ;main.c: 212: {
+"212
+{
+[; ;main.c: 213: FORW = 0;
+"213
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 214: BACK = 0;
+"214
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 215: EXTEND = 0;
+"215
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 216: RETRACT = 0;
+"216
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 217: CUSTOM = 1;
+"217
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 219: newPos = 50;
+"219
+[e = _newPos -> -> 50 `i `ui ]
+[; ;main.c: 220: uart_write_text("Command Sent (Array Custom)\r\n");
+"220
+[e ( _uart_write_text (1 -> :s 6C `*uc ]
+"221
+}
+[; ;main.c: 221: }
+[e $U 2118  ]
+"222
+[e :U 2117 ]
+[; ;main.c: 222: else if (message == '2')
+[e $ ! == -> _message `ui -> 50 `ui 2119  ]
+[; ;main.c: 223: {
+"223
+{
+[; ;main.c: 224: FORW = 0;
+"224
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 225: BACK = 0;
+"225
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 226: EXTEND = 0;
+"226
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 227: RETRACT = 0;
+"227
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 228: CUSTOM = 1;
+"228
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 230: newPos = 100;
+"230
+[e = _newPos -> -> 100 `i `ui ]
+[; ;main.c: 231: uart_write_text("Command Sent (Array Custom)\r\n");
+"231
+[e ( _uart_write_text (1 -> :s 7C `*uc ]
+"232
+}
+[; ;main.c: 232: }
+[e $U 2120  ]
+"233
+[e :U 2119 ]
+[; ;main.c: 233: else if (message == '3')
+[e $ ! == -> _message `ui -> 51 `ui 2121  ]
+[; ;main.c: 234: {
+"234
+{
+[; ;main.c: 235: FORW = 0;
+"235
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 236: BACK = 0;
+"236
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 237: EXTEND = 0;
+"237
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 238: RETRACT = 0;
+"238
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 239: CUSTOM = 1;
+"239
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 241: newPos = 150;
+"241
+[e = _newPos -> -> 150 `i `ui ]
+[; ;main.c: 242: uart_write_text("Command Sent (Array Custom)\r\n");
+"242
+[e ( _uart_write_text (1 -> :s 8C `*uc ]
+"243
+}
+[; ;main.c: 243: }
+[e $U 2122  ]
+"244
+[e :U 2121 ]
+[; ;main.c: 244: else if (message == '4')
+[e $ ! == -> _message `ui -> 52 `ui 2123  ]
+[; ;main.c: 245: {
+"245
+{
+[; ;main.c: 246: FORW = 0;
+"246
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 247: BACK = 0;
+"247
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 248: EXTEND = 0;
+"248
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 249: RETRACT = 0;
+"249
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 250: CUSTOM = 1;
+"250
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 252: newPos = 200;
+"252
+[e = _newPos -> -> 200 `i `ui ]
+[; ;main.c: 253: uart_write_text("Command Sent (Array Custom)\r\n");
+"253
+[e ( _uart_write_text (1 -> :s 9C `*uc ]
+"254
+}
+[; ;main.c: 254: }
+[e $U 2124  ]
+"255
+[e :U 2123 ]
+[; ;main.c: 255: else if (message == '5')
+[e $ ! == -> _message `ui -> 53 `ui 2125  ]
+[; ;main.c: 256: {
+"256
+{
+[; ;main.c: 257: FORW = 0;
+"257
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 258: BACK = 0;
+"258
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 259: EXTEND = 0;
+"259
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 260: RETRACT = 0;
+"260
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 261: CUSTOM = 1;
+"261
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 263: newPos = 250;
+"263
+[e = _newPos -> -> 250 `i `ui ]
+[; ;main.c: 264: uart_write_text("Command Sent (Array Custom)\r\n");
+"264
+[e ( _uart_write_text (1 -> :s 10C `*uc ]
+"265
+}
+[; ;main.c: 265: }
+[e $U 2126  ]
+"266
+[e :U 2125 ]
+[; ;main.c: 266: else if (message == '6')
+[e $ ! == -> _message `ui -> 54 `ui 2127  ]
+[; ;main.c: 267: {
+"267
+{
+[; ;main.c: 268: FORW = 0;
+"268
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 269: BACK = 0;
+"269
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 270: EXTEND = 0;
+"270
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 271: RETRACT = 0;
+"271
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 272: CUSTOM = 1;
+"272
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 274: newPos = 300;
+"274
+[e = _newPos -> -> 300 `i `ui ]
+[; ;main.c: 275: uart_write_text("Command Sent (Array Custom)\r\n");
+"275
+[e ( _uart_write_text (1 -> :s 11C `*uc ]
+"276
+}
+[; ;main.c: 276: }
+[e $U 2128  ]
+"277
+[e :U 2127 ]
+[; ;main.c: 277: else if (message == '7')
+[e $ ! == -> _message `ui -> 55 `ui 2129  ]
+[; ;main.c: 278: {
+"278
+{
+[; ;main.c: 279: FORW = 0;
+"279
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 280: BACK = 0;
+"280
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 281: EXTEND = 0;
+"281
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 282: RETRACT = 0;
+"282
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 283: CUSTOM = 1;
+"283
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 285: newPos = 350;
+"285
+[e = _newPos -> -> 350 `i `ui ]
+[; ;main.c: 286: uart_write_text("Command Sent (Array Custom)\r\n");
+"286
+[e ( _uart_write_text (1 -> :s 12C `*uc ]
+"287
+}
+[; ;main.c: 287: }
+[e $U 2130  ]
+"288
+[e :U 2129 ]
+[; ;main.c: 288: else if (message == '8')
+[e $ ! == -> _message `ui -> 56 `ui 2131  ]
+[; ;main.c: 289: {
+"289
+{
+[; ;main.c: 290: FORW = 0;
+"290
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 291: BACK = 0;
+"291
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 292: EXTEND = 0;
+"292
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 293: RETRACT = 0;
+"293
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 294: CUSTOM = 1;
+"294
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 296: newPos = 400;
+"296
+[e = _newPos -> -> 400 `i `ui ]
+[; ;main.c: 297: uart_write_text("Command Sent (Array Custom)\r\n");
+"297
+[e ( _uart_write_text (1 -> :s 13C `*uc ]
+"298
+}
+[; ;main.c: 298: }
+[e $U 2132  ]
+"299
+[e :U 2131 ]
+[; ;main.c: 299: else if (message == '9')
+[e $ ! == -> _message `ui -> 57 `ui 2133  ]
+[; ;main.c: 300: {
+"300
+{
+[; ;main.c: 301: FORW = 0;
+"301
+[e = _FORW -> -> 0 `i `uc ]
+[; ;main.c: 302: BACK = 0;
+"302
+[e = _BACK -> -> 0 `i `uc ]
+[; ;main.c: 303: EXTEND = 0;
+"303
+[e = _EXTEND -> -> 0 `i `uc ]
+[; ;main.c: 304: RETRACT = 0;
+"304
+[e = _RETRACT -> -> 0 `i `uc ]
+[; ;main.c: 305: CUSTOM = 1;
+"305
+[e = _CUSTOM -> -> 1 `i `uc ]
+[; ;main.c: 307: newPos = 450;
+"307
+[e = _newPos -> -> 450 `i `ui ]
+[; ;main.c: 308: uart_write_text("Command Sent (Array Custom)\r\n");
+"308
+[e ( _uart_write_text (1 -> :s 14C `*uc ]
+"309
+}
+[e :U 2133 ]
+"310
+[e :U 2132 ]
+[e :U 2130 ]
+[e :U 2128 ]
+[e :U 2126 ]
+[e :U 2124 ]
+[e :U 2122 ]
+[e :U 2120 ]
+[e :U 2118 ]
+[e :U 2116 ]
+[e :U 2114 ]
 [e :U 2112 ]
 [e :U 2110 ]
 [e :U 2108 ]
 }
 [e :U 2106 ]
-[; ;main.c: 192: }
-[; ;main.c: 193: }
-[; ;main.c: 196: if(margin0 == 0){
-"196
-[e $ ! == _margin0 -> 0 `i 2114  ]
-{
-[; ;main.c: 198: selectAN0();
-"198
-[e ( _selectAN0 ..  ]
-[; ;main.c: 199: actuator0 = readADC();
-"199
-[e = _actuator0 ( _readADC ..  ]
-"200
-}
-[e :U 2114 ]
-[; ;main.c: 200: }
-[; ;main.c: 201: if(margin1 == 0){
-"201
-[e $ ! == _margin1 -> 0 `i 2115  ]
-{
-[; ;main.c: 204: selectAN1();
-"204
-[e ( _selectAN1 ..  ]
-[; ;main.c: 205: actuator1 = readADC();
-"205
-[e = _actuator1 ( _readADC ..  ]
-"206
-}
-[e :U 2115 ]
-[; ;main.c: 206: }
-[; ;main.c: 207: if(margin2 == 0){
-"207
-[e $ ! == _margin2 -> 0 `i 2116  ]
-{
-[; ;main.c: 210: selectAN2();
-"210
-[e ( _selectAN2 ..  ]
-[; ;main.c: 211: actuator2 = readADC();
-"211
-[e = _actuator2 ( _readADC ..  ]
-"212
-}
-[e :U 2116 ]
-[; ;main.c: 212: }
-[; ;main.c: 213: if(margin3 == 0){
-"213
-[e $ ! == _margin3 -> 0 `i 2117  ]
-{
-[; ;main.c: 216: selectAN3();
-"216
-[e ( _selectAN3 ..  ]
-[; ;main.c: 217: actuator3 = readADC();
-"217
-[e = _actuator3 ( _readADC ..  ]
-"218
-}
-[e :U 2117 ]
-[; ;main.c: 218: }
-[; ;main.c: 220: if(margin4 == 0){
-"220
-[e $ ! == _margin4 -> 0 `i 2118  ]
-{
-[; ;main.c: 223: selectAN4();
-"223
-[e ( _selectAN4 ..  ]
-[; ;main.c: 224: actuator4 = readADC();
-"224
-[e = _actuator4 ( _readADC ..  ]
-"225
-}
-[e :U 2118 ]
-[; ;main.c: 225: }
-[; ;main.c: 226: if(margin5 == 0){
-"226
-[e $ ! == _margin5 -> 0 `i 2119  ]
-{
-[; ;main.c: 229: selectAN5();
-"229
-[e ( _selectAN5 ..  ]
-[; ;main.c: 230: actuator5 = readADC();
-"230
-[e = _actuator5 ( _readADC ..  ]
-"231
-}
-[e :U 2119 ]
-[; ;main.c: 231: }
-[; ;main.c: 233: if(margin6 == 0){
-"233
-[e $ ! == _margin6 -> 0 `i 2120  ]
-{
-[; ;main.c: 236: selectAN6();
-"236
-[e ( _selectAN6 ..  ]
-[; ;main.c: 237: actuator6 = readADC();
-"237
-[e = _actuator6 ( _readADC ..  ]
-"238
-}
-[e :U 2120 ]
-[; ;main.c: 238: }
-[; ;main.c: 239: if(margin7 == 0){
-"239
-[e $ ! == _margin7 -> 0 `i 2121  ]
-{
-[; ;main.c: 242: selectAN7();
-"242
-[e ( _selectAN7 ..  ]
-[; ;main.c: 243: actuator7 = readADC();
-"243
-[e = _actuator7 ( _readADC ..  ]
-"244
-}
-[e :U 2121 ]
-[; ;main.c: 244: }
-[; ;main.c: 247: if(FORW == 1 && BACK == 0 && EXTEND == 0 && RETRACT == 0)
-"247
-[e $ ! && && && == -> _FORW `i -> 1 `i == -> _BACK `i -> 0 `i == -> _EXTEND `i -> 0 `i == -> _RETRACT `i -> 0 `i 2122  ]
-[; ;main.c: 248: {
-"248
-{
-[; ;main.c: 252: testALLON();
-"252
-[e ( _testALLON ..  ]
-"271
-}
-[; ;main.c: 271: } else if(BACK == 1 && FORW == 0 && EXTEND == 0 && RETRACT == 0) {
-[e $U 2123  ]
-[e :U 2122 ]
-[e $ ! && && && == -> _BACK `i -> 1 `i == -> _FORW `i -> 0 `i == -> _EXTEND `i -> 0 `i == -> _RETRACT `i -> 0 `i 2124  ]
-{
-[; ;main.c: 274: testALLOFF();
-"274
-[e ( _testALLOFF ..  ]
-"289
-}
-[; ;main.c: 289: } else if (FORW == 0 && BACK == 0 && EXTEND == 1 && RETRACT == 0){
-[e $U 2125  ]
-[e :U 2124 ]
-[e $ ! && && && == -> _FORW `i -> 0 `i == -> _BACK `i -> 0 `i == -> _EXTEND `i -> 1 `i == -> _RETRACT `i -> 0 `i 2126  ]
-{
-[; ;main.c: 292: testEveryOther();
-"292
-[e ( _testEveryOther ..  ]
-"304
-}
-[; ;main.c: 304: } else {
-[e $U 2127  ]
-[e :U 2126 ]
-{
-[; ;main.c: 305: testEveryOther();
-"305
-[e ( _testEveryOther ..  ]
+[; ;main.c: 309: }
+[; ;main.c: 310: }
+[; ;main.c: 315: if(margin0 == 0){
 "315
+[e $ ! == _margin0 -> 0 `i 2134  ]
+{
+[; ;main.c: 317: selectAN0();
+"317
+[e ( _selectAN0 ..  ]
+[; ;main.c: 318: actuator0 = readADC();
+"318
+[e = _actuator0 ( _readADC ..  ]
+"319
 }
-[e :U 2127 ]
-[e :U 2125 ]
-[e :U 2123 ]
-"316
+[e :U 2134 ]
+[; ;main.c: 319: }
+[; ;main.c: 320: if(margin1 == 0){
+"320
+[e $ ! == _margin1 -> 0 `i 2135  ]
+{
+[; ;main.c: 323: selectAN1();
+"323
+[e ( _selectAN1 ..  ]
+[; ;main.c: 324: actuator1 = readADC();
+"324
+[e = _actuator1 ( _readADC ..  ]
+"325
+}
+[e :U 2135 ]
+[; ;main.c: 325: }
+[; ;main.c: 326: if(margin2 == 0){
+"326
+[e $ ! == _margin2 -> 0 `i 2136  ]
+{
+[; ;main.c: 329: selectAN2();
+"329
+[e ( _selectAN2 ..  ]
+[; ;main.c: 330: actuator2 = readADC();
+"330
+[e = _actuator2 ( _readADC ..  ]
+"331
+}
+[e :U 2136 ]
+[; ;main.c: 331: }
+[; ;main.c: 332: if(margin3 == 0){
+"332
+[e $ ! == _margin3 -> 0 `i 2137  ]
+{
+[; ;main.c: 335: selectAN3();
+"335
+[e ( _selectAN3 ..  ]
+[; ;main.c: 336: actuator3 = readADC();
+"336
+[e = _actuator3 ( _readADC ..  ]
+"337
+}
+[e :U 2137 ]
+[; ;main.c: 337: }
+[; ;main.c: 339: if(margin4 == 0){
+"339
+[e $ ! == _margin4 -> 0 `i 2138  ]
+{
+[; ;main.c: 342: selectAN4();
+"342
+[e ( _selectAN4 ..  ]
+[; ;main.c: 343: actuator4 = readADC();
+"343
+[e = _actuator4 ( _readADC ..  ]
+"344
+}
+[e :U 2138 ]
+[; ;main.c: 344: }
+[; ;main.c: 345: if(margin5 == 0){
+"345
+[e $ ! == _margin5 -> 0 `i 2139  ]
+{
+[; ;main.c: 348: selectAN5();
+"348
+[e ( _selectAN5 ..  ]
+[; ;main.c: 349: actuator5 = readADC();
+"349
+[e = _actuator5 ( _readADC ..  ]
+"350
+}
+[e :U 2139 ]
+[; ;main.c: 350: }
+[; ;main.c: 352: if(margin6 == 0){
+"352
+[e $ ! == _margin6 -> 0 `i 2140  ]
+{
+[; ;main.c: 355: selectAN6();
+"355
+[e ( _selectAN6 ..  ]
+[; ;main.c: 356: actuator6 = readADC();
+"356
+[e = _actuator6 ( _readADC ..  ]
+"357
+}
+[e :U 2140 ]
+[; ;main.c: 357: }
+[; ;main.c: 358: if(margin7 == 0){
+"358
+[e $ ! == _margin7 -> 0 `i 2141  ]
+{
+[; ;main.c: 361: selectAN7();
+"361
+[e ( _selectAN7 ..  ]
+[; ;main.c: 362: actuator7 = readADC();
+"362
+[e = _actuator7 ( _readADC ..  ]
+"363
+}
+[e :U 2141 ]
+[; ;main.c: 363: }
+[; ;main.c: 366: if(FORW == 1 && BACK == 0 && EXTEND == 0 && RETRACT == 0)
+"366
+[e $ ! && && && == -> _FORW `i -> 1 `i == -> _BACK `i -> 0 `i == -> _EXTEND `i -> 0 `i == -> _RETRACT `i -> 0 `i 2142  ]
+[; ;main.c: 367: {
+"367
+{
+[; ;main.c: 380: movement(actuator0, retractPos, 0, &margin0);
+"380
+[e ( _movement (4 , , , _actuator0 _retractPos -> 0 `i &U _margin0 ]
+[; ;main.c: 381: movement(actuator1, extendPos, 1, &margin1);
+"381
+[e ( _movement (4 , , , _actuator1 _extendPos -> 1 `i &U _margin1 ]
+[; ;main.c: 382: movement(actuator2, retractPos, 2, &margin2);
+"382
+[e ( _movement (4 , , , _actuator2 _retractPos -> 2 `i &U _margin2 ]
+[; ;main.c: 383: movement(actuator3, extendPos, 3, &margin3);
+"383
+[e ( _movement (4 , , , _actuator3 _extendPos -> 3 `i &U _margin3 ]
+[; ;main.c: 384: movement(actuator4, extendPos, 4, &margin4);
+"384
+[e ( _movement (4 , , , _actuator4 _extendPos -> 4 `i &U _margin4 ]
+[; ;main.c: 385: movement(actuator5, retractPos, 5, &margin5);
+"385
+[e ( _movement (4 , , , _actuator5 _retractPos -> 5 `i &U _margin5 ]
+[; ;main.c: 386: movement(actuator6, extendPos, 6, &margin6);
+"386
+[e ( _movement (4 , , , _actuator6 _extendPos -> 6 `i &U _margin6 ]
+[; ;main.c: 387: movement(actuator7, retractPos, 7, &margin7);
+"387
+[e ( _movement (4 , , , _actuator7 _retractPos -> 7 `i &U _margin7 ]
+"390
+}
+[; ;main.c: 390: } else if(BACK == 1 && FORW == 0 && EXTEND == 0 && RETRACT == 0) {
+[e $U 2143  ]
+[e :U 2142 ]
+[e $ ! && && && == -> _BACK `i -> 1 `i == -> _FORW `i -> 0 `i == -> _EXTEND `i -> 0 `i == -> _RETRACT `i -> 0 `i 2144  ]
+{
+[; ;main.c: 398: movement(actuator0, extendPos, 0, &margin0);
+"398
+[e ( _movement (4 , , , _actuator0 _extendPos -> 0 `i &U _margin0 ]
+[; ;main.c: 399: movement(actuator1, retractPos, 1, &margin1);
+"399
+[e ( _movement (4 , , , _actuator1 _retractPos -> 1 `i &U _margin1 ]
+[; ;main.c: 400: movement(actuator2, extendPos, 2, &margin2);
+"400
+[e ( _movement (4 , , , _actuator2 _extendPos -> 2 `i &U _margin2 ]
+[; ;main.c: 401: movement(actuator3, retractPos, 3, &margin3);
+"401
+[e ( _movement (4 , , , _actuator3 _retractPos -> 3 `i &U _margin3 ]
+[; ;main.c: 402: movement(actuator4, retractPos, 4, &margin4);
+"402
+[e ( _movement (4 , , , _actuator4 _retractPos -> 4 `i &U _margin4 ]
+[; ;main.c: 403: movement(actuator5, extendPos, 5, &margin5);
+"403
+[e ( _movement (4 , , , _actuator5 _extendPos -> 5 `i &U _margin5 ]
+[; ;main.c: 404: movement(actuator6, retractPos, 6, &margin6);
+"404
+[e ( _movement (4 , , , _actuator6 _retractPos -> 6 `i &U _margin6 ]
+[; ;main.c: 405: movement(actuator7, extendPos, 7, &margin7);
+"405
+[e ( _movement (4 , , , _actuator7 _extendPos -> 7 `i &U _margin7 ]
+"408
+}
+[; ;main.c: 408: } else if (FORW == 0 && BACK == 0 && EXTEND == 1 && RETRACT == 0){
+[e $U 2145  ]
+[e :U 2144 ]
+[e $ ! && && && == -> _FORW `i -> 0 `i == -> _BACK `i -> 0 `i == -> _EXTEND `i -> 1 `i == -> _RETRACT `i -> 0 `i 2146  ]
+{
+[; ;main.c: 413: movement(actuator0, extendPos, 0, &margin0);
+"413
+[e ( _movement (4 , , , _actuator0 _extendPos -> 0 `i &U _margin0 ]
+[; ;main.c: 414: movement(actuator1, extendPos, 1, &margin1);
+"414
+[e ( _movement (4 , , , _actuator1 _extendPos -> 1 `i &U _margin1 ]
+[; ;main.c: 415: movement(actuator2, extendPos, 2, &margin2);
+"415
+[e ( _movement (4 , , , _actuator2 _extendPos -> 2 `i &U _margin2 ]
+[; ;main.c: 416: movement(actuator3, extendPos, 3, &margin3);
+"416
+[e ( _movement (4 , , , _actuator3 _extendPos -> 3 `i &U _margin3 ]
+[; ;main.c: 417: movement(actuator4, extendPos, 4, &margin4);
+"417
+[e ( _movement (4 , , , _actuator4 _extendPos -> 4 `i &U _margin4 ]
+[; ;main.c: 418: movement(actuator5, extendPos, 5, &margin5);
+"418
+[e ( _movement (4 , , , _actuator5 _extendPos -> 5 `i &U _margin5 ]
+[; ;main.c: 419: movement(actuator6, extendPos, 6, &margin6);
+"419
+[e ( _movement (4 , , , _actuator6 _extendPos -> 6 `i &U _margin6 ]
+[; ;main.c: 420: movement(actuator7, extendPos, 7, &margin7);
+"420
+[e ( _movement (4 , , , _actuator7 _extendPos -> 7 `i &U _margin7 ]
+"422
+}
+[; ;main.c: 422: } else if (FORW == 0 && BACK == 0 && EXTEND == 0 && RETRACT == 0 && CUSTOM == 1){
+[e $U 2147  ]
+[e :U 2146 ]
+[e $ ! && && && && == -> _FORW `i -> 0 `i == -> _BACK `i -> 0 `i == -> _EXTEND `i -> 0 `i == -> _RETRACT `i -> 0 `i == -> _CUSTOM `i -> 1 `i 2148  ]
+{
+[; ;main.c: 427: movement(actuator0, newPos, 0, &margin0);
+"427
+[e ( _movement (4 , , , _actuator0 _newPos -> 0 `i &U _margin0 ]
+[; ;main.c: 428: movement(actuator1, newPos, 1, &margin1);
+"428
+[e ( _movement (4 , , , _actuator1 _newPos -> 1 `i &U _margin1 ]
+[; ;main.c: 429: movement(actuator2, newPos, 2, &margin2);
+"429
+[e ( _movement (4 , , , _actuator2 _newPos -> 2 `i &U _margin2 ]
+[; ;main.c: 430: movement(actuator3, newPos, 3, &margin3);
+"430
+[e ( _movement (4 , , , _actuator3 _newPos -> 3 `i &U _margin3 ]
+[; ;main.c: 431: movement(actuator4, newPos, 4, &margin4);
+"431
+[e ( _movement (4 , , , _actuator4 _newPos -> 4 `i &U _margin4 ]
+[; ;main.c: 432: movement(actuator5, newPos, 5, &margin5);
+"432
+[e ( _movement (4 , , , _actuator5 _newPos -> 5 `i &U _margin5 ]
+[; ;main.c: 433: movement(actuator6, newPos, 6, &margin6);
+"433
+[e ( _movement (4 , , , _actuator6 _newPos -> 6 `i &U _margin6 ]
+[; ;main.c: 434: movement(actuator7, newPos, 7, &margin7);
+"434
+[e ( _movement (4 , , , _actuator7 _newPos -> 7 `i &U _margin7 ]
+"437
+}
+[; ;main.c: 437: } else {
+[e $U 2149  ]
+[e :U 2148 ]
+{
+[; ;main.c: 440: movement(actuator0, retractPos, 0, &margin0);
+"440
+[e ( _movement (4 , , , _actuator0 _retractPos -> 0 `i &U _margin0 ]
+[; ;main.c: 441: movement(actuator1, retractPos, 1, &margin1);
+"441
+[e ( _movement (4 , , , _actuator1 _retractPos -> 1 `i &U _margin1 ]
+[; ;main.c: 442: movement(actuator2, retractPos, 2, &margin2);
+"442
+[e ( _movement (4 , , , _actuator2 _retractPos -> 2 `i &U _margin2 ]
+[; ;main.c: 443: movement(actuator3, retractPos, 3, &margin3);
+"443
+[e ( _movement (4 , , , _actuator3 _retractPos -> 3 `i &U _margin3 ]
+[; ;main.c: 444: movement(actuator4, retractPos, 4, &margin4);
+"444
+[e ( _movement (4 , , , _actuator4 _retractPos -> 4 `i &U _margin4 ]
+[; ;main.c: 445: movement(actuator5, retractPos, 5, &margin5);
+"445
+[e ( _movement (4 , , , _actuator5 _retractPos -> 5 `i &U _margin5 ]
+[; ;main.c: 446: movement(actuator6, retractPos, 6, &margin6);
+"446
+[e ( _movement (4 , , , _actuator6 _retractPos -> 6 `i &U _margin6 ]
+[; ;main.c: 447: movement(actuator7, retractPos, 7, &margin7);
+"447
+[e ( _movement (4 , , , _actuator7 _retractPos -> 7 `i &U _margin7 ]
+"449
+}
+[e :U 2149 ]
+[e :U 2147 ]
+[e :U 2145 ]
+[e :U 2143 ]
+"450
 }
 [e :U 2103 ]
-"83
+"86
 [e $U 2104  ]
 [e :U 2105 ]
-[; ;main.c: 315: }
-[; ;main.c: 316: }
-[; ;main.c: 317: }
-"317
+[; ;main.c: 449: }
+[; ;main.c: 450: }
+[; ;main.c: 451: }
+"451
 [e :UE 2102 ]
 }
+[a 5C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 6C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 7C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 8C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 9C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 10C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 11C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 12C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 13C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
+[a 14C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 67 117 115 116 111 109 41 13 10 0 ]
 [a 3C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 70 111 114 119 97 114 100 41 13 10 0 ]
 [a 4C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 66 97 99 107 119 97 114 100 41 13 10 0 ]
 [a 2C 67 111 109 109 97 110 100 32 83 101 110 116 32 40 65 114 114 97 121 32 82 101 116 114 97 99 116 101 100 41 13 10 0 ]
